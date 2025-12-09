@@ -33,17 +33,17 @@ COPY --from=build --chown=nuxt:nodejs /app/.output ./
 # Switch to non-root user
 USER nuxt
 
-# Expose the port
-EXPOSE 3000
-
 # Set environment variables
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=3000
 
+# Expose the port (informational)
+EXPOSE ${PORT}
+
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
-    CMD wget --spider -q http://localhost:3000 || exit 1
+    CMD wget --spider -q http://localhost:${PORT} || exit 1
 
 # Start the application
 CMD ["node", "server/index.mjs"]

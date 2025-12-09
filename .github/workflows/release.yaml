@@ -12,9 +12,13 @@ jobs:
   release:
     name: Build and Push Release
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://bab.sh
     permissions:
       contents: read
       packages: write
+      deployments: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,3 +53,12 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Trigger Portainer Redeploy
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.PORTAINER_WEBHOOK_URL }}")
+          if [ "$response" -ne 200 ] && [ "$response" -ne 204 ]; then
+            echo "Webhook failed with status: $response"
+            exit 1
+          fi
+          echo "Deployment triggered successfully"
