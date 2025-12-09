@@ -12,7 +12,7 @@
       </div>
 
       <div class="mx-auto max-w-3xl">
-        <Tabs :default-value="installMethods[0].id" class="w-full">
+        <Tabs :default-value="installMethods[0]?.id ?? 'script'" class="w-full">
           <TabsList class="grid w-full grid-cols-2 sm:grid-cols-4">
             <TabsTrigger v-for="method in installMethods" :key="method.id" :value="method.id">
               <Icon :icon="method.icon" class="mr-2 h-4 w-4" />
