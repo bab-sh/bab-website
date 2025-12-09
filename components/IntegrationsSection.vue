@@ -2,23 +2,23 @@
   <section id="integrations" class="relative py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-16 text-center">
-        <Badge variant="secondary" class="mb-4 border-bab/20 bg-bab/10 text-bab-light">
+        <Badge variant="secondary" class="border-bab/20 bg-bab/10 text-bab-light mb-4">
           IDE Support
         </Badge>
         <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">Works where you work</h2>
-        <p class="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
+        <p class="text-muted-foreground mx-auto max-w-2xl text-base sm:text-lg">
           First-class IDE support with syntax highlighting, code completion, and task execution
           built right into your editor.
         </p>
       </div>
 
       <div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
-        <Card class="card-hover group overflow-hidden border-border bg-card/50">
+        <Card class="card-hover group border-border bg-card/50 overflow-hidden">
           <CardHeader class="pb-4">
             <div class="flex items-start justify-between">
               <div class="flex items-center gap-4">
-                <div class="flex h-16 w-16 items-center justify-center rounded-xl bg-vscode/10">
-                  <Icon icon="simple-icons:visualstudiocode" class="h-10 w-10 text-vscode" />
+                <div class="bg-vscode/10 flex h-16 w-16 items-center justify-center rounded-xl">
+                  <Icon icon="simple-icons:visualstudiocode" class="text-vscode h-10 w-10" />
                 </div>
                 <div>
                   <CardTitle class="text-xl text-white">VS Code</CardTitle>
@@ -29,7 +29,7 @@
               </div>
               <Badge
                 variant="secondary"
-                class="border-muted-foreground/30 bg-muted/50 text-xs text-muted-foreground"
+                class="border-muted-foreground/30 bg-muted/50 text-muted-foreground text-xs"
               >
                 Coming soon
               </Badge>
@@ -40,9 +40,9 @@
               <li
                 v-for="feature in vscodeFeatures"
                 :key="feature"
-                class="flex items-center gap-2 text-sm text-muted-foreground"
+                class="text-muted-foreground flex items-center gap-2 text-sm"
               >
-                <Check class="h-4 w-4 flex-shrink-0 text-bab" />
+                <Check class="text-bab h-4 w-4 flex-shrink-0" />
                 {{ feature }}
               </li>
             </ul>
@@ -50,7 +50,7 @@
             <div class="flex flex-col gap-3 sm:flex-row">
               <Button
                 variant="outline"
-                class="flex-1 cursor-not-allowed border-muted-foreground/30 bg-transparent text-muted-foreground opacity-50"
+                class="border-muted-foreground/30 text-muted-foreground flex-1 cursor-not-allowed bg-transparent opacity-50"
                 disabled
               >
                 <Download class="mr-2 h-4 w-4" />
@@ -58,7 +58,7 @@
               </Button>
               <Button
                 variant="outline"
-                class="flex-1 cursor-not-allowed border-muted-foreground/30 text-muted-foreground opacity-50"
+                class="border-muted-foreground/30 text-muted-foreground flex-1 cursor-not-allowed opacity-50"
                 disabled
               >
                 <Icon icon="simple-icons:github" class="mr-2 h-4 w-4" />
@@ -68,12 +68,12 @@
           </CardContent>
         </Card>
 
-        <Card class="card-hover group overflow-hidden border-border bg-card/50">
+        <Card class="card-hover group border-border bg-card/50 overflow-hidden">
           <CardHeader class="pb-4">
             <div class="flex items-start justify-between">
               <div class="flex items-center gap-4">
-                <div class="flex h-16 w-16 items-center justify-center rounded-xl bg-intellij/10">
-                  <Icon icon="simple-icons:intellijidea" class="h-10 w-10 text-intellij" />
+                <div class="bg-intellij/10 flex h-16 w-16 items-center justify-center rounded-xl">
+                  <Icon icon="simple-icons:intellijidea" class="text-intellij h-10 w-10" />
                 </div>
                 <div>
                   <CardTitle class="text-xl text-white">IntelliJ IDEA</CardTitle>
@@ -85,7 +85,7 @@
               <Badge
                 v-if="intellijVersion"
                 variant="secondary"
-                class="border-intellij/30 bg-intellij/15 text-xs text-intellij"
+                class="border-intellij/30 bg-intellij/15 text-intellij text-xs"
               >
                 v{{ intellijVersion }}
               </Badge>
@@ -96,9 +96,9 @@
               <li
                 v-for="feature in intellijFeatures"
                 :key="feature"
-                class="flex items-center gap-2 text-sm text-muted-foreground"
+                class="text-muted-foreground flex items-center gap-2 text-sm"
               >
-                <Check class="h-4 w-4 flex-shrink-0 text-bab" />
+                <Check class="text-bab h-4 w-4 flex-shrink-0" />
                 {{ feature }}
               </li>
             </ul>
@@ -106,7 +106,7 @@
             <div class="flex flex-col gap-3 sm:flex-row">
               <Button
                 variant="outline"
-                class="flex-1 border-intellij bg-transparent text-intellij hover:bg-intellij/10"
+                class="border-intellij text-intellij hover:bg-intellij/10 flex-1 bg-transparent"
                 as-child
               >
                 <a href="https://plugins.jetbrains.com/plugin/29264" target="_blank" rel="noopener">
@@ -130,13 +130,13 @@
       </div>
 
       <div class="mt-16 text-center">
-        <p class="mb-6 text-muted-foreground">Both extensions provide:</p>
+        <p class="text-muted-foreground mb-6">Both extensions provide:</p>
         <div class="flex flex-wrap justify-center gap-3">
           <Badge
             v-for="feature in sharedFeatures"
             :key="feature"
             variant="secondary"
-            class="border-border bg-card px-4 py-2 text-muted-foreground"
+            class="border-border bg-card text-muted-foreground px-4 py-2"
           >
             {{ feature }}
           </Badge>
@@ -147,7 +147,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue'
   import { Icon } from '@iconify/vue'
   import { Check, Download } from 'lucide-vue-next'
   import { Button } from '@/components/ui/button'
