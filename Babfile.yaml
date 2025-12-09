@@ -1,0 +1,55 @@
+tasks:
+  dev:
+    desc: Start development server
+    run:
+      - cmd: pnpm dev
+
+  build:
+    desc: Build for production
+    run:
+      - cmd: pnpm build
+
+  generate:
+    desc: Generate static site
+    run:
+      - cmd: pnpm generate
+
+  preview:
+    desc: Preview production build
+    deps: [build]
+    run:
+      - cmd: pnpm preview
+
+  install:
+    desc: Install dependencies
+    run:
+      - cmd: pnpm install
+
+  clean:
+    desc: Clean build artifacts and caches
+    run:
+      - cmd: rm -rf .nuxt .output node_modules/.cache
+
+  check:
+    desc: Run all checks (lint + typecheck)
+    deps: [lint, typecheck]
+
+  lint:
+    desc: Run ESLint
+    run:
+      - cmd: pnpm lint
+
+  lint:fix:
+    desc: Run ESLint with auto-fix
+    run:
+      - cmd: pnpm lint --fix
+
+  typecheck:
+    desc: Run TypeScript type checking
+    run:
+      - cmd: pnpm typecheck
+
+  prepare:
+    desc: Prepare Nuxt (generate types)
+    run:
+      - cmd: nuxt prepare

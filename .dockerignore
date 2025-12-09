@@ -1,0 +1,57 @@
+# Dependencies
+node_modules
+
+# Nuxt build outputs
+.nuxt
+.output
+.data
+.nitro
+.cache
+
+# Git
+.git
+.gitignore
+
+# GitHub
+.github
+
+# IDE
+.idea
+.fleet
+.vscode
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Docker files (avoid recursive builds)
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Documentation
+README.md
+LICENSE
+CHANGELOG.md
+
+# Tests
+coverage
+.nyc_output
+
+# Misc
+*.md
+.editorconfig
+.prettierrc
+.eslintrc*

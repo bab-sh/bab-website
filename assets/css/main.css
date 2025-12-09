@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 280 90% 80%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 64%;
+
+    --accent: 280 60% 25%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 280 90% 80%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+.terminal {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 20px 50px -10px rgba(0, 0, 0, 0.5),
+    0 0 100px -20px rgba(208, 157, 247, 0.2);
+}
+
+.terminal-header {
+  background: linear-gradient(180deg, #2d2d2d 0%, #1f1f1f 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #e5b5fe 0%, #d09df7 50%, #b87de8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-purple {
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(208, 157, 247, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 85% 90%, rgba(229, 181, 254, 0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 50% at 10% 60%, rgba(184, 125, 232, 0.05) 0%, transparent 60%);
+}
+
+.card-hover {
+  transition: border-color 0.3s ease;
+}
+
+.card-hover:hover {
+  border-color: rgba(208, 157, 247, 0.3);
+}
+
+.code-block {
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.8) 0%, rgba(13, 13, 13, 0.9) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(208, 157, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(208, 157, 247, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
