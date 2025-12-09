@@ -1,32 +1,32 @@
 <template>
-  <section id="code" class="relative bg-card/30 py-24">
+  <section id="code" class="bg-card/30 relative py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-16 text-center">
-        <Badge variant="secondary" class="mb-4 border-bab/20 bg-bab/10 text-bab-light">
+        <Badge variant="secondary" class="border-bab/20 bg-bab/10 text-bab-light mb-4">
           Configuration
         </Badge>
         <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">Simple yet powerful</h2>
-        <p class="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
+        <p class="text-muted-foreground mx-auto max-w-2xl text-base sm:text-lg">
           Define your tasks in a clean YAML file. No complex syntax, no build system knowledge
           required.
         </p>
       </div>
 
       <div class="grid items-start gap-8 lg:grid-cols-2">
-        <div class="code-block overflow-hidden rounded-xl border border-border">
+        <div class="code-block border-border overflow-hidden rounded-xl border">
           <div
-            class="flex items-center justify-between border-b border-border bg-card/50 px-4 py-3"
+            class="border-border bg-card/50 flex items-center justify-between border-b px-4 py-3"
           >
             <div class="flex items-center gap-2">
               <BabLogo class="h-4 w-4" />
-              <span class="font-mono text-sm text-muted-foreground">babfile.yml</span>
+              <span class="text-muted-foreground font-mono text-sm">babfile.yml</span>
             </div>
             <button
-              class="rounded p-1 text-muted-foreground transition-colors hover:bg-white/5 hover:text-white"
+              class="text-muted-foreground rounded p-1 transition-colors hover:bg-white/5 hover:text-white"
               @click="copyCode"
             >
               <Copy v-if="!copied" class="h-4 w-4" />
-              <Check v-else class="h-4 w-4 text-success" />
+              <Check v-else class="text-success h-4 w-4" />
             </button>
           </div>
           <pre
@@ -71,7 +71,7 @@
           <div
             v-for="benefit in benefits"
             :key="benefit.title"
-            class="feature-card flex gap-4 rounded-lg border border-border bg-card/50 p-4"
+            class="feature-card border-border bg-card/50 flex gap-4 rounded-lg border p-4"
             :class="{
               active: isFeatureActive(benefit.featureId),
               'cursor-pointer': benefit.featureId,
@@ -80,18 +80,18 @@
             @mouseleave="highlightedFeature = null"
           >
             <div
-              class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-bab/10"
+              class="bg-bab/10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg"
             >
-              <component :is="benefit.icon" class="h-5 w-5 text-bab-light" />
+              <component :is="benefit.icon" class="text-bab-light h-5 w-5" />
             </div>
             <div>
               <h3 class="mb-1 font-semibold text-white">{{ benefit.title }}</h3>
-              <p class="text-sm text-muted-foreground">{{ benefit.description }}</p>
+              <p class="text-muted-foreground text-sm">{{ benefit.description }}</p>
             </div>
           </div>
 
           <div
-            class="rounded-lg border border-border bg-card/50 p-4 transition-colors hover:border-bab/20"
+            class="border-border bg-card/50 hover:border-bab/20 rounded-lg border p-4 transition-colors"
           >
             <h4 class="mb-3 font-semibold text-white">Run your tasks:</h4>
             <div class="space-y-2 font-mono text-sm">
@@ -100,7 +100,7 @@
                 :key="cmd.taskId ?? 'interactive'"
                 class="flex items-center gap-1"
               >
-                <span class="select-none text-tui-muted">$</span>
+                <span class="text-tui-muted select-none">$</span>
                 <span class="text-white">bab</span>
                 <span
                   v-if="cmd.taskId"
@@ -110,7 +110,7 @@
                   @mouseleave="highlightedTask = null"
                   >{{ cmd.taskId }}</span
                 >
-                <span class="ml-2 text-tui-dim">{{ cmd.comment }}</span>
+                <span class="text-tui-dim ml-2">{{ cmd.comment }}</span>
               </div>
             </div>
           </div>
@@ -121,7 +121,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
   import { Copy, Check, GitBranch, Globe, Layers } from 'lucide-vue-next'
   import { Badge } from '@/components/ui/badge'
 

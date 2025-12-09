@@ -1,13 +1,13 @@
 <template>
-  <footer class="border-t border-border py-12">
+  <footer class="border-border border-t py-12">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-8 grid gap-8 md:grid-cols-4">
-        <div class="md:col-span-1">
+      <div class="mb-8 grid grid-cols-2 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="col-span-2 sm:col-span-2 lg:col-span-1">
           <div class="mb-4 flex items-center gap-3">
             <BabLogo class="h-8 w-8" />
             <span class="text-xl font-bold text-white">bab</span>
           </div>
-          <p class="text-sm text-muted-foreground">
+          <p class="text-muted-foreground text-sm">
             Modern task runner. Zero dependencies, cross-platform, simple.
           </p>
         </div>
@@ -20,7 +20,7 @@
                 href="https://bab.sh"
                 target="_blank"
                 rel="noopener"
-                class="text-sm text-muted-foreground transition-colors hover:text-white"
+                class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 Documentation
               </a>
@@ -28,7 +28,7 @@
             <li>
               <a
                 href="#install"
-                class="text-sm text-muted-foreground transition-colors hover:text-white"
+                class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 Installation
               </a>
@@ -38,7 +38,7 @@
                 href="https://github.com/bab-sh/bab/releases"
                 target="_blank"
                 rel="noopener"
-                class="text-sm text-muted-foreground transition-colors hover:text-white"
+                class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 Releases
               </a>
@@ -48,7 +48,7 @@
                 href="https://github.com/bab-sh/bab/blob/main/docs/content/roadmap.md"
                 target="_blank"
                 rel="noopener"
-                class="text-sm text-muted-foreground transition-colors hover:text-white"
+                class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 Roadmap
               </a>
@@ -64,7 +64,7 @@
                 href="https://marketplace.visualstudio.com/items?itemName=bab-sh.bab"
                 target="_blank"
                 rel="noopener"
-                class="text-sm text-muted-foreground transition-colors hover:text-white"
+                class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 VS Code Extension
               </a>
@@ -74,7 +74,7 @@
                 href="https://plugins.jetbrains.com/plugin/29264"
                 target="_blank"
                 rel="noopener"
-                class="text-sm text-muted-foreground transition-colors hover:text-white"
+                class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 IntelliJ Plugin
               </a>
@@ -90,7 +90,7 @@
                 href="https://github.com/bab-sh/bab"
                 target="_blank"
                 rel="noopener"
-                class="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-white"
+                class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white"
               >
                 <Icon icon="simple-icons:github" class="h-4 w-4" />
                 GitHub
@@ -101,7 +101,7 @@
                 href="https://discord.bab.sh"
                 target="_blank"
                 rel="noopener"
-                class="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-white"
+                class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white"
               >
                 <Icon icon="simple-icons:discord" class="h-4 w-4" />
                 Discord
@@ -114,7 +114,7 @@
       <Separator class="my-8" />
 
       <div
-        class="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row"
+        class="text-muted-foreground flex flex-col items-center justify-between gap-4 text-sm sm:flex-row"
       >
         <p>&copy; {{ currentYear }} bab. MIT License.</p>
         <p>

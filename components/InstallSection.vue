@@ -1,18 +1,18 @@
 <template>
-  <section id="install" class="relative bg-card/30 py-24">
+  <section id="install" class="bg-card/30 relative py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-16 text-center">
-        <Badge variant="secondary" class="mb-4 border-bab/20 bg-bab/10 text-bab-light">
+        <Badge variant="secondary" class="border-bab/20 bg-bab/10 text-bab-light mb-4">
           Installation
         </Badge>
         <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">Get started in seconds</h2>
-        <p class="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
+        <p class="text-muted-foreground mx-auto max-w-2xl text-base sm:text-lg">
           Choose your preferred installation method. Works on all major platforms.
         </p>
       </div>
 
       <div class="mx-auto max-w-3xl">
-        <Tabs :default-value="installMethods[0]?.id ?? 'script'" class="w-full">
+        <Tabs default-value="script" class="w-full">
           <TabsList class="grid w-full grid-cols-2 sm:grid-cols-4">
             <TabsTrigger v-for="method in installMethods" :key="method.id" :value="method.id">
               <Icon :icon="method.icon" class="mr-2 h-4 w-4" />
@@ -28,14 +28,14 @@
           >
             <Card class="border-border bg-card/50">
               <CardContent class="p-0">
-                <div class="flex items-center justify-between border-b border-border px-4 py-3">
-                  <span class="text-sm text-muted-foreground">{{ method.description }}</span>
+                <div class="border-border flex items-center justify-between border-b px-4 py-3">
+                  <span class="text-muted-foreground text-sm">{{ method.description }}</span>
                   <button
-                    class="rounded p-1 text-muted-foreground transition-colors hover:bg-white/5 hover:text-white"
+                    class="text-muted-foreground rounded p-1 transition-colors hover:bg-white/5 hover:text-white"
                     @click="copyCommand(method.command)"
                   >
                     <Copy v-if="copiedCommand !== method.command" class="h-4 w-4" />
-                    <Check v-else class="h-4 w-4 text-success" />
+                    <Check v-else class="text-success h-4 w-4" />
                   </button>
                 </div>
                 <pre
@@ -52,7 +52,7 @@
             <Card
               v-for="pkg in packageManagers"
               :key="pkg.name"
-              class="card-hover cursor-pointer border-border bg-card/30"
+              class="card-hover border-border bg-card/30 cursor-pointer"
               @click="copyCommand(pkg.command)"
             >
               <CardContent class="p-3 sm:p-4">
@@ -60,11 +60,11 @@
                   <span class="text-sm font-medium text-white sm:text-base">{{ pkg.name }}</span>
                   <Copy
                     v-if="copiedCommand !== pkg.command"
-                    class="h-3 w-3 flex-shrink-0 text-muted-foreground"
+                    class="text-muted-foreground h-3 w-3 flex-shrink-0"
                   />
-                  <Check v-else class="h-3 w-3 flex-shrink-0 text-success" />
+                  <Check v-else class="text-success h-3 w-3 flex-shrink-0" />
                 </div>
-                <code class="block break-all font-mono text-xs text-muted-foreground sm:truncate">
+                <code class="text-muted-foreground block font-mono text-xs break-all sm:truncate">
                   {{ pkg.command }}
                 </code>
               </CardContent>
@@ -73,7 +73,7 @@
         </div>
 
         <div class="mt-8 text-center">
-          <p class="mb-4 text-muted-foreground">Or download binaries directly from GitHub:</p>
+          <p class="text-muted-foreground mb-4">Or download binaries directly from GitHub:</p>
           <Button variant="outline" as-child>
             <a href="https://github.com/bab-sh/bab/releases/latest" target="_blank" rel="noopener">
               <Download class="mr-2 h-4 w-4" />
@@ -87,7 +87,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
   import { Icon } from '@iconify/vue'
   import { Copy, Check, Download } from 'lucide-vue-next'
   import { Badge } from '@/components/ui/badge'

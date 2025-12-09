@@ -4,13 +4,13 @@
     <div class="grid-bg absolute inset-0" />
 
     <div
-      class="bg-bab/8 absolute left-[18%] top-[15%] h-[28rem] w-[28rem] animate-pulse-slow rounded-full blur-3xl"
+      class="bg-bab/8 animate-pulse-slow absolute top-[15%] left-[18%] h-[28rem] w-[28rem] rounded-full blur-3xl"
     />
     <div
-      class="bg-bab-light/8 absolute bottom-[20%] right-[15%] h-[22rem] w-[22rem] animate-pulse-slow rounded-full blur-3xl [animation-delay:2s]"
+      class="bg-bab-light/8 animate-pulse-slow absolute right-[15%] bottom-[20%] h-[22rem] w-[22rem] rounded-full blur-3xl [animation-delay:2s]"
     />
     <div
-      class="bg-bab-dark/6 absolute right-[25%] top-[45%] h-48 w-48 animate-pulse-slow rounded-full blur-2xl [animation-delay:3.5s]"
+      class="bg-bab-dark/6 animate-pulse-slow absolute top-[45%] right-[25%] h-48 w-48 rounded-full blur-2xl [animation-delay:3.5s]"
     />
 
     <div class="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
@@ -20,7 +20,7 @@
             <Badge
               v-if="version"
               variant="secondary"
-              class="border-bab/30 bg-bab/15 px-3 py-1 text-sm text-bab-light"
+              class="border-bab/30 bg-bab/15 text-bab-light px-3 py-1 text-sm"
             >
               {{ version }}
             </Badge>
@@ -33,7 +33,7 @@
             </h1>
           </div>
 
-          <p class="mx-auto max-w-xl text-lg text-muted-foreground sm:text-xl lg:mx-0">
+          <p class="text-muted-foreground mx-auto max-w-xl text-lg sm:text-xl lg:mx-0">
             Modern task runner. Zero dependencies, cross-platform, simple. Replace your Makefiles
             and npm scripts with clean YAML.
           </p>
@@ -56,7 +56,7 @@
                 GitHub
                 <span
                   v-if="formattedStars"
-                  class="ml-2 flex items-center gap-1 text-muted-foreground"
+                  class="text-muted-foreground ml-2 flex items-center gap-1"
                 >
                   <Star class="h-3 w-3 fill-current" />
                   {{ formattedStars }}
@@ -67,7 +67,7 @@
 
           <div class="pt-6">
             <div class="mb-2 flex items-center gap-4">
-              <p class="text-sm text-muted-foreground">Quick install:</p>
+              <p class="text-muted-foreground text-sm">Quick install:</p>
               <div class="flex items-center gap-1">
                 <button
                   class="rounded p-1.5 transition-colors hover:bg-white/5"
@@ -98,16 +98,16 @@
               </div>
             </div>
             <div
-              class="group inline-flex items-center gap-2 rounded-lg border border-border bg-card/50 px-3 py-2.5 font-mono text-xs transition-colors hover:border-bab/30 sm:px-4 sm:text-sm"
+              class="group border-border bg-card/50 hover:border-bab/30 inline-flex items-center gap-2 rounded-lg border px-3 py-2.5 font-mono text-xs transition-colors sm:px-4 sm:text-sm"
             >
               <span class="text-[#ff87d7]">{{ promptSymbol }}</span>
               <code class="text-white">{{ installCommand }}</code>
               <button
-                class="ml-2 rounded p-1 text-muted-foreground transition-colors hover:bg-white/5 hover:text-white"
+                class="text-muted-foreground ml-2 rounded p-1 transition-colors hover:bg-white/5 hover:text-white"
                 @click="copyInstallCommand"
               >
                 <Copy v-if="!copied" class="h-4 w-4" />
-                <Check v-else class="h-4 w-4 text-success" />
+                <Check v-else class="text-success h-4 w-4" />
               </button>
             </div>
           </div>
@@ -120,13 +120,12 @@
     </div>
 
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <ChevronDown class="h-6 w-6 text-muted-foreground" />
+      <ChevronDown class="text-muted-foreground h-6 w-6" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted } from 'vue'
   import { Icon } from '@iconify/vue'
   import { ArrowRight, Copy, Check, ChevronDown, Star } from 'lucide-vue-next'
   import { Button } from '@/components/ui/button'

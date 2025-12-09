@@ -2,13 +2,13 @@
   <section id="features" class="relative py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-16 text-center">
-        <Badge variant="secondary" class="mb-4 border-bab/20 bg-bab/10 text-bab-light">
+        <Badge variant="secondary" class="border-bab/20 bg-bab/10 text-bab-light mb-4">
           Features
         </Badge>
         <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">
           Everything you need to run tasks
         </h2>
-        <p class="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
+        <p class="text-muted-foreground mx-auto max-w-2xl text-base sm:text-lg">
           A modern approach to task automation that just works. Simple to learn, powerful to use.
         </p>
       </div>
@@ -20,13 +20,13 @@
           class="card-hover border-border bg-card/50"
         >
           <CardHeader>
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-bab/10">
-              <component :is="feature.icon" class="h-6 w-6 text-bab-light" />
+            <div class="bg-bab/10 mb-4 flex h-12 w-12 items-center justify-center rounded-lg">
+              <component :is="feature.icon" class="text-bab-light h-6 w-6" />
             </div>
             <CardTitle class="text-white">{{ feature.title }}</CardTitle>
           </CardHeader>
           <CardContent>
-            <CardDescription class="text-sm text-muted-foreground">
+            <CardDescription class="text-muted-foreground text-sm">
               {{ feature.description }}
             </CardDescription>
           </CardContent>
@@ -37,9 +37,9 @@
         <div
           v-for="item in additionalFeatures"
           :key="item"
-          class="flex items-center gap-3 text-muted-foreground"
+          class="text-muted-foreground flex items-center gap-3"
         >
-          <Check class="h-5 w-5 flex-shrink-0 text-bab" />
+          <Check class="text-bab h-5 w-5 flex-shrink-0" />
           <span>{{ item }}</span>
         </div>
       </div>

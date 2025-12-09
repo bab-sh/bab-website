@@ -2,14 +2,14 @@
   <div class="terminal w-full max-w-[min(100%,42rem)] overflow-hidden rounded-xl shadow-2xl">
     <div class="terminal-header flex items-center gap-2 px-4 py-3">
       <div class="flex gap-2">
-        <div class="h-3 w-3 rounded-full bg-tui-red" />
-        <div class="h-3 w-3 rounded-full bg-tui-yellow" />
-        <div class="h-3 w-3 rounded-full bg-success" />
+        <div class="bg-tui-red h-3 w-3 rounded-full" />
+        <div class="bg-tui-yellow h-3 w-3 rounded-full" />
+        <div class="bg-success h-3 w-3 rounded-full" />
       </div>
-      <span class="ml-2 font-mono text-xs text-tui-muted">~/project</span>
+      <span class="text-tui-muted ml-2 font-mono text-xs">~/project</span>
     </div>
 
-    <div class="min-h-[320px] transform-gpu overflow-hidden bg-tui-bg p-4 font-mono text-sm">
+    <div class="bg-tui-bg min-h-[320px] transform-gpu overflow-hidden p-4 font-mono text-sm">
       <div v-if="phase === 'typing'" class="flex h-5 items-center">
         <span class="text-tui-muted">$</span>
         <span class="ml-2 text-white">{{ typedCommand }}</span>
@@ -21,23 +21,23 @@
 
       <div v-else-if="phase === 'tui'" class="space-y-0">
         <div class="flex h-5 items-center">
-          <span class="font-bold text-tui-match">&gt;</span>
+          <span class="text-tui-match font-bold">&gt;</span>
           <span class="ml-2 text-white">{{ searchQuery }}</span>
           <span
             v-if="showTuiCursor"
-            class="inline-block h-[14px] w-[7px] flex-shrink-0 transform-gpu bg-tui-match"
+            class="bg-tui-match inline-block h-[14px] w-[7px] flex-shrink-0 transform-gpu"
             :class="{ 'cursor-blink': !isTypingSearch }"
           />
         </div>
 
         <div class="my-2 flex items-center overflow-hidden font-mono text-xs">
-          <span class="flex-1 border-t border-tui-separator/50" />
-          <span class="flex-shrink-0 px-2 text-tui-dim">
+          <span class="border-tui-separator/50 flex-1 border-t" />
+          <span class="text-tui-dim flex-shrink-0 px-2">
             {{ filteredTasks.length }}/{{ tasks.length }}
           </span>
-          <span class="w-4 flex-shrink-0 border-t border-tui-separator/50" />
-          <span class="flex-shrink-0 px-2 text-tui-dim"> bab.sh </span>
-          <span class="w-4 flex-shrink-0 border-t border-tui-separator/50" />
+          <span class="border-tui-separator/50 w-4 flex-shrink-0 border-t" />
+          <span class="text-tui-dim flex-shrink-0 px-2"> bab.sh </span>
+          <span class="border-tui-separator/50 w-4 flex-shrink-0 border-t" />
         </div>
 
         <div class="transform-gpu">
@@ -64,10 +64,10 @@
               <template v-else>{{ task.name }}</template>
             </span>
 
-            <span class="truncate text-xs italic text-tui-muted">{{ task.desc }}</span>
+            <span class="text-tui-muted truncate text-xs italic">{{ task.desc }}</span>
           </div>
 
-          <div v-if="filteredTasks.length === 0" class="py-2 pl-4 italic text-tui-muted">
+          <div v-if="filteredTasks.length === 0" class="text-tui-muted py-2 pl-4 italic">
             No matching tasks :(
           </div>
         </div>
@@ -80,35 +80,35 @@
           <span class="text-tui-accent">Running</span>
           <span class="font-bold text-white">build:core</span>
         </div>
-        <div v-if="executionStep >= 1" class="flex items-center gap-2 text-tui-dim">
+        <div v-if="executionStep >= 1" class="text-tui-dim flex items-center gap-2">
           <span>▶</span>
           <span>lint</span>
         </div>
-        <div v-if="executionStep >= 2" class="flex items-center gap-2 text-tui-dim">
+        <div v-if="executionStep >= 2" class="text-tui-dim flex items-center gap-2">
           <span>$</span>
           <span>eslint src/</span>
         </div>
-        <div v-if="executionStep >= 3" class="flex items-center gap-2 text-tui-dim">
+        <div v-if="executionStep >= 3" class="text-tui-dim flex items-center gap-2">
           <span>▶</span>
           <span>test</span>
         </div>
-        <div v-if="executionStep >= 4" class="flex items-center gap-2 text-tui-dim">
+        <div v-if="executionStep >= 4" class="text-tui-dim flex items-center gap-2">
           <span>$</span>
           <span>npm run test</span>
         </div>
         <div v-if="executionStep >= 5" class="text-sm">
-          <span class="font-bold text-success">PASS</span
+          <span class="text-success font-bold">PASS</span
           ><span class="text-white"> src/utils.test.ts</span>
         </div>
         <div v-if="executionStep >= 6" class="text-sm">
-          <span class="font-bold text-success">PASS</span
+          <span class="text-success font-bold">PASS</span
           ><span class="text-white"> src/api.test.ts</span>
         </div>
         <div v-if="executionStep >= 7" class="text-sm">
-          <span class="font-bold text-success">PASS</span
+          <span class="text-success font-bold">PASS</span
           ><span class="text-white"> src/components.test.ts</span>
         </div>
-        <div v-if="executionStep >= 8" class="flex items-center gap-2 text-tui-dim">
+        <div v-if="executionStep >= 8" class="text-tui-dim flex items-center gap-2">
           <span>$</span>
           <span>npm run build</span>
         </div>
@@ -120,13 +120,13 @@
           <span class="text-tui-muted">dist/index.css</span
           ><span class="text-success"> 8.2 kB</span>
         </div>
-        <div v-if="executionStep >= 11" class="flex items-center gap-2 text-tui-dim">
+        <div v-if="executionStep >= 11" class="text-tui-dim flex items-center gap-2">
           <span>$</span>
           <span>cp -r dist/ out/</span>
         </div>
         <div v-if="executionStep >= 12" class="mt-2 flex items-center gap-2">
           <span class="text-success">✔</span>
-          <span class="font-bold text-success">build:core</span>
+          <span class="text-success font-bold">build:core</span>
           <span class="text-tui-dim">completed in</span>
           <span class="text-white">1.8s</span>
         </div>
@@ -136,7 +136,7 @@
         <div class="text-tui-dim">$ bab build:core</div>
         <div class="mt-1 flex items-center gap-2">
           <span class="text-success">✔</span>
-          <span class="font-bold text-success">build:core</span>
+          <span class="text-success font-bold">build:core</span>
           <span class="text-tui-dim">completed in</span>
           <span class="text-white">1.8s</span>
         </div>
@@ -154,8 +154,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted, onUnmounted } from 'vue'
-
   interface Task {
     name: string
     desc: string

@@ -2,13 +2,13 @@
   <section id="community" class="relative py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-16 text-center">
-        <Badge variant="secondary" class="mb-4 border-bab/20 bg-bab/10 text-bab-light">
+        <Badge variant="secondary" class="border-bab/20 bg-bab/10 text-bab-light mb-4">
           Open Source
         </Badge>
         <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">
           Built by the community, for the community
         </h2>
-        <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
+        <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
           bab is free, open source, and MIT licensed. Join our growing community of developers.
         </p>
       </div>
@@ -62,12 +62,12 @@
 
       <div class="mt-16">
         <Card
-          class="mx-auto max-w-3xl overflow-hidden border-bab/20 bg-gradient-to-br from-bab/10 via-transparent to-bab-light/10"
+          class="border-bab/20 from-bab/10 to-bab-light/10 mx-auto max-w-3xl overflow-hidden bg-gradient-to-br via-transparent"
         >
           <CardContent class="px-8 py-8">
             <div class="mb-6 text-center">
               <h3 class="mb-2 text-2xl font-bold text-white">Want to contribute?</h3>
-              <p class="text-sm text-muted-foreground">We welcome contributions of all kinds!</p>
+              <p class="text-muted-foreground text-sm">We welcome contributions of all kinds!</p>
             </div>
 
             <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -78,12 +78,12 @@
                   :href="item.href"
                   target="_blank"
                   rel="noopener"
-                  class="group flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/80 transition-all hover:border-bab/50 hover:bg-bab/10"
+                  class="group border-border bg-card/80 hover:border-bab/50 hover:bg-bab/10 flex h-10 w-10 items-center justify-center rounded-full border transition-all"
                   :title="item.label"
                 >
                   <component
                     :is="item.icon"
-                    class="h-4 w-4 text-muted-foreground transition-colors group-hover:text-bab-light"
+                    class="text-muted-foreground group-hover:text-bab-light h-4 w-4 transition-colors"
                   />
                 </a>
               </div>
