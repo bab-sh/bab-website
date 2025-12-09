@@ -29,7 +29,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.556.0",
-    "nuxt": "^3.16.1",
+    "nuxt": "^4.2.2",
     "reka-ui": "^2.6.1",
     "tailwind-merge": "^3.4.0",
     "vue": "latest",
