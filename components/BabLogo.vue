@@ -1,9 +1,5 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1334 1292"
-    :class="props.class"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1334 1292" :class="props.class">
     <defs>
       <linearGradient id="glow-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stop-color="#e5b5fe" />
@@ -25,8 +21,8 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  class?: string
-  glow?: boolean
-}>()
+  const props = defineProps<{
+    class?: string
+    glow?: boolean
+  }>()
 </script>

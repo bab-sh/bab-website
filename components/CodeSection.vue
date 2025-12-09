@@ -1,35 +1,37 @@
 <template>
-  <section id="code" class="py-24 relative bg-card/30">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <Badge variant="secondary" class="mb-4 bg-bab/10 border-bab/20 text-bab-light">
+  <section id="code" class="relative bg-card/30 py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-16 text-center">
+        <Badge variant="secondary" class="mb-4 border-bab/20 bg-bab/10 text-bab-light">
           Configuration
         </Badge>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
-          Simple yet powerful
-        </h2>
-        <p class="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
-          Define your tasks in a clean YAML file. No complex syntax,
-          no build system knowledge required.
+        <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">Simple yet powerful</h2>
+        <p class="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
+          Define your tasks in a clean YAML file. No complex syntax, no build system knowledge
+          required.
         </p>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-8 items-start">
-        <div class="code-block rounded-xl border border-border overflow-hidden">
-          <div class="flex items-center justify-between px-4 py-3 border-b border-border bg-card/50">
+      <div class="grid items-start gap-8 lg:grid-cols-2">
+        <div class="code-block overflow-hidden rounded-xl border border-border">
+          <div
+            class="flex items-center justify-between border-b border-border bg-card/50 px-4 py-3"
+          >
             <div class="flex items-center gap-2">
               <BabLogo class="h-4 w-4" />
-              <span class="text-sm text-muted-foreground font-mono">babfile.yml</span>
+              <span class="font-mono text-sm text-muted-foreground">babfile.yml</span>
             </div>
             <button
+              class="rounded p-1 text-muted-foreground transition-colors hover:bg-white/5 hover:text-white"
               @click="copyCode"
-              class="text-muted-foreground hover:text-white transition-colors p-1 rounded hover:bg-white/5"
             >
               <Copy v-if="!copied" class="h-4 w-4" />
               <Check v-else class="h-4 w-4 text-success" />
             </button>
           </div>
-          <pre class="p-4 text-xs sm:text-sm font-mono overflow-x-auto leading-relaxed"><code><span class="text-tui-match">tasks</span><span class="text-white">:</span>
+          <pre
+            class="overflow-x-auto p-4 font-mono text-xs leading-relaxed sm:text-sm"
+          ><code><span class="text-tui-match">tasks</span><span class="text-white">:</span>
 
 <span class="task-block" :class="{ 'highlight': highlightedTask === 'setup' || highlightedDepsRef === 'setup' }">  <span class="text-tui-accent">setup</span><span class="text-white">:</span>
     <span class="text-tui-muted">desc</span><span class="text-white">:</span> <span class="text-gray-200">Install dependencies</span>
@@ -69,41 +71,46 @@
           <div
             v-for="benefit in benefits"
             :key="benefit.title"
-            class="feature-card flex gap-4 p-4 rounded-lg bg-card/50 border border-border"
+            class="feature-card flex gap-4 rounded-lg border border-border bg-card/50 p-4"
             :class="{
-              'active': isFeatureActive(benefit.featureId),
-              'cursor-pointer': benefit.featureId
+              active: isFeatureActive(benefit.featureId),
+              'cursor-pointer': benefit.featureId,
             }"
             @mouseenter="highlightedFeature = benefit.featureId"
             @mouseleave="highlightedFeature = null"
           >
-            <div class="w-10 h-10 rounded-lg bg-bab/10 flex items-center justify-center flex-shrink-0">
+            <div
+              class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-bab/10"
+            >
               <component :is="benefit.icon" class="h-5 w-5 text-bab-light" />
             </div>
             <div>
-              <h3 class="text-white font-semibold mb-1">{{ benefit.title }}</h3>
-              <p class="text-muted-foreground text-sm">{{ benefit.description }}</p>
+              <h3 class="mb-1 font-semibold text-white">{{ benefit.title }}</h3>
+              <p class="text-sm text-muted-foreground">{{ benefit.description }}</p>
             </div>
           </div>
 
-          <div class="p-4 rounded-lg bg-card/50 border border-border hover:border-bab/20 transition-colors">
-            <h4 class="text-white font-semibold mb-3">Run your tasks:</h4>
+          <div
+            class="rounded-lg border border-border bg-card/50 p-4 transition-colors hover:border-bab/20"
+          >
+            <h4 class="mb-3 font-semibold text-white">Run your tasks:</h4>
             <div class="space-y-2 font-mono text-sm">
               <div
                 v-for="cmd in taskCommands"
                 :key="cmd.taskId ?? 'interactive'"
                 class="flex items-center gap-1"
               >
-                <span class="text-tui-muted select-none">$</span>
+                <span class="select-none text-tui-muted">$</span>
                 <span class="text-white">bab</span>
                 <span
                   v-if="cmd.taskId"
                   class="task-trigger"
-                  :class="{ 'active': highlightedTask === cmd.taskId }"
+                  :class="{ active: highlightedTask === cmd.taskId }"
                   @mouseenter="highlightedTask = cmd.taskId"
                   @mouseleave="highlightedTask = null"
-                >{{ cmd.taskId }}</span>
-                <span class="text-tui-dim ml-2">{{ cmd.comment }}</span>
+                  >{{ cmd.taskId }}</span
+                >
+                <span class="ml-2 text-tui-dim">{{ cmd.comment }}</span>
               </div>
             </div>
           </div>
@@ -114,56 +121,62 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Copy, Check, GitBranch, Globe, Layers } from 'lucide-vue-next'
-import { Badge } from '@/components/ui/badge'
+  import { ref } from 'vue'
+  import { Copy, Check, GitBranch, Globe, Layers } from 'lucide-vue-next'
+  import { Badge } from '@/components/ui/badge'
 
-const copied = ref(false)
-const highlightedTask = ref<string | null>(null)
-const highlightedTaskRef = ref<string | null>(null)
-const highlightedDepsRef = ref<string | null>(null)
-const highlightedDepsLine = ref<string | null>(null)
-const highlightedPlatformsRef = ref(false)
-const highlightedFeature = ref<string | null>(null)
+  const copied = ref(false)
+  const highlightedTask = ref<string | null>(null)
+  const highlightedTaskRef = ref<string | null>(null)
+  const highlightedDepsRef = ref<string | null>(null)
+  const highlightedDepsLine = ref<string | null>(null)
+  const highlightedPlatformsRef = ref(false)
+  const highlightedFeature = ref<string | null>(null)
 
-const taskCommands = [
-  { taskId: 'dev', comment: '# Start dev server' },
-  { taskId: 'build', comment: '# Build for production' },
-  { taskId: 'deploy', comment: '# Deploy to production' },
-  { taskId: null, comment: '# Interactive mode' },
-]
+  const taskCommands = [
+    { taskId: 'dev', comment: '# Start dev server' },
+    { taskId: 'build', comment: '# Build for production' },
+    { taskId: 'deploy', comment: '# Deploy to production' },
+    { taskId: null, comment: '# Interactive mode' },
+  ]
 
-const benefits = [
-  {
-    icon: Layers,
-    title: 'Task Composition',
-    description: 'Reference other tasks with task: to compose complex workflows from simple building blocks.',
-    featureId: 'composition',
-  },
-  {
-    icon: GitBranch,
-    title: 'Task Dependencies',
-    description: 'Define deps and bab automatically runs prerequisites first. No more manual ordering.',
-    featureId: 'deps',
-  },
-  {
-    icon: Globe,
-    title: 'Platform-Specific Commands',
-    description: 'Different commands for different operating systems. Write once, run anywhere.',
-    featureId: 'platforms',
-  },
-]
+  const benefits = [
+    {
+      icon: Layers,
+      title: 'Task Composition',
+      description:
+        'Reference other tasks with task: to compose complex workflows from simple building blocks.',
+      featureId: 'composition',
+    },
+    {
+      icon: GitBranch,
+      title: 'Task Dependencies',
+      description:
+        'Define deps and bab automatically runs prerequisites first. No more manual ordering.',
+      featureId: 'deps',
+    },
+    {
+      icon: Globe,
+      title: 'Platform-Specific Commands',
+      description: 'Different commands for different operating systems. Write once, run anywhere.',
+      featureId: 'platforms',
+    },
+  ]
 
-const isFeatureActive = (featureId: string | null) => {
-  if (!featureId) return false
-  if (highlightedFeature.value === featureId) return true
-  if (featureId === 'composition' && (highlightedTaskRef.value === 'lint' || highlightedTaskRef.value === 'build')) return true
-  if (featureId === 'deps' && highlightedDepsLine.value) return true
-  if (featureId === 'platforms' && highlightedPlatformsRef.value) return true
-  return false
-}
+  const isFeatureActive = (featureId: string | null) => {
+    if (!featureId) return false
+    if (highlightedFeature.value === featureId) return true
+    if (
+      featureId === 'composition' &&
+      (highlightedTaskRef.value === 'lint' || highlightedTaskRef.value === 'build')
+    )
+      return true
+    if (featureId === 'deps' && highlightedDepsLine.value) return true
+    if (featureId === 'platforms' && highlightedPlatformsRef.value) return true
+    return false
+  }
 
-const codeExample = `tasks:
+  const codeExample = `tasks:
 
   setup:
     desc: Install dependencies
@@ -197,71 +210,71 @@ const codeExample = `tasks:
       - cmd: powershell scripts/deploy.ps1
         platforms: [windows]`
 
-const copyCode = async () => {
-  await navigator.clipboard.writeText(codeExample)
-  copied.value = true
-  setTimeout(() => {
-    copied.value = false
-  }, 2000)
-}
+  const copyCode = async () => {
+    await navigator.clipboard.writeText(codeExample)
+    copied.value = true
+    setTimeout(() => {
+      copied.value = false
+    }, 2000)
+  }
 </script>
 
 <style scoped>
-.task-block {
-  display: block;
-  margin: 0 -12px;
-  padding: 2px 12px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
+  .task-block {
+    display: block;
+    margin: 0 -12px;
+    padding: 2px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
 
-.task-block.highlight {
-  background: rgba(208, 157, 247, 0.2);
-  box-shadow: 0 0 8px rgba(208, 157, 247, 0.15);
-}
+  .task-block.highlight {
+    background: rgba(208, 157, 247, 0.2);
+    box-shadow: 0 0 8px rgba(208, 157, 247, 0.15);
+  }
 
-.task-trigger {
-  display: inline-block;
-  padding: 2px 6px;
-  margin: -2px 0 -2px -2px;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
+  .task-trigger {
+    display: inline-block;
+    padding: 2px 6px;
+    margin: -2px 0 -2px -2px;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
 
-.task-trigger:hover,
-.task-trigger.active {
-  background: rgba(208, 157, 247, 0.25);
-  color: #e5b5fe;
-}
+  .task-trigger:hover,
+  .task-trigger.active {
+    background: rgba(208, 157, 247, 0.25);
+    color: #e5b5fe;
+  }
 
-.task-trigger.active {
-  box-shadow: 0 0 12px rgba(208, 157, 247, 0.3);
-}
+  .task-trigger.active {
+    box-shadow: 0 0 12px rgba(208, 157, 247, 0.3);
+  }
 
-.line-ref {
-  display: inline;
-  padding: 1px 4px;
-  margin: -1px -4px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+  .line-ref {
+    display: inline;
+    padding: 1px 4px;
+    margin: -1px -4px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
 
-.line-ref:hover,
-.line-ref.highlight {
-  background: rgba(208, 157, 247, 0.2);
-  box-shadow: 0 0 8px rgba(208, 157, 247, 0.15);
-}
+  .line-ref:hover,
+  .line-ref.highlight {
+    background: rgba(208, 157, 247, 0.2);
+    box-shadow: 0 0 8px rgba(208, 157, 247, 0.15);
+  }
 
-.feature-card {
-  transition: all 0.2s ease;
-}
+  .feature-card {
+    transition: all 0.2s ease;
+  }
 
-.feature-card.active {
-  border-color: rgba(208, 157, 247, 0.4);
-  background: rgba(208, 157, 247, 0.08);
-  box-shadow: 0 0 20px rgba(208, 157, 247, 0.15);
-}
+  .feature-card.active {
+    border-color: rgba(208, 157, 247, 0.4);
+    background: rgba(208, 157, 247, 0.08);
+    box-shadow: 0 0 20px rgba(208, 157, 247, 0.15);
+  }
 </style>

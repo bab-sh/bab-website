@@ -10,7 +10,9 @@ export default defineEventHandler(async () => {
   }
 
   try {
-    const res = await fetch('https://api.github.com/repos/bab-sh/bab-vscode-extension/releases/latest')
+    const res = await fetch(
+      'https://api.github.com/repos/bab-sh/bab-vscode-extension/releases/latest',
+    )
     const data = await res.json()
     cachedVersion = data.tag_name || null
     cacheTimestamp = now

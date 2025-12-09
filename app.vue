@@ -5,10 +5,10 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  htmlAttrs: {
-    class: 'dark',
-    lang: 'en',
-  },
-})
+  useHead({
+    htmlAttrs: {
+      class: 'dark',
+      lang: 'en',
+    },
+  })
 </script>

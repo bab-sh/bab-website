@@ -91,10 +91,10 @@ export default {
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       animation: {
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'typing': 'typing 3.5s steps(40, end)',
-        'blink': 'blink 1s step-end infinite',
-        'float': 'float 6s ease-in-out infinite',
+        glow: 'glow 2s ease-in-out infinite alternate',
+        typing: 'typing 3.5s steps(40, end)',
+        blink: 'blink 1s step-end infinite',
+        float: 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
@@ -109,8 +109,8 @@ export default {
           },
         },
         typing: {
-          'from': { width: '0' },
-          'to': { width: '100%' },
+          from: { width: '0' },
+          to: { width: '100%' },
         },
         blink: {
           '50%': { borderColor: 'transparent' },

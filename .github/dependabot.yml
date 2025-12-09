@@ -1,0 +1,65 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'Europe/Berlin'
+    open-pull-requests-limit: 10
+    reviewers:
+      - 'aiomayo'
+    labels:
+      - 'dependencies'
+      - 'automated'
+    commit-message:
+      prefix: 'chore(deps)'
+    groups:
+      vue-ecosystem:
+        patterns:
+          - 'vue*'
+          - '@vue/*'
+          - 'nuxt*'
+          - '@nuxt/*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      ui-components:
+        patterns:
+          - 'reka-ui'
+          - 'lucide-vue-next'
+          - '@iconify/*'
+          - 'tailwind*'
+          - 'class-variance-authority'
+          - 'clsx'
+        update-types:
+          - 'minor'
+          - 'patch'
+      dev-tools:
+        patterns:
+          - 'eslint*'
+          - '@eslint/*'
+          - 'prettier*'
+          - 'typescript'
+          - 'husky'
+          - 'lint-staged'
+          - '@commitlint/*'
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'Europe/Berlin'
+    open-pull-requests-limit: 5
+    labels:
+      - 'dependencies'
+      - 'ci'
+      - 'automated'
+    commit-message:
+      prefix: 'chore(ci)'

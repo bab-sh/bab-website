@@ -38,6 +38,9 @@ jobs:
       - name: Run ESLint
         run: pnpm lint
 
+      - name: Check Prettier formatting
+        run: pnpm format:check
+
   typecheck:
     name: Type Check
     runs-on: ubuntu-latest

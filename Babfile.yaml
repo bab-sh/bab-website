@@ -39,6 +39,16 @@ tasks:
     run:
       - cmd: pnpm lint
 
+  format:
+    desc: Run Format
+    run:
+      - cmd: pnpm format
+
+  format:check:
+    desc: Run Format
+    run:
+      - cmd: pnpm format:check
+
   lint:fix:
     desc: Run ESLint with auto-fix
     run:

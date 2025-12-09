@@ -1,67 +1,73 @@
 <template>
-  <div class="terminal rounded-xl overflow-hidden w-full max-w-[min(100%,42rem)] shadow-2xl">
-    <div class="terminal-header px-4 py-3 flex items-center gap-2">
+  <div class="terminal w-full max-w-[min(100%,42rem)] overflow-hidden rounded-xl shadow-2xl">
+    <div class="terminal-header flex items-center gap-2 px-4 py-3">
       <div class="flex gap-2">
-        <div class="w-3 h-3 rounded-full bg-tui-red"></div>
-        <div class="w-3 h-3 rounded-full bg-tui-yellow"></div>
-        <div class="w-3 h-3 rounded-full bg-success"></div>
+        <div class="h-3 w-3 rounded-full bg-tui-red" />
+        <div class="h-3 w-3 rounded-full bg-tui-yellow" />
+        <div class="h-3 w-3 rounded-full bg-success" />
       </div>
-      <span class="text-xs text-tui-muted ml-2 font-mono">~/project</span>
+      <span class="ml-2 font-mono text-xs text-tui-muted">~/project</span>
     </div>
 
-    <div class="p-4 font-mono text-sm min-h-[320px] bg-tui-bg transform-gpu overflow-hidden">
-      <div v-if="phase === 'typing'" class="flex items-center h-5">
+    <div class="min-h-[320px] transform-gpu overflow-hidden bg-tui-bg p-4 font-mono text-sm">
+      <div v-if="phase === 'typing'" class="flex h-5 items-center">
         <span class="text-tui-muted">$</span>
-        <span class="text-white ml-2">{{ typedCommand }}</span>
+        <span class="ml-2 text-white">{{ typedCommand }}</span>
         <span
-          class="inline-block w-[7px] h-[14px] bg-white transform-gpu flex-shrink-0"
+          class="inline-block h-[14px] w-[7px] flex-shrink-0 transform-gpu bg-white"
           :class="{ 'cursor-blink': !isTypingCommand }"
-        ></span>
+        />
       </div>
 
       <div v-else-if="phase === 'tui'" class="space-y-0">
-        <div class="flex items-center h-5">
-          <span class="text-tui-match font-bold">&gt;</span>
-          <span class="text-white ml-2">{{ searchQuery }}</span>
+        <div class="flex h-5 items-center">
+          <span class="font-bold text-tui-match">&gt;</span>
+          <span class="ml-2 text-white">{{ searchQuery }}</span>
           <span
             v-if="showTuiCursor"
-            class="inline-block w-[7px] h-[14px] bg-tui-match transform-gpu flex-shrink-0"
+            class="inline-block h-[14px] w-[7px] flex-shrink-0 transform-gpu bg-tui-match"
             :class="{ 'cursor-blink': !isTypingSearch }"
-          ></span>
+          />
         </div>
 
-        <div class="my-2 font-mono text-xs flex items-center overflow-hidden">
-          <span class="flex-1 border-t border-tui-separator/50"></span>
-          <span class="text-tui-dim flex-shrink-0 px-2"> {{ filteredTasks.length }}/{{ tasks.length }} </span>
-          <span class="w-4 border-t border-tui-separator/50 flex-shrink-0"></span>
-          <span class="text-tui-dim flex-shrink-0 px-2"> bab.sh </span>
-          <span class="w-4 border-t border-tui-separator/50 flex-shrink-0"></span>
+        <div class="my-2 flex items-center overflow-hidden font-mono text-xs">
+          <span class="flex-1 border-t border-tui-separator/50" />
+          <span class="flex-shrink-0 px-2 text-tui-dim">
+            {{ filteredTasks.length }}/{{ tasks.length }}
+          </span>
+          <span class="w-4 flex-shrink-0 border-t border-tui-separator/50" />
+          <span class="flex-shrink-0 px-2 text-tui-dim"> bab.sh </span>
+          <span class="w-4 flex-shrink-0 border-t border-tui-separator/50" />
         </div>
 
         <div class="transform-gpu">
           <div
             v-for="(task, index) in filteredTasks"
             :key="task.name"
-            class="flex items-baseline h-6 transform-gpu"
+            class="flex h-6 transform-gpu items-baseline"
           >
             <span
-              class="w-4 flex-shrink-0 inline-block"
+              class="inline-block w-4 flex-shrink-0"
               :class="selectedIndex === index ? 'text-tui-accent' : 'opacity-0'"
-            >│</span>
+              >│</span
+            >
 
-            <span class="text-white w-[100px] sm:w-[140px] flex-shrink-0">
+            <span class="w-[100px] flex-shrink-0 text-white sm:w-[140px]">
               <template v-if="searchQuery && task.matchIndices">
-                <template v-for="(char, charIndex) in task.name" :key="charIndex"><span
+                <template v-for="(char, charIndex) in task.name" :key="charIndex"
+                  ><span
                     :class="task.matchIndices.includes(charIndex) ? 'text-tui-match' : 'text-white'"
-                  >{{ char }}</span></template>
+                    >{{ char }}</span
+                  ></template
+                >
               </template>
               <template v-else>{{ task.name }}</template>
             </span>
 
-            <span class="text-tui-muted italic text-xs truncate">{{ task.desc }}</span>
+            <span class="truncate text-xs italic text-tui-muted">{{ task.desc }}</span>
           </div>
 
-          <div v-if="filteredTasks.length === 0" class="text-tui-muted italic py-2 pl-4">
+          <div v-if="filteredTasks.length === 0" class="py-2 pl-4 italic text-tui-muted">
             No matching tasks :(
           </div>
         </div>
@@ -72,7 +78,7 @@
         <div class="mt-1 flex items-center gap-2">
           <span class="text-tui-match">●</span>
           <span class="text-tui-accent">Running</span>
-          <span class="text-white font-bold">build:core</span>
+          <span class="font-bold text-white">build:core</span>
         </div>
         <div v-if="executionStep >= 1" class="flex items-center gap-2 text-tui-dim">
           <span>▶</span>
@@ -91,23 +97,28 @@
           <span>npm run test</span>
         </div>
         <div v-if="executionStep >= 5" class="text-sm">
-          <span class="text-success font-bold">PASS</span><span class="text-white"> src/utils.test.ts</span>
+          <span class="font-bold text-success">PASS</span
+          ><span class="text-white"> src/utils.test.ts</span>
         </div>
         <div v-if="executionStep >= 6" class="text-sm">
-          <span class="text-success font-bold">PASS</span><span class="text-white"> src/api.test.ts</span>
+          <span class="font-bold text-success">PASS</span
+          ><span class="text-white"> src/api.test.ts</span>
         </div>
         <div v-if="executionStep >= 7" class="text-sm">
-          <span class="text-success font-bold">PASS</span><span class="text-white"> src/components.test.ts</span>
+          <span class="font-bold text-success">PASS</span
+          ><span class="text-white"> src/components.test.ts</span>
         </div>
         <div v-if="executionStep >= 8" class="flex items-center gap-2 text-tui-dim">
           <span>$</span>
           <span>npm run build</span>
         </div>
         <div v-if="executionStep >= 9" class="text-sm">
-          <span class="text-tui-muted">dist/index.js</span><span class="text-success">   24.8 kB</span>
+          <span class="text-tui-muted">dist/index.js</span
+          ><span class="text-success"> 24.8 kB</span>
         </div>
         <div v-if="executionStep >= 10" class="text-sm">
-          <span class="text-tui-muted">dist/index.css</span><span class="text-success">  8.2 kB</span>
+          <span class="text-tui-muted">dist/index.css</span
+          ><span class="text-success"> 8.2 kB</span>
         </div>
         <div v-if="executionStep >= 11" class="flex items-center gap-2 text-tui-dim">
           <span>$</span>
@@ -115,7 +126,7 @@
         </div>
         <div v-if="executionStep >= 12" class="mt-2 flex items-center gap-2">
           <span class="text-success">✔</span>
-          <span class="text-success font-bold">build:core</span>
+          <span class="font-bold text-success">build:core</span>
           <span class="text-tui-dim">completed in</span>
           <span class="text-white">1.8s</span>
         </div>
@@ -125,17 +136,17 @@
         <div class="text-tui-dim">$ bab build:core</div>
         <div class="mt-1 flex items-center gap-2">
           <span class="text-success">✔</span>
-          <span class="text-success font-bold">build:core</span>
+          <span class="font-bold text-success">build:core</span>
           <span class="text-tui-dim">completed in</span>
           <span class="text-white">1.8s</span>
         </div>
-        <div class="mt-2 flex items-center h-5">
+        <div class="mt-2 flex h-5 items-center">
           <span class="text-tui-muted">$</span>
-          <span class="text-white ml-2">{{ clearCommand }}</span>
+          <span class="ml-2 text-white">{{ clearCommand }}</span>
           <span
-            class="inline-block w-[7px] h-[14px] bg-white transform-gpu flex-shrink-0"
+            class="inline-block h-[14px] w-[7px] flex-shrink-0 transform-gpu bg-white"
             :class="{ 'cursor-blink': !isTypingClear }"
-          ></span>
+          />
         </div>
       </div>
     </div>
@@ -143,207 +154,212 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+  import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-interface Task {
-  name: string
-  desc: string
-  matchIndices?: number[]
-}
-
-const tasks: Task[] = [
-  { name: 'build', desc: 'Build all packages' },
-  { name: 'build:admin', desc: 'Build admin dashboard' },
-  { name: 'build:core', desc: 'Build core library' },
-  { name: 'build:storefront', desc: 'Build storefront app' },
-  { name: 'dev', desc: 'Start dev server' },
-  { name: 'deploy', desc: 'Deploy to production' },
-  { name: 'test', desc: 'Run all tests' },
-]
-
-const phase = ref<'typing' | 'tui' | 'executing' | 'clearing'>('typing')
-const typedCommand = ref('')
-const searchQuery = ref('')
-const selectedIndex = ref(0)
-const showTuiCursor = ref(true)
-const isTypingCommand = ref(false)
-const isTypingSearch = ref(false)
-const executionStep = ref(0)
-const clearCommand = ref('')
-const isTypingClear = ref(false)
-
-const filteredTasks = computed(() => {
-  if (!searchQuery.value) {
-    return tasks.map(t => ({ ...t, matchIndices: undefined }))
+  interface Task {
+    name: string
+    desc: string
+    matchIndices?: number[]
   }
 
-  const query = searchQuery.value.toLowerCase()
-  return tasks
-    .map(task => {
-      const name = task.name.toLowerCase()
-      const indices: number[] = []
-      let queryIndex = 0
+  const tasks: Task[] = [
+    { name: 'build', desc: 'Build all packages' },
+    { name: 'build:admin', desc: 'Build admin dashboard' },
+    { name: 'build:core', desc: 'Build core library' },
+    { name: 'build:storefront', desc: 'Build storefront app' },
+    { name: 'dev', desc: 'Start dev server' },
+    { name: 'deploy', desc: 'Deploy to production' },
+    { name: 'test', desc: 'Run all tests' },
+  ]
 
-      for (let i = 0; i < name.length && queryIndex < query.length; i++) {
-        if (name[i] === query[queryIndex]) {
-          indices.push(i)
-          queryIndex++
+  const phase = ref<'typing' | 'tui' | 'executing' | 'clearing'>('typing')
+  const typedCommand = ref('')
+  const searchQuery = ref('')
+  const selectedIndex = ref(0)
+  const showTuiCursor = ref(true)
+  const isTypingCommand = ref(false)
+  const isTypingSearch = ref(false)
+  const executionStep = ref(0)
+  const clearCommand = ref('')
+  const isTypingClear = ref(false)
+
+  const filteredTasks = computed(() => {
+    if (!searchQuery.value) {
+      return tasks.map((t) => ({ ...t, matchIndices: undefined }))
+    }
+
+    const query = searchQuery.value.toLowerCase()
+    return tasks
+      .map((task) => {
+        const name = task.name.toLowerCase()
+        const indices: number[] = []
+        let queryIndex = 0
+
+        for (let i = 0; i < name.length && queryIndex < query.length; i++) {
+          if (name[i] === query[queryIndex]) {
+            indices.push(i)
+            queryIndex++
+          }
         }
-      }
 
-      if (queryIndex === query.length) {
-        return { ...task, matchIndices: indices }
-      }
-      return null
-    })
-    .filter((t): t is Task & { matchIndices: number[] } => t !== null)
-})
-
-let isAnimating = true
-let animationId = 0
-
-const sleep = (ms: number, jitter = 0): Promise<boolean> => {
-  const currentId = animationId
-  const actualDelay = jitter > 0 ? ms + (Math.random() * jitter * 2 - jitter) : ms
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(isAnimating && animationId === currentId)
-    }, actualDelay)
+        if (queryIndex === query.length) {
+          return { ...task, matchIndices: indices }
+        }
+        return null
+      })
+      .filter((t): t is Task & { matchIndices: number[] } => t !== null)
   })
-}
 
-const typeText = async (
-  target: typeof typedCommand | typeof searchQuery,
-  text: string,
-  baseDelay = 100
-): Promise<boolean> => {
-  for (const char of text) {
-    if (!isAnimating) return false
-    target.value += char
-    const variance = baseDelay * 0.4
-    const delay = baseDelay + (Math.random() * variance * 2 - variance)
-    const shouldContinue = await sleep(delay)
-    if (!shouldContinue) return false
+  let isAnimating = true
+  let animationId = 0
+
+  const sleep = (ms: number, jitter = 0): Promise<boolean> => {
+    const currentId = animationId
+    const actualDelay = jitter > 0 ? ms + (Math.random() * jitter * 2 - jitter) : ms
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(isAnimating && animationId === currentId)
+      }, actualDelay)
+    })
   }
-  return true
-}
 
-const runAnimation = async () => {
-  if (!await sleep(600)) return
-  isTypingCommand.value = true
-  if (!await typeText(typedCommand, 'bab', 110)) return
-  isTypingCommand.value = false
-  if (!await sleep(350, 50)) return
+  const typeText = async (
+    target: typeof typedCommand | typeof searchQuery,
+    text: string,
+    baseDelay = 100,
+  ): Promise<boolean> => {
+    for (const char of text) {
+      if (!isAnimating) return false
+      target.value += char
+      const variance = baseDelay * 0.4
+      const delay = baseDelay + (Math.random() * variance * 2 - variance)
+      const shouldContinue = await sleep(delay)
+      if (!shouldContinue) return false
+    }
+    return true
+  }
 
-  phase.value = 'tui'
-  if (!await sleep(700, 100)) return
+  const runAnimation = async () => {
+    if (!(await sleep(600))) return
+    isTypingCommand.value = true
+    if (!(await typeText(typedCommand, 'bab', 110))) return
+    isTypingCommand.value = false
+    if (!(await sleep(350, 50))) return
 
-  isTypingSearch.value = true
-  if (!await typeText(searchQuery, 'bui', 140)) return
-  isTypingSearch.value = false
-  if (!await sleep(500, 100)) return
+    phase.value = 'tui'
+    if (!(await sleep(700, 100))) return
 
-  if (!await sleep(450, 50)) return
-  selectedIndex.value = 1
-  if (!await sleep(350, 50)) return
-  selectedIndex.value = 2
-  if (!await sleep(550, 50)) return
+    isTypingSearch.value = true
+    if (!(await typeText(searchQuery, 'bui', 140))) return
+    isTypingSearch.value = false
+    if (!(await sleep(500, 100))) return
 
-  showTuiCursor.value = false
-  if (!await sleep(250)) return
+    if (!(await sleep(450, 50))) return
+    selectedIndex.value = 1
+    if (!(await sleep(350, 50))) return
+    selectedIndex.value = 2
+    if (!(await sleep(550, 50))) return
 
-  phase.value = 'executing'
-  if (!await sleep(300, 100)) return
-  executionStep.value = 1
-  if (!await sleep(150, 50)) return
-  executionStep.value = 2
-  if (!await sleep(600, 150)) return
-  executionStep.value = 3
-  if (!await sleep(150, 50)) return
-  executionStep.value = 4
-  if (!await sleep(400, 100)) return
-  executionStep.value = 5
-  if (!await sleep(300, 80)) return
-  executionStep.value = 6
-  if (!await sleep(350, 80)) return
-  executionStep.value = 7
-  if (!await sleep(250, 50)) return
-  executionStep.value = 8
-  if (!await sleep(500, 100)) return
-  executionStep.value = 9
-  if (!await sleep(150, 50)) return
-  executionStep.value = 10
-  if (!await sleep(200, 50)) return
-  executionStep.value = 11
-  if (!await sleep(300, 50)) return
-  executionStep.value = 12
+    showTuiCursor.value = false
+    if (!(await sleep(250))) return
 
-  if (!await sleep(1500)) return
+    phase.value = 'executing'
+    if (!(await sleep(300, 100))) return
+    executionStep.value = 1
+    if (!(await sleep(150, 50))) return
+    executionStep.value = 2
+    if (!(await sleep(600, 150))) return
+    executionStep.value = 3
+    if (!(await sleep(150, 50))) return
+    executionStep.value = 4
+    if (!(await sleep(400, 100))) return
+    executionStep.value = 5
+    if (!(await sleep(300, 80))) return
+    executionStep.value = 6
+    if (!(await sleep(350, 80))) return
+    executionStep.value = 7
+    if (!(await sleep(250, 50))) return
+    executionStep.value = 8
+    if (!(await sleep(500, 100))) return
+    executionStep.value = 9
+    if (!(await sleep(150, 50))) return
+    executionStep.value = 10
+    if (!(await sleep(200, 50))) return
+    executionStep.value = 11
+    if (!(await sleep(300, 50))) return
+    executionStep.value = 12
 
-  phase.value = 'clearing'
-  if (!await sleep(500)) return
+    if (!(await sleep(1500))) return
 
-  isTypingClear.value = true
-  if (!await typeText(clearCommand, 'clear', 110)) return
-  isTypingClear.value = false
+    phase.value = 'clearing'
+    if (!(await sleep(500))) return
 
-  if (!await sleep(400)) return
+    isTypingClear.value = true
+    if (!(await typeText(clearCommand, 'clear', 110))) return
+    isTypingClear.value = false
 
-  resetState()
-  if (!await sleep(300)) return
-  runAnimation()
-}
+    if (!(await sleep(400))) return
 
-const resetState = () => {
-  phase.value = 'typing'
-  typedCommand.value = ''
-  searchQuery.value = ''
-  selectedIndex.value = 0
-  showTuiCursor.value = true
-  isTypingCommand.value = false
-  isTypingSearch.value = false
-  executionStep.value = 0
-  clearCommand.value = ''
-  isTypingClear.value = false
-}
+    resetState()
+    if (!(await sleep(300))) return
+    runAnimation()
+  }
 
-onMounted(() => {
-  isAnimating = true
-  animationId++
-  runAnimation()
-})
+  const resetState = () => {
+    phase.value = 'typing'
+    typedCommand.value = ''
+    searchQuery.value = ''
+    selectedIndex.value = 0
+    showTuiCursor.value = true
+    isTypingCommand.value = false
+    isTypingSearch.value = false
+    executionStep.value = 0
+    clearCommand.value = ''
+    isTypingClear.value = false
+  }
 
-onUnmounted(() => {
-  isAnimating = false
-  animationId++
-})
+  onMounted(() => {
+    isAnimating = true
+    animationId++
+    runAnimation()
+  })
+
+  onUnmounted(() => {
+    isAnimating = false
+    animationId++
+  })
 </script>
 
 <style scoped>
-.terminal {
-  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.03),
-    0 25px 50px -12px rgba(0, 0, 0, 0.6),
-    0 0 80px -20px rgba(175, 135, 255, 0.15);
-  transform: translateZ(0);
-  will-change: transform;
-  backface-visibility: hidden;
-}
+  .terminal {
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.03),
+      0 25px 50px -12px rgba(0, 0, 0, 0.6),
+      0 0 80px -20px rgba(175, 135, 255, 0.15);
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
 
-.terminal-header {
-  background: linear-gradient(180deg, #2d2d2d 0%, #1f1f1f 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  transform: translateZ(0);
-}
+  .terminal-header {
+    background: linear-gradient(180deg, #2d2d2d 0%, #1f1f1f 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transform: translateZ(0);
+  }
 
-.cursor-blink {
-  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
+  .cursor-blink {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
 </style>
