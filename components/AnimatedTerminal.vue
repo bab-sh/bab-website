@@ -30,7 +30,7 @@
           />
         </div>
 
-        <div class="my-2 flex items-center overflow-hidden font-mono text-xs">
+        <div class="flex h-5 items-center overflow-hidden font-mono text-xs">
           <span class="border-tui-separator/50 flex-1 border-t" />
           <span class="text-tui-dim flex-shrink-0 px-2">
             {{ filteredTasks.length }}/{{ tasks.length }}
@@ -74,57 +74,57 @@
       </div>
 
       <div v-else-if="phase === 'executing'" class="space-y-0">
-        <div class="text-tui-dim">$ bab build:core</div>
-        <div class="mt-1 flex items-center gap-2">
+        <div class="text-tui-dim flex h-5 items-center">$ bab build:core</div>
+        <div class="flex h-5 items-center gap-2">
           <span class="text-tui-match">●</span>
           <span class="text-tui-accent">Running</span>
           <span class="font-bold text-white">build:core</span>
         </div>
-        <div v-if="executionStep >= 1" class="text-tui-dim flex items-center gap-2">
+        <div v-if="executionStep >= 1" class="text-tui-dim flex h-5 items-center gap-2">
           <span>▶</span>
           <span>lint</span>
         </div>
-        <div v-if="executionStep >= 2" class="text-tui-dim flex items-center gap-2">
+        <div v-if="executionStep >= 2" class="text-tui-dim flex h-5 items-center gap-2">
           <span>$</span>
           <span>eslint src/</span>
         </div>
-        <div v-if="executionStep >= 3" class="text-tui-dim flex items-center gap-2">
+        <div v-if="executionStep >= 3" class="text-tui-dim flex h-5 items-center gap-2">
           <span>▶</span>
           <span>test</span>
         </div>
-        <div v-if="executionStep >= 4" class="text-tui-dim flex items-center gap-2">
+        <div v-if="executionStep >= 4" class="text-tui-dim flex h-5 items-center gap-2">
           <span>$</span>
           <span>npm run test</span>
         </div>
-        <div v-if="executionStep >= 5" class="text-sm">
-          <span class="text-success font-bold">PASS</span
-          ><span class="text-white"> src/utils.test.ts</span>
+        <div v-if="executionStep >= 5" class="flex h-5 items-center">
+          <span class="text-success font-bold">PASS</span>
+          <span class="text-white">&nbsp;src/utils.test.ts</span>
         </div>
-        <div v-if="executionStep >= 6" class="text-sm">
-          <span class="text-success font-bold">PASS</span
-          ><span class="text-white"> src/api.test.ts</span>
+        <div v-if="executionStep >= 6" class="flex h-5 items-center">
+          <span class="text-success font-bold">PASS</span>
+          <span class="text-white">&nbsp;src/api.test.ts</span>
         </div>
-        <div v-if="executionStep >= 7" class="text-sm">
-          <span class="text-success font-bold">PASS</span
-          ><span class="text-white"> src/components.test.ts</span>
+        <div v-if="executionStep >= 7" class="flex h-5 items-center">
+          <span class="text-success font-bold">PASS</span>
+          <span class="text-white">&nbsp;src/components.test.ts</span>
         </div>
-        <div v-if="executionStep >= 8" class="text-tui-dim flex items-center gap-2">
+        <div v-if="executionStep >= 8" class="text-tui-dim flex h-5 items-center gap-2">
           <span>$</span>
           <span>npm run build</span>
         </div>
-        <div v-if="executionStep >= 9" class="text-sm">
-          <span class="text-tui-muted">dist/index.js</span
-          ><span class="text-success"> 24.8 kB</span>
+        <div v-if="executionStep >= 9" class="flex h-5 items-center">
+          <span class="text-tui-muted">dist/index.js</span>
+          <span class="text-success">&nbsp;24.8 kB</span>
         </div>
-        <div v-if="executionStep >= 10" class="text-sm">
-          <span class="text-tui-muted">dist/index.css</span
-          ><span class="text-success"> 8.2 kB</span>
+        <div v-if="executionStep >= 10" class="flex h-5 items-center">
+          <span class="text-tui-muted">dist/index.css</span>
+          <span class="text-success">&nbsp;8.2 kB</span>
         </div>
-        <div v-if="executionStep >= 11" class="text-tui-dim flex items-center gap-2">
+        <div v-if="executionStep >= 11" class="text-tui-dim flex h-5 items-center gap-2">
           <span>$</span>
           <span>cp -r dist/ out/</span>
         </div>
-        <div v-if="executionStep >= 12" class="mt-2 flex items-center gap-2">
+        <div v-if="executionStep >= 12" class="flex h-5 items-center gap-2">
           <span class="text-success">✔</span>
           <span class="text-success font-bold">build:core</span>
           <span class="text-tui-dim">completed in</span>
@@ -133,14 +133,14 @@
       </div>
 
       <div v-else-if="phase === 'clearing'" class="space-y-0">
-        <div class="text-tui-dim">$ bab build:core</div>
-        <div class="mt-1 flex items-center gap-2">
+        <div class="text-tui-dim flex h-5 items-center">$ bab build:core</div>
+        <div class="flex h-5 items-center gap-2">
           <span class="text-success">✔</span>
           <span class="text-success font-bold">build:core</span>
           <span class="text-tui-dim">completed in</span>
           <span class="text-white">1.8s</span>
         </div>
-        <div class="mt-2 flex h-5 items-center">
+        <div class="flex h-5 items-center">
           <span class="text-tui-muted">$</span>
           <span class="ml-2 text-white">{{ clearCommand }}</span>
           <span
