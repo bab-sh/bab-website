@@ -154,7 +154,7 @@
   import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
   import { Separator } from '@/components/ui/separator'
 
-  const { data: intellijData } = await useFetch('/api/intellij-version')
+  const { data: intellijData } = await useFetch<{ version: string }>('/api/intellij-version')
   const intellijVersion = computed(() => intellijData.value?.version ?? null)
 
   const vscodeFeatures = [

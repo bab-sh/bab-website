@@ -134,8 +134,8 @@
   const copied = ref(false)
   const selectedPlatform = ref<'unix' | 'windows'>('unix')
 
-  const { data: starsData } = await useFetch('/api/github-stars')
-  const { data: versionData } = await useFetch('/api/github-version')
+  const { data: starsData } = await useFetch<{ stars: number }>('/api/github-stars')
+  const { data: versionData } = await useFetch<{ version: string }>('/api/github-version')
 
   const stars = computed(() => starsData.value?.stars ?? null)
   const version = computed(() => versionData.value?.version ?? null)
