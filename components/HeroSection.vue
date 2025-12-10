@@ -27,8 +27,8 @@
           </div>
 
           <div class="flex items-center justify-center gap-4 lg:justify-start">
-            <BabLogo class="h-14 w-14 sm:h-16 sm:w-16 lg:h-20 lg:w-20" :glow="true" />
-            <h1 class="text-gradient text-6xl font-bold tracking-tight sm:text-7xl lg:text-8xl">
+            <BabLogo class="h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28" :glow="true" />
+            <h1 class="text-gradient text-8xl font-bold tracking-tight sm:text-9xl lg:text-9xl">
               Bab
             </h1>
           </div>
@@ -102,12 +102,12 @@
               </div>
             </div>
             <div
-              class="group border-border bg-card/50 hover:border-bab/30 inline-flex items-center gap-2 rounded-lg border px-3 py-2.5 font-mono text-xs transition-colors sm:px-4 sm:text-sm"
+              class="group border-border bg-card/50 hover:border-bab/30 flex w-full items-center gap-2 rounded-lg border px-3 py-2.5 font-mono text-xs transition-colors sm:text-sm lg:inline-flex lg:w-auto lg:px-4"
             >
-              <span class="text-[#ff87d7]">{{ promptSymbol }}</span>
+              <span class="text-tui-match">{{ promptSymbol }}</span>
               <code class="text-white">{{ installCommand }}</code>
               <button
-                class="text-muted-foreground ml-2 rounded p-1 transition-colors hover:bg-white/5 hover:text-white"
+                class="text-muted-foreground ml-auto rounded p-1 transition-colors hover:bg-white/5 hover:text-white lg:ml-2"
                 @click="copyInstallCommand"
               >
                 <Copy v-if="!copied" class="h-4 w-4" />
