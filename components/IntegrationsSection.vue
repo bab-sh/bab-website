@@ -109,7 +109,11 @@
                 class="border-intellij text-intellij hover:bg-intellij/10 flex-1 bg-transparent"
                 as-child
               >
-                <a href="https://plugins.jetbrains.com/plugin/29264" target="_blank" rel="noopener">
+                <a
+                  href="https://plugins.jetbrains.com/plugin/29264"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Download class="mr-2 h-4 w-4" />
                   Install Plugin
                 </a>
@@ -118,7 +122,7 @@
                 <a
                   href="https://github.com/bab-sh/bab-intellij-plugin"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   <Icon icon="simple-icons:github" class="mr-2 h-4 w-4" />
                   Source

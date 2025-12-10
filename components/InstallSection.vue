@@ -75,7 +75,11 @@
         <div class="mt-8 text-center">
           <p class="text-muted-foreground mb-4">Or download binaries directly from GitHub:</p>
           <Button variant="outline" as-child>
-            <a href="https://github.com/bab-sh/bab/releases/latest" target="_blank" rel="noopener">
+            <a
+              href="https://github.com/bab-sh/bab/releases/latest"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Download class="mr-2 h-4 w-4" />
               Download Latest Release
             </a>

@@ -41,19 +41,19 @@
           class="border-discord text-discord hover:bg-discord/10"
           as-child
         >
-          <a href="https://discord.bab.sh" target="_blank" rel="noopener">
+          <a href="https://discord.bab.sh" target="_blank" rel="noopener noreferrer">
             <Icon icon="simple-icons:discord" class="mr-2 h-5 w-5" />
             Join Discord
           </a>
         </Button>
         <Button size="lg" variant="outline" as-child>
-          <a href="https://github.com/bab-sh/bab" target="_blank" rel="noopener">
+          <a href="https://github.com/bab-sh/bab" target="_blank" rel="noopener noreferrer">
             <Icon icon="simple-icons:github" class="mr-2 h-5 w-5" />
             Star on GitHub
           </a>
         </Button>
         <Button size="lg" variant="outline" as-child>
-          <a href="https://docs.bab.sh" target="_blank" rel="noopener">
+          <a href="https://docs.bab.sh" target="_blank" rel="noopener noreferrer">
             <BookOpen class="mr-2 h-5 w-5" />
             Read the Docs
           </a>
@@ -77,7 +77,7 @@
                   :key="item.label"
                   :href="item.href"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                   class="group border-border bg-card/80 hover:border-bab/50 hover:bg-bab/10 flex h-10 w-10 items-center justify-center rounded-full border transition-all"
                   :title="item.label"
                 >
@@ -92,7 +92,7 @@
                 <a
                   href="https://github.com/bab-sh/bab/blob/main/CONTRIBUTING.md"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   <Heart class="mr-2 h-4 w-4" />
                   Start Contributing

@@ -30,12 +30,17 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
       title: 'bab - Modern Task Runner',
       meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
           content: 'Modern task runner. Zero dependencies, cross-platform, simple.',
         },
         { name: 'theme-color', content: '#0a0a0a' },
         { name: 'apple-mobile-web-app-title', content: 'Bab.sh' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'format-detection', content: 'telephone=no' },
         { name: 'robots', content: 'index, follow' },
         { name: 'googlebot', content: 'index, follow' },
         { property: 'og:type', content: 'website' },

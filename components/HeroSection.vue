@@ -43,7 +43,7 @@
               <a
                 href="https://docs.bab.sh/guide/getting-started.html"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 Get Started
                 <ArrowRight class="ml-2 h-4 w-4" />
@@ -53,7 +53,7 @@
               <a
                 href="https://github.com/bab-sh/bab"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="flex items-center"
               >
                 <Icon icon="simple-icons:github" class="mr-2 h-4 w-4" />

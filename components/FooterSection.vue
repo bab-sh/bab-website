@@ -19,7 +19,7 @@
               <a
                 href="https://bab.sh"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 Documentation
@@ -37,7 +37,7 @@
               <a
                 href="https://github.com/bab-sh/bab/releases"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 Releases
@@ -47,7 +47,7 @@
               <a
                 href="https://github.com/bab-sh/bab/blob/main/docs/content/roadmap.md"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 Roadmap
@@ -63,7 +63,7 @@
               <a
                 href="https://marketplace.visualstudio.com/items?itemName=bab-sh.bab"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 VS Code Extension
@@ -73,7 +73,7 @@
               <a
                 href="https://plugins.jetbrains.com/plugin/29264"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="text-muted-foreground text-sm transition-colors hover:text-white"
               >
                 IntelliJ Plugin
@@ -89,7 +89,7 @@
               <a
                 href="https://github.com/bab-sh/bab"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white"
               >
                 <Icon icon="simple-icons:github" class="h-4 w-4" />
@@ -100,7 +100,7 @@
               <a
                 href="https://discord.bab.sh"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white"
               >
                 <Icon icon="simple-icons:discord" class="h-4 w-4" />
