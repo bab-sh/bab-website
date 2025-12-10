@@ -40,7 +40,11 @@
 
           <div class="flex flex-col justify-center gap-4 pt-4 sm:flex-row lg:justify-start">
             <Button size="lg" as-child>
-              <a href="https://bab.sh" target="_blank" rel="noopener">
+              <a
+                href="https://docs.bab.sh/guide/getting-started.html"
+                target="_blank"
+                rel="noopener"
+              >
                 Get Started
                 <ArrowRight class="ml-2 h-4 w-4" />
               </a>
