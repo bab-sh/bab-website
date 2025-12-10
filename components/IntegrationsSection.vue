@@ -154,17 +154,8 @@
   import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
   import { Separator } from '@/components/ui/separator'
 
-  const intellijVersion = ref<string | null>(null)
-
-  onMounted(async () => {
-    try {
-      const res = await fetch('/api/intellij-version')
-      const data = await res.json()
-      intellijVersion.value = data.version
-    } catch {
-      /* empty */
-    }
-  })
+  const { data: intellijData } = await useFetch('/api/intellij-version')
+  const intellijVersion = computed(() => intellijData.value?.version ?? null)
 
   const vscodeFeatures = [
     'Code completion for tasks and deps',

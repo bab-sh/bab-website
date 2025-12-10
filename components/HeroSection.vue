@@ -133,26 +133,16 @@
 
   const copied = ref(false)
   const selectedPlatform = ref<'unix' | 'windows'>('unix')
-  const stars = ref<number | null>(null)
-  const version = ref<string | null>(null)
 
-  onMounted(async () => {
+  const { data: starsData } = await useFetch('/api/github-stars')
+  const { data: versionData } = await useFetch('/api/github-version')
+
+  const stars = computed(() => starsData.value?.stars ?? null)
+  const version = computed(() => versionData.value?.version ?? null)
+
+  onMounted(() => {
     if (navigator.platform.toLowerCase().includes('win')) {
       selectedPlatform.value = 'windows'
-    }
-
-    try {
-      const [starsRes, versionRes] = await Promise.all([
-        fetch('/api/github-stars'),
-        fetch('/api/github-version'),
-      ])
-      const starsData = await starsRes.json()
-      const versionData = await versionRes.json()
-      stars.value = starsData.stars
-      version.value = versionData.version
-    } catch {
-      stars.value = null
-      version.value = null
     }
   })
 
