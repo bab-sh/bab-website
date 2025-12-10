@@ -1,6 +1,6 @@
 let cachedVersion: string | null = null
 let cacheTimestamp: number = 0
-const CACHE_TTL = 60 * 60 * 1000
+const CACHE_TTL = 5 * 60 * 1000
 
 export default defineEventHandler(async () => {
   const now = Date.now()
