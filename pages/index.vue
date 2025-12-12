@@ -2,10 +2,12 @@
   <div>
     <HeroSection />
     <FeaturesSection />
+    <ComparisonSection />
     <CodeSection />
     <IntegrationsSection />
     <InstallSection />
     <OpenSourceSection />
+    <FaqSection />
     <FooterSection />
   </div>
 </template>

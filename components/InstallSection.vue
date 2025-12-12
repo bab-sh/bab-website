@@ -1,5 +1,5 @@
 <template>
-  <section id="install" class="bg-card/30 relative py-24">
+  <section id="install" class="relative py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-16 text-center">
         <Badge variant="secondary" class="border-bab/20 bg-bab/10 text-bab-light mb-4">
