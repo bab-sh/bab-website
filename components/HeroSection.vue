@@ -26,9 +26,11 @@
             </Badge>
           </div>
 
-          <div class="flex items-center justify-center gap-4 lg:justify-start">
-            <BabLogo class="h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28" :glow="true" />
-            <h1 class="text-gradient text-8xl font-bold tracking-tight sm:text-9xl lg:text-9xl">
+          <div class="flex items-center justify-center gap-3 sm:gap-4 lg:justify-start">
+            <BabLogo class="h-20 w-20 shrink-0 sm:h-24 sm:w-24 lg:h-28 lg:w-28" :glow="true" />
+            <h1
+              class="text-gradient m-0 flex h-20 items-center justify-center p-0 text-7xl leading-none font-bold tracking-tight sm:h-24 sm:text-8xl lg:h-28 lg:text-9xl"
+            >
               Bab
             </h1>
           </div>

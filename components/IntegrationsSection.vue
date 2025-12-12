@@ -29,7 +29,7 @@
               </div>
               <Badge
                 variant="secondary"
-                class="border-muted-foreground/30 bg-muted/50 text-muted-foreground text-xs"
+                class="border-muted-foreground/30 bg-muted/50 text-muted-foreground text-xs whitespace-nowrap"
               >
                 Coming soon
               </Badge>
@@ -42,7 +42,7 @@
                 :key="feature"
                 class="text-muted-foreground flex items-center gap-2 text-sm"
               >
-                <Check class="text-bab h-4 w-4 flex-shrink-0" />
+                <Check class="text-bab h-4 w-4 shrink-0" />
                 {{ feature }}
               </li>
             </ul>
@@ -85,7 +85,7 @@
               <Badge
                 v-if="intellijVersion"
                 variant="secondary"
-                class="border-intellij/30 bg-intellij/15 text-intellij text-xs"
+                class="border-intellij/30 bg-intellij/15 text-intellij text-xs whitespace-nowrap"
               >
                 v{{ intellijVersion }}
               </Badge>
@@ -98,7 +98,7 @@
                 :key="feature"
                 class="text-muted-foreground flex items-center gap-2 text-sm"
               >
-                <Check class="text-bab h-4 w-4 flex-shrink-0" />
+                <Check class="text-bab h-4 w-4 shrink-0" />
                 {{ feature }}
               </li>
             </ul>

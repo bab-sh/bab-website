@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
 
-  modules: ['shadcn-nuxt', '@nuxtjs/google-fonts', '@nuxt/eslint'],
+  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxt/eslint'],
 
   vite: {
     plugins: [tailwindcss()],
@@ -18,11 +18,19 @@ export default defineNuxtConfig({
     componentDir: './components/ui',
   },
 
-  googleFonts: {
-    families: {
-      Inter: [400, 500, 600, 700, 800],
+  fonts: {
+    families: [
+      {
+        name: 'Montserrat',
+        provider: 'google',
+        weights: [400, 500, 600, 700, 800],
+      },
+    ],
+    defaults: {
+      weights: [400, 500, 600, 700, 800],
+      styles: ['normal'],
+      subsets: ['latin'],
     },
-    display: 'swap',
   },
 
   app: {

@@ -9,12 +9,12 @@
       <span class="text-tui-muted ml-2 font-mono text-xs">~/project</span>
     </div>
 
-    <div class="bg-tui-bg min-h-[320px] transform-gpu overflow-hidden p-4 font-mono text-sm">
+    <div class="bg-tui-bg min-h-80 transform-gpu overflow-hidden p-4 font-mono text-sm">
       <div v-if="phase === 'typing'" class="flex h-5 items-center">
         <span class="text-tui-muted">$</span>
         <span class="ml-2 text-white">{{ typedCommand }}</span>
         <span
-          class="inline-block h-[14px] w-[7px] flex-shrink-0 transform-gpu bg-white"
+          class="inline-block h-3.5 w-[7px] shrink-0 transform-gpu bg-white"
           :class="{ 'cursor-blink': !isTypingCommand }"
         />
       </div>
@@ -25,19 +25,19 @@
           <span class="ml-2 text-white">{{ searchQuery }}</span>
           <span
             v-if="showTuiCursor"
-            class="bg-tui-match inline-block h-[14px] w-[7px] flex-shrink-0 transform-gpu"
+            class="bg-tui-match inline-block h-3.5 w-[7px] shrink-0 transform-gpu"
             :class="{ 'cursor-blink': !isTypingSearch }"
           />
         </div>
 
-        <div class="flex h-5 items-center overflow-hidden font-mono text-xs">
+        <div class="flex h-5 items-center overflow-hidden font-mono">
           <span class="border-tui-separator/50 flex-1 border-t" />
-          <span class="text-tui-dim flex-shrink-0 px-2">
+          <span class="text-tui-dim shrink-0 px-2">
             {{ filteredTasks.length }}/{{ tasks.length }}
           </span>
-          <span class="border-tui-separator/50 w-4 flex-shrink-0 border-t" />
-          <span class="text-tui-dim flex-shrink-0 px-2"> bab.sh </span>
-          <span class="border-tui-separator/50 w-4 flex-shrink-0 border-t" />
+          <span class="border-tui-separator/50 w-4 shrink-0 border-t" />
+          <span class="text-tui-dim shrink-0 px-2"> bab.sh </span>
+          <span class="border-tui-separator/50 w-4 shrink-0 border-t" />
         </div>
 
         <div class="transform-gpu">
@@ -47,24 +47,27 @@
             class="flex h-6 transform-gpu items-baseline"
           >
             <span
-              class="inline-block w-4 flex-shrink-0"
+              class="inline-block w-4 shrink-0"
               :class="selectedIndex === index ? 'text-tui-accent' : 'opacity-0'"
               >│</span
             >
+            <span class="flex items-center gap-2">
+              <span class="shrink-0 text-white">
+                <template v-if="searchQuery && task.matchIndices">
+                  <template v-for="(char, charIndex) in task.name" :key="charIndex"
+                    ><span
+                      :class="
+                        task.matchIndices.includes(charIndex) ? 'text-tui-match' : 'text-white'
+                      "
+                      >{{ char }}</span
+                    ></template
+                  >
+                </template>
+                <template v-else>{{ task.name }}</template>
+              </span>
 
-            <span class="w-[100px] flex-shrink-0 text-white sm:w-[140px]">
-              <template v-if="searchQuery && task.matchIndices">
-                <template v-for="(char, charIndex) in task.name" :key="charIndex"
-                  ><span
-                    :class="task.matchIndices.includes(charIndex) ? 'text-tui-match' : 'text-white'"
-                    >{{ char }}</span
-                  ></template
-                >
-              </template>
-              <template v-else>{{ task.name }}</template>
+              <span class="text-tui-muted truncate italic">{{ task.desc }}</span>
             </span>
-
-            <span class="text-tui-muted truncate text-xs italic">{{ task.desc }}</span>
           </div>
 
           <div v-if="filteredTasks.length === 0" class="text-tui-muted py-2 pl-4 italic">
@@ -144,7 +147,7 @@
           <span class="text-tui-muted">$</span>
           <span class="ml-2 text-white">{{ clearCommand }}</span>
           <span
-            class="inline-block h-[14px] w-[7px] flex-shrink-0 transform-gpu bg-white"
+            class="inline-block h-3.5 w-[7px] shrink-0 transform-gpu bg-white"
             :class="{ 'cursor-blink': !isTypingClear }"
           />
         </div>
