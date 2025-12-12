@@ -7,6 +7,7 @@
     <IntegrationsSection />
     <InstallSection />
     <OpenSourceSection />
+    <TestimonialsSection />
     <FaqSection />
     <FooterSection />
   </div>
