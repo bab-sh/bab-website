@@ -73,6 +73,13 @@
   import { Button } from '@/components/ui/button'
   import testimonialsData from '@/data/testimonials.json'
 
+  interface TestimonialData {
+    github: string
+    role: string
+    quote: string
+    since: string
+  }
+
   interface GitHubProfile {
     login: string
     name: string | null
@@ -81,7 +88,7 @@
     cached: boolean
   }
 
-  const testimonials = testimonialsData.map((t) => ({
+  const testimonials = (testimonialsData as TestimonialData[]).map((t) => ({
     ...t,
     since: new Date(t.since),
   }))
