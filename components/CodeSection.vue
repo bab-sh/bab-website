@@ -31,7 +31,10 @@
           </div>
           <pre
             class="overflow-x-auto p-4 font-mono text-xs leading-relaxed sm:text-sm"
-          ><code><span class="text-tui-match">tasks</span><span class="text-white">:</span>
+          ><code><span class="env-block" :class="{ 'highlight': highlightedFeature === 'env' || highlightedEnvRef }" @mouseenter="highlightedEnvRef = true" @mouseleave="highlightedEnvRef = false"><span class="text-tui-match">env</span><span class="text-white">:</span>
+  <span class="text-tui-muted">NODE_ENV</span><span class="text-white">:</span> <span class="text-gray-200">production</span>
+</span>
+<span class="text-tui-match">tasks</span><span class="text-white">:</span>
 
 <span class="task-block" :class="{ 'highlight': highlightedTask === 'setup' || highlightedDepsRef === 'setup' }">  <span class="text-tui-accent">setup</span><span class="text-white">:</span>
     <span class="text-tui-muted">desc</span><span class="text-white">:</span> <span class="text-gray-200">Install dependencies</span>
@@ -51,7 +54,9 @@
 </span>
 <span class="task-block" :class="{ 'highlight': highlightedTask === 'build' || highlightedTaskRef === 'build' }">  <span class="text-tui-accent">build</span><span class="text-white">:</span>
     <span class="text-tui-muted">desc</span><span class="text-white">:</span> <span class="text-gray-200">Build for production</span>
-    <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'deps' || highlightedDepsLine === 'build-deps' }" @mouseenter="highlightedDepsRef = 'setup'; highlightedDepsLine = 'build-deps'" @mouseleave="highlightedDepsRef = null; highlightedDepsLine = null"><span class="text-tui-muted">deps</span><span class="text-white">:</span> <span class="text-gray-200">[setup]</span></span>
+<span class="env-block" :class="{ 'highlight': highlightedFeature === 'env' || highlightedEnvRef }" @mouseenter="highlightedEnvRef = true" @mouseleave="highlightedEnvRef = false">    <span class="text-tui-muted">env</span><span class="text-white">:</span>
+      <span class="text-tui-muted">MINIFY</span><span class="text-white">:</span> <span class="text-gray-200">"true"</span>
+</span>    <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'deps' || highlightedDepsLine === 'build-deps' }" @mouseenter="highlightedDepsRef = 'setup'; highlightedDepsLine = 'build-deps'" @mouseleave="highlightedDepsRef = null; highlightedDepsLine = null"><span class="text-tui-muted">deps</span><span class="text-white">:</span> <span class="text-gray-200">[setup]</span></span>
     <span class="text-tui-muted">run</span><span class="text-white">:</span>
       <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'composition' || highlightedTaskRef === 'lint' }" @mouseenter="highlightedTaskRef = 'lint'" @mouseleave="highlightedTaskRef = null"><span class="text-white">-</span> <span class="text-tui-muted">task</span><span class="text-white">:</span> <span class="text-tui-accent">lint</span></span>
       <span class="text-white">-</span> <span class="text-tui-muted">cmd</span><span class="text-white">:</span> <span class="text-gray-200">npm run build</span>
@@ -121,7 +126,7 @@
 </template>
 
 <script setup lang="ts">
-  import { Copy, Check, GitBranch, Globe, Layers } from 'lucide-vue-next'
+  import { Copy, Check, GitBranch, Globe, Layers, Variable } from 'lucide-vue-next'
   import { Badge } from '@/components/ui/badge'
 
   const copied = ref(false)
@@ -130,6 +135,7 @@
   const highlightedDepsRef = ref<string | null>(null)
   const highlightedDepsLine = ref<string | null>(null)
   const highlightedPlatformsRef = ref(false)
+  const highlightedEnvRef = ref(false)
   const highlightedFeature = ref<string | null>(null)
 
   const taskCommands = [
@@ -155,6 +161,13 @@
       featureId: 'deps',
     },
     {
+      icon: Variable,
+      title: 'Environment Variables',
+      description:
+        'Set env vars at global, task, or command level. More specific levels override broader ones.',
+      featureId: 'env',
+    },
+    {
       icon: Globe,
       title: 'Platform-Specific Commands',
       description: 'Different commands for different operating systems. Write once, run anywhere.',
@@ -171,11 +184,15 @@
     )
       return true
     if (featureId === 'deps' && highlightedDepsLine.value) return true
+    if (featureId === 'env' && highlightedEnvRef.value) return true
     if (featureId === 'platforms' && highlightedPlatformsRef.value) return true
     return false
   }
 
-  const codeExample = `tasks:
+  const codeExample = `env:
+  NODE_ENV: production
+
+tasks:
 
   setup:
     desc: Install dependencies
@@ -195,6 +212,8 @@
 
   build:
     desc: Build for production
+    env:
+      MINIFY: "true"
     deps: [setup]
     run:
       - task: lint
@@ -219,7 +238,8 @@
 </script>
 
 <style scoped>
-  .task-block {
+  .task-block,
+  .env-block {
     display: block;
     margin: 0 -12px;
     padding: 2px 12px;
@@ -227,7 +247,8 @@
     transition: all 0.2s ease;
   }
 
-  .task-block.highlight {
+  .task-block.highlight,
+  .env-block.highlight {
     background: rgba(208, 157, 247, 0.2);
     box-shadow: 0 0 8px rgba(208, 157, 247, 0.15);
   }

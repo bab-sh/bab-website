@@ -88,7 +88,7 @@
                 'Cross-platform support',
                 'YAML configuration',
                 'Task dependencies',
-                'Parallel execution',
+                'Environment variables',
               ],
             },
           ],

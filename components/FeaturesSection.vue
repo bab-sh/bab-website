@@ -78,6 +78,7 @@
   const additionalFeatures = [
     'Interactive TUI with fuzzy search',
     'Platform-specific commands',
+    'Environment variables',
     'Shell completion (bash, zsh, fish)',
     'Dry-run mode',
     'Verbose logging',
