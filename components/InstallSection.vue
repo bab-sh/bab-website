@@ -15,7 +15,7 @@
         <Tabs default-value="script" class="w-full">
           <TabsList class="grid w-full grid-cols-2 sm:grid-cols-4">
             <TabsTrigger v-for="method in installMethods" :key="method.id" :value="method.id">
-              <Icon :icon="method.icon" class="mr-2 h-4 w-4" />
+              <Icon :name="method.icon" class="mr-2 h-4 w-4" />
               {{ method.label }}
             </TabsTrigger>
           </TabsList>
@@ -34,8 +34,12 @@
                     class="text-muted-foreground rounded p-1 transition-colors hover:bg-white/5 hover:text-white"
                     @click="copyCommand(method.command)"
                   >
-                    <Copy v-if="copiedCommand !== method.command" class="h-4 w-4" />
-                    <Check v-else class="text-success h-4 w-4" />
+                    <Icon
+                      v-if="copiedCommand !== method.command"
+                      name="lucide:copy"
+                      class="h-4 w-4"
+                    />
+                    <Icon v-else name="lucide:check" class="text-success h-4 w-4" />
                   </button>
                 </div>
                 <pre
@@ -58,11 +62,12 @@
               <CardContent class="p-3 sm:p-4">
                 <div class="mb-2 flex items-center justify-between">
                   <span class="text-sm font-medium text-white sm:text-base">{{ pkg.name }}</span>
-                  <Copy
+                  <Icon
                     v-if="copiedCommand !== pkg.command"
+                    name="lucide:copy"
                     class="text-muted-foreground h-3 w-3 flex-shrink-0"
                   />
-                  <Check v-else class="text-success h-3 w-3 flex-shrink-0" />
+                  <Icon v-else name="lucide:check" class="text-success h-3 w-3 flex-shrink-0" />
                 </div>
                 <code class="text-muted-foreground block font-mono text-xs break-all sm:truncate">
                   {{ pkg.command }}
@@ -80,7 +85,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Download class="mr-2 h-4 w-4" />
+              <Icon name="lucide:download" class="mr-2 h-4 w-4" />
               Download Latest Release
             </a>
           </Button>
@@ -91,8 +96,6 @@
 </template>
 
 <script setup lang="ts">
-  import { Icon } from '@iconify/vue'
-  import { Copy, Check, Download } from 'lucide-vue-next'
   import { Badge } from '@/components/ui/badge'
   import { Button } from '@/components/ui/button'
   import { Card, CardContent } from '@/components/ui/card'

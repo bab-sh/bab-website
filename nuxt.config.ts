@@ -7,7 +7,19 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
 
-  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxt/eslint'],
+  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxt/eslint', '@nuxt/icon', 'nuxt-svgo'],
+
+  svgo: {
+    autoImportPath: './assets/images/',
+  },
+
+  icon: {
+    serverBundle: {
+      collections: ['lucide', 'simple-icons'],
+    },
+    mode: 'css',
+    class: 'icon',
+  },
 
   vite: {
     plugins: [tailwindcss()],
@@ -42,8 +54,11 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
-          content: 'Modern task runner. Zero dependencies, cross-platform, simple.',
+          content:
+            'bab is a modern, zero-dependency task runner for developers. Cross-platform CLI tool to replace Makefiles and npm scripts with simple YAML configuration.',
         },
+        { name: 'generator', content: 'Nuxt' },
+        { name: 'rating', content: 'general' },
         { name: 'theme-color', content: '#0a0a0a' },
         { name: 'apple-mobile-web-app-title', content: 'Bab.sh' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },

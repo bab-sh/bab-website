@@ -21,7 +21,7 @@
         >
           <CardHeader>
             <div class="bg-bab/10 mb-4 flex h-12 w-12 items-center justify-center rounded-lg">
-              <component :is="feature.icon" class="text-bab-light h-6 w-6" />
+              <Icon :name="feature.icon" class="text-bab-light" size="24" />
             </div>
             <CardTitle class="text-white">{{ feature.title }}</CardTitle>
           </CardHeader>
@@ -39,7 +39,7 @@
           :key="item"
           class="text-muted-foreground flex items-center gap-3"
         >
-          <Check class="text-bab h-5 w-5 flex-shrink-0" />
+          <Icon name="lucide:check" class="text-bab h-5 w-5 flex-shrink-0" />
           <span>{{ item }}</span>
         </div>
       </div>
@@ -48,28 +48,27 @@
 </template>
 
 <script setup lang="ts">
-  import { Package, Globe, FileCode, GitBranch, Check } from 'lucide-vue-next'
   import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
   import { Badge } from '@/components/ui/badge'
 
   const features = [
     {
-      icon: Package,
+      icon: 'lucide:package',
       title: 'Zero Dependencies',
       description: 'Pure Go binary. Just download and run. No runtime or package manager required.',
     },
     {
-      icon: Globe,
+      icon: 'lucide:globe',
       title: 'Cross-Platform',
       description: 'Works seamlessly on Windows, macOS, and Linux. One config, any OS.',
     },
     {
-      icon: FileCode,
+      icon: 'lucide:file-code',
       title: 'Simple YAML',
       description: 'Clean, readable configuration. No complex syntax to learn.',
     },
     {
-      icon: GitBranch,
+      icon: 'lucide:git-branch',
       title: 'Task Dependencies',
       description: 'Automatic prerequisite execution. Never run tasks in the wrong order.',
     },

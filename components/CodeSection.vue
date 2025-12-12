@@ -25,8 +25,8 @@
               class="text-muted-foreground rounded p-1 transition-colors hover:bg-white/5 hover:text-white"
               @click="copyCode"
             >
-              <Copy v-if="!copied" class="h-4 w-4" />
-              <Check v-else class="text-success h-4 w-4" />
+              <Icon v-if="!copied" name="lucide:copy" class="h-4 w-4" />
+              <Icon v-else name="lucide:check" class="text-success h-4 w-4" />
             </button>
           </div>
           <pre
@@ -87,7 +87,7 @@
             <div
               class="bg-bab/10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg"
             >
-              <component :is="benefit.icon" class="text-bab-light h-5 w-5" />
+              <Icon :name="benefit.icon" class="text-bab-light h-5 w-5" />
             </div>
             <div>
               <h3 class="mb-1 font-semibold text-white">{{ benefit.title }}</h3>
@@ -126,8 +126,8 @@
 </template>
 
 <script setup lang="ts">
-  import { Copy, Check, GitBranch, Globe, Layers, Variable } from 'lucide-vue-next'
   import { Badge } from '@/components/ui/badge'
+  import BabLogo from '~/assets/images/bab-logo.svg?component'
 
   const copied = ref(false)
   const highlightedTask = ref<string | null>(null)
@@ -147,28 +147,28 @@
 
   const benefits = [
     {
-      icon: Layers,
+      icon: 'lucide:layers',
       title: 'Task Composition',
       description:
         'Reference other tasks with task: to compose complex workflows from simple building blocks.',
       featureId: 'composition',
     },
     {
-      icon: GitBranch,
+      icon: 'lucide:git-branch',
       title: 'Task Dependencies',
       description:
         'Define deps and bab automatically runs prerequisites first. No more manual ordering.',
       featureId: 'deps',
     },
     {
-      icon: Variable,
+      icon: 'lucide:variable',
       title: 'Environment Variables',
       description:
         'Set env vars at global, task, or command level. More specific levels override broader ones.',
       featureId: 'env',
     },
     {
-      icon: Globe,
+      icon: 'lucide:globe',
       title: 'Platform-Specific Commands',
       description: 'Different commands for different operating systems. Write once, run anywhere.',
       featureId: 'platforms',

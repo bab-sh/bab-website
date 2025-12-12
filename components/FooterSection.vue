@@ -1,9 +1,9 @@
 <template>
   <footer class="border-border border-t py-12">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-8 grid grid-cols-2 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="col-span-2 sm:col-span-2 lg:col-span-1">
-          <div class="mb-4 flex items-center gap-3">
+      <div class="mb-8 grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4">
+        <div class="col-span-2 text-center sm:text-left lg:col-span-1">
+          <div class="mb-4 flex items-center justify-center gap-3 sm:justify-start">
             <BabLogo class="h-8 w-8" />
             <span class="text-xl font-bold text-white">bab</span>
           </div>
@@ -12,7 +12,7 @@
           </p>
         </div>
 
-        <div>
+        <div class="text-center sm:text-left">
           <h4 class="mb-4 font-semibold text-white">Product</h4>
           <ul class="space-y-2">
             <li>
@@ -56,7 +56,7 @@
           </ul>
         </div>
 
-        <div>
+        <div class="text-center sm:text-left">
           <h4 class="mb-4 font-semibold text-white">Integrations</h4>
           <ul class="space-y-2">
             <li>
@@ -64,8 +64,9 @@
                 href="https://marketplace.visualstudio.com/items?itemName=bab-sh.bab"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-muted-foreground text-sm transition-colors hover:text-white"
+                class="text-muted-foreground flex items-center justify-center gap-2 text-sm transition-colors hover:text-white sm:justify-start"
               >
+                <Icon name="simple-icons:visualstudiocode" class="h-4 w-4" />
                 VS Code Extension
               </a>
             </li>
@@ -74,40 +75,75 @@
                 href="https://plugins.jetbrains.com/plugin/29264"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-muted-foreground text-sm transition-colors hover:text-white"
+                class="text-muted-foreground flex items-center justify-center gap-2 text-sm transition-colors hover:text-white sm:justify-start"
               >
+                <Icon name="simple-icons:intellijidea" class="h-4 w-4" />
                 IntelliJ Plugin
               </a>
             </li>
           </ul>
         </div>
 
-        <div>
+        <div class="col-span-2 text-center sm:col-span-1 sm:text-left">
           <h4 class="mb-4 font-semibold text-white">Community</h4>
-          <ul class="space-y-2">
-            <li>
-              <a
-                href="https://github.com/bab-sh/bab"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white"
-              >
-                <Icon icon="simple-icons:github" class="h-4 w-4" />
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://discord.bab.sh"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white"
-              >
-                <Icon icon="simple-icons:discord" class="h-4 w-4" />
-                Discord
-              </a>
-            </li>
-          </ul>
+          <div
+            class="flex flex-wrap items-center justify-center gap-3 sm:flex-col sm:items-start sm:gap-0"
+          >
+            <a
+              href="https://github.com/bab-sh/bab"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white sm:mb-2"
+            >
+              <Icon name="simple-icons:github" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <span class="hidden sm:inline">GitHub</span>
+            </a>
+            <a
+              href="https://discord.bab.sh"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white sm:mb-2"
+            >
+              <Icon name="simple-icons:discord" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <span class="hidden sm:inline">Discord</span>
+            </a>
+            <a
+              href="https://x.com/babshdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white sm:mb-2"
+            >
+              <Icon name="simple-icons:x" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <span class="hidden sm:inline">X</span>
+            </a>
+            <a
+              href="https://www.instagram.com/babshdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white sm:mb-2"
+            >
+              <Icon name="simple-icons:instagram" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <span class="hidden sm:inline">Instagram</span>
+            </a>
+            <a
+              href="https://www.reddit.com/r/babsh/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white sm:mb-2"
+            >
+              <Icon name="simple-icons:reddit" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <span class="hidden sm:inline">Reddit</span>
+            </a>
+            <a
+              href="https://www.threads.com/@babshdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white"
+            >
+              <Icon name="simple-icons:threads" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <span class="hidden sm:inline">Threads</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -117,9 +153,12 @@
         class="text-muted-foreground flex flex-col items-center justify-between gap-4 text-sm sm:flex-row"
       >
         <p>&copy; {{ currentYear }} bab. MIT License.</p>
-        <p>
+        <p class="flex items-center">
           Made with
-          <Heart class="mx-1 mb-1 inline h-4 w-4 animate-pulse fill-red-500 text-red-500" />
+          <Icon
+            name="lucide:heart"
+            class="mx-1 inline-block h-4 w-4 animate-pulse fill-red-500 text-red-500"
+          />
           by AIO
         </p>
       </div>
@@ -128,10 +167,8 @@
 </template>
 
 <script setup lang="ts">
-  import { Icon } from '@iconify/vue'
-  import { Heart } from 'lucide-vue-next'
   import { Separator } from '@/components/ui/separator'
-  import BabLogo from '@/components/BabLogo.vue'
+  import BabLogo from '~/assets/images/bab-logo.svg?component'
 
   const currentYear = new Date().getFullYear()
 </script>

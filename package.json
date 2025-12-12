@@ -24,11 +24,9 @@
     ]
   },
   "dependencies": {
-    "@iconify/vue": "^5.0.0",
     "@vueuse/core": "^14.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-vue-next": "^0.556.0",
     "nuxt": "^4.2.2",
     "reka-ui": "^2.6.1",
     "tailwind-merge": "^3.4.0",
@@ -38,11 +36,15 @@
   "devDependencies": {
     "@commitlint/cli": "^20.2.0",
     "@commitlint/config-conventional": "^20.2.0",
+    "@iconify-json/lucide": "^1.2.80",
+    "@iconify-json/simple-icons": "^1.2.62",
     "@nuxt/eslint": "^1.11.0",
     "@nuxt/fonts": "^0.12.1",
+    "@nuxt/icon": "^2.1.0",
     "@tailwindcss/vite": "^4.1.17",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "nuxt-svgo": "^4.2.6",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "shadcn-nuxt": "^2.4.2",

@@ -36,6 +36,7 @@
       'Zero-dependency, cross-platform task runner with simple YAML. Replace Makefiles & npm scripts.',
     twitterImage: 'https://cdn.bab.sh/l/og-image',
     twitterSite: '@babshdev',
+    twitterCreator: '@babshdev',
     robots: 'index, follow',
   })
 
@@ -57,7 +58,14 @@
                 width: 1200,
                 height: 630,
               },
-              sameAs: ['https://github.com/bab-sh/bab', 'https://twitter.com/babshdev'],
+              sameAs: [
+                'https://github.com/bab-sh/bab',
+                'https://x.com/babshdev',
+                'https://discord.bab.sh',
+                'https://www.instagram.com/babshdev',
+                'https://www.reddit.com/r/babsh/',
+                'https://www.threads.com/@babshdev',
+              ],
             },
             {
               '@type': 'WebSite',

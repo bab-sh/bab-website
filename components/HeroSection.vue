@@ -27,7 +27,7 @@
           </div>
 
           <div class="flex items-center justify-center gap-3 sm:gap-4 lg:justify-start">
-            <BabLogo class="h-20 w-20 shrink-0 sm:h-24 sm:w-24 lg:h-28 lg:w-28" :glow="true" />
+            <BabLogo class="h-20 w-20 shrink-0 sm:h-24 sm:w-24 lg:h-28 lg:w-28" />
             <h1
               class="text-gradient m-0 flex h-20 items-center justify-center p-0 text-7xl leading-none font-bold tracking-tight sm:h-24 sm:text-8xl lg:h-28 lg:text-9xl"
             >
@@ -48,7 +48,7 @@
                 rel="noopener noreferrer"
               >
                 Get Started
-                <ArrowRight class="ml-2 h-4 w-4" />
+                <Icon name="lucide:arrow-right" class="ml-2 h-4 w-4" />
               </a>
             </Button>
             <Button variant="outline" size="lg" as-child>
@@ -58,13 +58,13 @@
                 rel="noopener noreferrer"
                 class="flex items-center"
               >
-                <Icon icon="simple-icons:github" class="mr-2 h-4 w-4" />
+                <Icon name="simple-icons:github" class="mr-2 h-4 w-4" />
                 GitHub
                 <span
                   v-if="formattedStars"
                   class="text-muted-foreground ml-2 flex items-center gap-1"
                 >
-                  <Star class="h-3 w-3 fill-current" />
+                  <Icon name="lucide:star" class="h-3 w-3 fill-current" />
                   {{ formattedStars }}
                 </span>
               </a>
@@ -76,30 +76,30 @@
               <p class="text-muted-foreground text-sm">Quick install:</p>
               <div class="flex items-center gap-1">
                 <button
-                  class="rounded p-1.5 transition-colors hover:bg-white/5"
+                  class="flex h-7 w-7 items-center justify-center rounded transition-colors hover:bg-white/5"
                   :class="selectedPlatform === 'unix' ? 'text-white' : 'text-muted-foreground/50'"
                   title="macOS / Linux"
                   @click="selectedPlatform = 'unix'"
                 >
-                  <Icon icon="simple-icons:apple" class="h-4 w-4" />
+                  <Icon name="simple-icons:apple" class="h-4 w-4" />
                 </button>
                 <button
-                  class="rounded p-1.5 transition-colors hover:bg-white/5"
+                  class="flex h-7 w-7 items-center justify-center rounded transition-colors hover:bg-white/5"
                   :class="selectedPlatform === 'unix' ? 'text-white' : 'text-muted-foreground/50'"
                   title="macOS / Linux"
                   @click="selectedPlatform = 'unix'"
                 >
-                  <Icon icon="simple-icons:linux" class="h-4 w-4" />
+                  <Icon name="simple-icons:linux" class="h-4 w-4" />
                 </button>
                 <button
-                  class="rounded p-1.5 transition-colors hover:bg-white/5"
+                  class="flex h-7 w-7 items-center justify-center rounded transition-colors hover:bg-white/5"
                   :class="
                     selectedPlatform === 'windows' ? 'text-white' : 'text-muted-foreground/50'
                   "
                   title="Windows"
                   @click="selectedPlatform = 'windows'"
                 >
-                  <Icon icon="simple-icons:windows" class="h-4 w-4" />
+                  <Icon name="simple-icons:windows" class="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -112,8 +112,8 @@
                 class="text-muted-foreground ml-auto rounded p-1 transition-colors hover:bg-white/5 hover:text-white lg:ml-2"
                 @click="copyInstallCommand"
               >
-                <Copy v-if="!copied" class="h-4 w-4" />
-                <Check v-else class="text-success h-4 w-4" />
+                <Icon v-if="!copied" name="lucide:copy" class="h-4 w-4" />
+                <Icon v-else name="lucide:check" class="text-success h-4 w-4" />
               </button>
             </div>
           </div>
@@ -126,16 +126,15 @@
     </div>
 
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <ChevronDown class="text-muted-foreground h-6 w-6" />
+      <Icon name="lucide:chevron-down" class="text-muted-foreground h-6 w-6" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-  import { Icon } from '@iconify/vue'
-  import { ArrowRight, Copy, Check, ChevronDown, Star } from 'lucide-vue-next'
   import { Button } from '@/components/ui/button'
   import { Badge } from '@/components/ui/badge'
+  import BabLogo from '~/assets/images/bab-logo.svg?component'
 
   const copied = ref(false)
   const selectedPlatform = ref<'unix' | 'windows'>('unix')

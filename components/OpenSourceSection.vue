@@ -42,19 +42,19 @@
           as-child
         >
           <a href="https://discord.bab.sh" target="_blank" rel="noopener noreferrer">
-            <Icon icon="simple-icons:discord" class="mr-2 h-5 w-5" />
+            <Icon name="simple-icons:discord" class="mr-2 h-5 w-5" />
             Join Discord
           </a>
         </Button>
         <Button size="lg" variant="outline" class="w-full sm:w-auto" as-child>
           <a href="https://github.com/bab-sh/bab" target="_blank" rel="noopener noreferrer">
-            <Icon icon="simple-icons:github" class="mr-2 h-5 w-5" />
+            <Icon name="simple-icons:github" class="mr-2 h-5 w-5" />
             Star on GitHub
           </a>
         </Button>
         <Button size="lg" variant="outline" class="w-full sm:w-auto" as-child>
           <a href="https://docs.bab.sh" target="_blank" rel="noopener noreferrer">
-            <BookOpen class="mr-2 h-5 w-5" />
+            <Icon name="lucide:book-open" class="mr-2 h-5 w-5" />
             Read the Docs
           </a>
         </Button>
@@ -81,8 +81,8 @@
                   class="group border-border bg-card/80 hover:border-bab/50 hover:bg-bab/10 flex h-10 w-10 items-center justify-center rounded-full border transition-all"
                   :title="item.label"
                 >
-                  <component
-                    :is="item.icon"
+                  <Icon
+                    :name="item.icon"
                     class="text-muted-foreground group-hover:text-bab-light h-4 w-4 transition-colors"
                   />
                 </a>
@@ -94,7 +94,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Heart class="mr-2 h-4 w-4" />
+                  <Icon name="lucide:heart" class="mr-2 h-4 w-4" />
                   Start Contributing
                 </a>
               </Button>
@@ -107,16 +107,18 @@
 </template>
 
 <script setup lang="ts">
-  import { Icon } from '@iconify/vue'
-  import { BookOpen, Heart, Code, FileText, Bug, Lightbulb } from 'lucide-vue-next'
   import { Badge } from '@/components/ui/badge'
   import { Button } from '@/components/ui/button'
   import { Card, CardContent } from '@/components/ui/card'
 
   const contributionTypes = [
-    { icon: Code, label: 'Code', href: 'https://github.com/bab-sh/bab' },
-    { icon: FileText, label: 'Docs', href: 'https://github.com/bab-sh/bab/tree/main/docs' },
-    { icon: Bug, label: 'Issues', href: 'https://github.com/bab-sh/bab/issues' },
-    { icon: Lightbulb, label: 'Ideas', href: 'https://github.com/bab-sh/bab/discussions' },
+    { icon: 'lucide:code', label: 'Code', href: 'https://github.com/bab-sh/bab' },
+    {
+      icon: 'lucide:file-text',
+      label: 'Docs',
+      href: 'https://github.com/bab-sh/bab/tree/main/docs',
+    },
+    { icon: 'lucide:bug', label: 'Issues', href: 'https://github.com/bab-sh/bab/issues' },
+    { icon: 'lucide:lightbulb', label: 'Ideas', href: 'https://github.com/bab-sh/bab/discussions' },
   ]
 </script>

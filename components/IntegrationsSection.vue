@@ -18,7 +18,7 @@
             <div class="flex items-start justify-between">
               <div class="flex items-center gap-4">
                 <div class="bg-vscode/10 flex h-16 w-16 items-center justify-center rounded-xl">
-                  <Icon icon="simple-icons:visualstudiocode" class="text-vscode h-10 w-10" />
+                  <Icon name="simple-icons:visualstudiocode" class="text-vscode" size="40" />
                 </div>
                 <div>
                   <CardTitle class="text-xl text-white">VS Code</CardTitle>
@@ -42,7 +42,7 @@
                 :key="feature"
                 class="text-muted-foreground flex items-center gap-2 text-sm"
               >
-                <Check class="text-bab h-4 w-4 shrink-0" />
+                <Icon name="lucide:check" class="text-bab h-4 w-4 shrink-0" />
                 {{ feature }}
               </li>
             </ul>
@@ -53,7 +53,7 @@
                 class="border-muted-foreground/30 text-muted-foreground flex-1 cursor-not-allowed bg-transparent opacity-50"
                 disabled
               >
-                <Download class="mr-2 h-4 w-4" />
+                <Icon name="lucide:download" class="mr-2 h-4 w-4" />
                 Install Extension
               </Button>
               <Button
@@ -61,7 +61,7 @@
                 class="border-muted-foreground/30 text-muted-foreground flex-1 cursor-not-allowed opacity-50"
                 disabled
               >
-                <Icon icon="simple-icons:github" class="mr-2 h-4 w-4" />
+                <Icon name="simple-icons:github" class="mr-2 h-4 w-4" />
                 Source
               </Button>
             </div>
@@ -73,7 +73,7 @@
             <div class="flex items-start justify-between">
               <div class="flex items-center gap-4">
                 <div class="bg-intellij/10 flex h-16 w-16 items-center justify-center rounded-xl">
-                  <Icon icon="simple-icons:intellijidea" class="text-intellij h-10 w-10" />
+                  <Icon name="simple-icons:intellijidea" class="text-intellij" size="40" />
                 </div>
                 <div>
                   <CardTitle class="text-xl text-white">IntelliJ IDEA</CardTitle>
@@ -98,7 +98,7 @@
                 :key="feature"
                 class="text-muted-foreground flex items-center gap-2 text-sm"
               >
-                <Check class="text-bab h-4 w-4 shrink-0" />
+                <Icon name="lucide:check" class="text-bab h-4 w-4 shrink-0" />
                 {{ feature }}
               </li>
             </ul>
@@ -114,7 +114,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Download class="mr-2 h-4 w-4" />
+                  <Icon name="lucide:download" class="mr-2 h-4 w-4" />
                   Install Plugin
                 </a>
               </Button>
@@ -124,7 +124,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon icon="simple-icons:github" class="mr-2 h-4 w-4" />
+                  <Icon name="simple-icons:github" class="mr-2 h-4 w-4" />
                   Source
                 </a>
               </Button>
@@ -151,8 +151,6 @@
 </template>
 
 <script setup lang="ts">
-  import { Icon } from '@iconify/vue'
-  import { Check, Download } from 'lucide-vue-next'
   import { Button } from '@/components/ui/button'
   import { Badge } from '@/components/ui/badge'
   import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
