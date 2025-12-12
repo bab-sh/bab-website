@@ -34,11 +34,11 @@
         </Card>
       </div>
 
-      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <div class="flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
         <Button
           size="lg"
           variant="outline"
-          class="border-discord text-discord hover:bg-discord/10"
+          class="border-discord text-discord hover:bg-discord/10 w-full sm:w-auto"
           as-child
         >
           <a href="https://discord.bab.sh" target="_blank" rel="noopener noreferrer">
@@ -46,13 +46,13 @@
             Join Discord
           </a>
         </Button>
-        <Button size="lg" variant="outline" as-child>
+        <Button size="lg" variant="outline" class="w-full sm:w-auto" as-child>
           <a href="https://github.com/bab-sh/bab" target="_blank" rel="noopener noreferrer">
             <Icon icon="simple-icons:github" class="mr-2 h-5 w-5" />
             Star on GitHub
           </a>
         </Button>
-        <Button size="lg" variant="outline" as-child>
+        <Button size="lg" variant="outline" class="w-full sm:w-auto" as-child>
           <a href="https://docs.bab.sh" target="_blank" rel="noopener noreferrer">
             <BookOpen class="mr-2 h-5 w-5" />
             Read the Docs
