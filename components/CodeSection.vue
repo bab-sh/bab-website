@@ -18,7 +18,7 @@
             class="border-border bg-card/50 flex items-center justify-between border-b px-4 py-3"
           >
             <div class="flex items-center gap-2">
-              <BabLogo class="h-4 w-4" />
+              <SvgoBabLogo class="h-4 w-4" />
               <span class="text-muted-foreground font-mono text-sm">babfile.yml</span>
             </div>
             <button
@@ -127,7 +127,6 @@
 
 <script setup lang="ts">
   import { Badge } from '@/components/ui/badge'
-  import BabLogo from '~/assets/images/bab-logo.svg'
 
   const copied = ref(false)
   const highlightedTask = ref<string | null>(null)
