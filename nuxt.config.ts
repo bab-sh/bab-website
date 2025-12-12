@@ -11,6 +11,7 @@ export default defineNuxtConfig({
 
   svgo: {
     autoImportPath: './assets/images/',
+    defaultImport: 'component',
   },
 
   icon: {

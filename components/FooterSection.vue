@@ -4,7 +4,7 @@
       <div class="mb-8 grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4">
         <div class="col-span-2 text-center sm:text-left lg:col-span-1">
           <div class="mb-4 flex items-center justify-center gap-3 sm:justify-start">
-            <SvgoBabLogo class="h-8 w-8" />
+            <BabLogo class="h-8 w-8" />
             <span class="text-xl font-bold text-white">bab</span>
           </div>
           <p class="text-muted-foreground text-sm">
@@ -168,6 +168,7 @@
 
 <script setup lang="ts">
   import { Separator } from '@/components/ui/separator'
+  import BabLogo from '~/assets/images/bab-logo.svg'
 
   const currentYear = new Date().getFullYear()
 </script>
