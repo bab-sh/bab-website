@@ -27,7 +27,7 @@
           </div>
 
           <div class="flex items-center justify-center gap-3 sm:gap-4 lg:justify-start">
-            <BabLogo class="h-20 w-20 shrink-0 sm:h-24 sm:w-24 lg:h-28 lg:w-28" />
+            <SvgoBabLogo class="h-20 w-20 shrink-0 sm:h-24 sm:w-24 lg:h-28 lg:w-28" />
             <h1
               class="text-gradient m-0 flex h-20 items-center justify-center p-0 text-7xl leading-none font-bold tracking-tight sm:h-24 sm:text-8xl lg:h-28 lg:text-9xl"
             >
@@ -134,7 +134,6 @@
 <script setup lang="ts">
   import { Button } from '@/components/ui/button'
   import { Badge } from '@/components/ui/badge'
-  import BabLogo from '~/assets/images/bab-logo.svg?component'
 
   const copied = ref(false)
   const selectedPlatform = ref<'unix' | 'windows'>('unix')
