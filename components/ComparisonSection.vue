@@ -112,7 +112,7 @@
     openTooltip.value = openTooltip.value === index ? null : index
   }
 
-  type ToolKey = 'bab' | 'make' | 'npm' | 'just'
+  type ToolKey = 'bab' | 'make' | 'npm' | 'just' | 'task'
   type SupportValue = boolean | 'partial'
 
   interface Tool {
@@ -135,6 +135,7 @@
     { name: 'Make', key: 'make', icon: 'lucide:hammer', highlight: false },
     { name: 'npm scripts', key: 'npm', icon: 'simple-icons:npm', highlight: false },
     { name: 'Just', key: 'just', icon: 'lucide:scroll-text', highlight: false },
+    { name: 'Task', key: 'task', icon: 'simple-icons:task', highlight: false },
   ]
 
   const comparisonFeatures: ComparisonFeature[] = [
@@ -143,86 +144,86 @@
       icon: 'lucide:package',
       description:
         'Self-contained executable with zero runtime dependencies. No Node.js, Python, or other runtimes needed.',
-      support: { bab: true, make: false, npm: false, just: true },
+      support: { bab: true, make: false, npm: false, just: true, task: true },
     },
     {
       name: 'Cross-platform',
       icon: 'lucide:globe',
       description: 'Works on Windows, macOS, and Linux with the same configuration file.',
-      support: { bab: true, make: 'partial', npm: true, just: true },
+      support: { bab: true, make: 'partial', npm: true, just: true, task: true },
     },
     {
       name: 'Simple YAML syntax',
       icon: 'lucide:file-code',
       description:
         'Clean, readable configuration. No complex syntax or special characters to learn.',
-      support: { bab: true, make: false, npm: false, just: false },
+      support: { bab: true, make: false, npm: false, just: false, task: true },
     },
     {
       name: 'Built-in interactive TUI',
       icon: 'lucide:layout-grid',
       description:
         'Browse and select tasks visually with a built-in TUI. No external tools like fzf required.',
-      support: { bab: true, make: false, npm: false, just: 'partial' },
+      support: { bab: true, make: false, npm: false, just: 'partial', task: false },
     },
     {
       name: 'Built-in fuzzy search',
       icon: 'lucide:search',
       description:
         'Type to instantly filter tasks. Built into bab, no external fuzzy finder needed.',
-      support: { bab: true, make: false, npm: false, just: 'partial' },
+      support: { bab: true, make: false, npm: false, just: 'partial', task: false },
     },
     {
       name: 'Smart error hints',
       icon: 'lucide:lightbulb',
       description: 'When you mistype a task name, bab suggests similar tasks you might have meant.',
-      support: { bab: true, make: false, npm: false, just: false },
+      support: { bab: true, make: false, npm: false, just: false, task: false },
     },
     {
       name: 'Task dependencies',
       icon: 'lucide:git-branch',
       description: 'Define which tasks must run first. bab handles the order automatically.',
-      support: { bab: true, make: true, npm: false, just: true },
+      support: { bab: true, make: true, npm: false, just: true, task: true },
     },
     {
       name: 'Environment variables',
       icon: 'lucide:variable',
       description:
         'Set env vars at global, task, or command level. More specific levels override broader ones.',
-      support: { bab: true, make: true, npm: true, just: true },
+      support: { bab: true, make: true, npm: true, just: true, task: true },
     },
     {
       name: 'OS-specific commands',
       icon: 'lucide:monitor-smartphone',
       description:
         'Run different commands on different operating systems from the same config file.',
-      support: { bab: true, make: false, npm: false, just: true },
+      support: { bab: true, make: false, npm: false, just: true, task: true },
     },
     {
       name: 'Modular config files',
       icon: 'lucide:file-plus',
       description:
         'Split your config across multiple files. Import and reuse tasks between projects.',
-      support: { bab: true, make: true, npm: false, just: true },
+      support: { bab: true, make: true, npm: false, just: true, task: true },
     },
     {
       name: 'Dry-run mode',
       icon: 'lucide:eye',
       description: 'Preview what commands would run without actually executing them.',
-      support: { bab: true, make: true, npm: false, just: true },
+      support: { bab: true, make: true, npm: false, just: true, task: true },
     },
     {
       name: 'Shell completions',
       icon: 'lucide:terminal',
       description: 'Tab-complete task names in bash, zsh, fish, and PowerShell.',
-      support: { bab: true, make: 'partial', npm: 'partial', just: true },
+      support: { bab: true, make: 'partial', npm: 'partial', just: true, task: true },
     },
     {
       name: 'Full IDE integration',
       icon: 'lucide:code',
       description:
         'VS Code extension and IntelliJ plugin with syntax highlighting, completion, and task running.',
-      support: { bab: true, make: 'partial', npm: true, just: 'partial' },
+      support: { bab: true, make: 'partial', npm: true, just: 'partial', task: 'partial' },
     },
   ]
 </script>
