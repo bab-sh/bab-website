@@ -107,9 +107,9 @@
           <span class="text-success font-bold">PASS</span>
           <span class="text-white">&nbsp;src/api.test.ts</span>
         </div>
-        <div v-if="executionStep >= 7" class="flex h-5 items-center">
-          <span class="text-success font-bold">PASS</span>
-          <span class="text-white">&nbsp;src/components.test.ts</span>
+        <div v-if="executionStep >= 7" class="flex h-5 items-center gap-2">
+          <span class="text-tui-accent">INFO</span>
+          <span class="text-tui-dim">Building for production...</span>
         </div>
         <div v-if="executionStep >= 8" class="text-tui-dim flex h-5 items-center gap-2">
           <span>$</span>
@@ -123,25 +123,17 @@
           <span class="text-tui-muted">dist/index.css</span>
           <span class="text-success">&nbsp;8.2 kB</span>
         </div>
-        <div v-if="executionStep >= 11" class="text-tui-dim flex h-5 items-center gap-2">
-          <span>$</span>
-          <span>cp -r dist/ out/</span>
-        </div>
-        <div v-if="executionStep >= 12" class="flex h-5 items-center gap-2">
-          <span class="text-success">✔</span>
-          <span class="text-success font-bold">build:core</span>
-          <span class="text-tui-dim">completed in</span>
-          <span class="text-white">1.8s</span>
+        <div v-if="executionStep >= 11" class="flex h-5 items-center gap-2">
+          <span class="text-success">INFO</span>
+          <span class="text-tui-dim">Build complete!</span>
         </div>
       </div>
 
       <div v-else-if="phase === 'clearing'" class="space-y-0">
         <div class="text-tui-dim flex h-5 items-center">$ bab build:core</div>
         <div class="flex h-5 items-center gap-2">
-          <span class="text-success">✔</span>
-          <span class="text-success font-bold">build:core</span>
-          <span class="text-tui-dim">completed in</span>
-          <span class="text-white">1.8s</span>
+          <span class="text-success">INFO</span>
+          <span class="text-tui-dim">Build complete!</span>
         </div>
         <div class="flex h-5 items-center">
           <span class="text-tui-muted">$</span>
@@ -279,7 +271,7 @@
     executionStep.value = 6
     if (!(await sleep(350, 80))) return
     executionStep.value = 7
-    if (!(await sleep(250, 50))) return
+    if (!(await sleep(300, 50))) return
     executionStep.value = 8
     if (!(await sleep(500, 100))) return
     executionStep.value = 9
@@ -287,8 +279,6 @@
     executionStep.value = 10
     if (!(await sleep(200, 50))) return
     executionStep.value = 11
-    if (!(await sleep(300, 50))) return
-    executionStep.value = 12
 
     if (!(await sleep(1500))) return
 

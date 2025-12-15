@@ -80,7 +80,7 @@
     'Environment variables',
     'Shell completion (bash, zsh, fish)',
     'Dry-run mode',
-    'Verbose logging',
+    'Log messages in task runs',
     'Graceful shutdown',
     'Nested task groups',
     'Task descriptions',

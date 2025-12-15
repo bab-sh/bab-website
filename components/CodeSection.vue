@@ -64,12 +64,15 @@
 <span class="task-block" :class="{ 'highlight': highlightedTask === 'deploy' }">  <span class="text-tui-accent">deploy</span><span class="text-white">:</span>
     <span class="text-tui-muted">desc</span><span class="text-white">:</span> <span class="text-gray-200">Deploy to production</span>
     <span class="text-tui-muted">run</span><span class="text-white">:</span>
+      <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'log' || highlightedLogRef }" @mouseenter="highlightedLogRef = true" @mouseleave="highlightedLogRef = false"><span class="text-white">-</span> <span class="text-tui-muted">log</span><span class="text-white">:</span> <span class="text-gray-200">Starting deployment...</span></span>
       <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'composition' || highlightedTaskRef === 'build' }" @mouseenter="highlightedTaskRef = 'build'" @mouseleave="highlightedTaskRef = null"><span class="text-white">-</span> <span class="text-tui-muted">task</span><span class="text-white">:</span> <span class="text-tui-accent">build</span></span>
       <span class="text-white">-</span> <span class="text-tui-muted">cmd</span><span class="text-white">:</span> <span class="text-gray-200">./scripts/deploy.sh</span>
         <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'platforms' || highlightedPlatformsRef }" @mouseenter="highlightedPlatformsRef = true" @mouseleave="highlightedPlatformsRef = false"><span class="text-tui-muted">platforms</span><span class="text-white">:</span> <span class="text-gray-200">[linux, darwin]</span></span>
       <span class="text-white">-</span> <span class="text-tui-muted">cmd</span><span class="text-white">:</span> <span class="text-gray-200">powershell scripts/deploy.ps1</span>
         <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'platforms' || highlightedPlatformsRef }" @mouseenter="highlightedPlatformsRef = true" @mouseleave="highlightedPlatformsRef = false"><span class="text-tui-muted">platforms</span><span class="text-white">:</span> <span class="text-gray-200">[windows]</span></span>
-</span></code></pre>
+<span class="env-block" :class="{ 'highlight': highlightedFeature === 'log' || highlightedLogRef }" @mouseenter="highlightedLogRef = true" @mouseleave="highlightedLogRef = false">      <span class="text-white">-</span> <span class="text-tui-muted">log</span><span class="text-white">:</span> <span class="text-gray-200">Deployment complete!</span>
+        <span class="text-tui-muted">level</span><span class="text-white">:</span> <span class="text-gray-200">info</span>
+</span></span></code></pre>
         </div>
 
         <div class="space-y-6">
@@ -135,6 +138,7 @@
   const highlightedDepsLine = ref<string | null>(null)
   const highlightedPlatformsRef = ref(false)
   const highlightedEnvRef = ref(false)
+  const highlightedLogRef = ref(false)
   const highlightedFeature = ref<string | null>(null)
 
   const taskCommands = [
@@ -172,6 +176,12 @@
       description: 'Different commands for different operating systems. Write once, run anywhere.',
       featureId: 'platforms',
     },
+    {
+      icon: 'lucide:message-square',
+      title: 'Log Messages',
+      description: 'Add informational log messages with levels: debug, info, warn, error.',
+      featureId: 'log',
+    },
   ]
 
   const isFeatureActive = (featureId: string | null) => {
@@ -185,6 +195,7 @@
     if (featureId === 'deps' && highlightedDepsLine.value) return true
     if (featureId === 'env' && highlightedEnvRef.value) return true
     if (featureId === 'platforms' && highlightedPlatformsRef.value) return true
+    if (featureId === 'log' && highlightedLogRef.value) return true
     return false
   }
 
@@ -221,11 +232,14 @@ tasks:
   deploy:
     desc: Deploy to production
     run:
+      - log: Starting deployment...
       - task: build
       - cmd: ./scripts/deploy.sh
         platforms: [linux, darwin]
       - cmd: powershell scripts/deploy.ps1
-        platforms: [windows]`
+        platforms: [windows]
+      - log: Deployment complete!
+        level: info`
 
   const copyCode = async () => {
     await navigator.clipboard.writeText(codeExample)
