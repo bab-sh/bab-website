@@ -325,7 +325,12 @@
     hoverRef.value = null
   }
 
-  const codeText = lines.map((l) => l.tokens.map((t) => t.t).join('')).join('\n')
+  const codeText = lines
+    .map((l) => {
+      const text = l.tokens.map((t) => t.t).join('')
+      return text === '\n' ? '' : text
+    })
+    .join('\n')
 
   const copyCode = async () => {
     await navigator.clipboard.writeText(codeText)
