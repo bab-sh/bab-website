@@ -354,6 +354,7 @@
     border: 0 solid rgba(var(--hl), 0.5);
     transition-property: background, border-radius;
     transition-duration: 0.2s, 0s;
+    transition-delay: 0s, 0.2s;
   }
 
   .code-line.interactive {
@@ -388,6 +389,11 @@
   .code-line.highlight-ref:not(.highlight-end) {
     border-bottom-width: 0;
     padding-bottom: 1px;
+  }
+
+  .code-line.highlight-start,
+  .code-line.highlight-end {
+    transition: background 0.2s;
   }
 
   .task-cmd {
