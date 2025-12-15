@@ -102,6 +102,44 @@
                 'Environment variables',
               ],
             },
+            {
+              '@type': 'WebPage',
+              '@id': 'https://bab.sh/#webpage',
+              url: 'https://bab.sh',
+              name: 'bab - Modern Task Runner',
+              description:
+                'Zero-dependency, cross-platform task runner with simple YAML configuration.',
+              isPartOf: { '@id': 'https://bab.sh/#website' },
+              about: { '@id': 'https://bab.sh/#software' },
+              mainEntity: { '@id': 'https://bab.sh/#software' },
+            },
+            {
+              '@type': 'SiteNavigationElement',
+              '@id': 'https://bab.sh/#navigation',
+              name: 'Main Navigation',
+              hasPart: [
+                {
+                  '@type': 'SiteNavigationElement',
+                  name: 'Documentation',
+                  url: 'https://docs.bab.sh',
+                },
+                {
+                  '@type': 'SiteNavigationElement',
+                  name: 'Get Started',
+                  url: 'https://docs.bab.sh/guide/getting-started.html',
+                },
+                {
+                  '@type': 'SiteNavigationElement',
+                  name: 'Discord',
+                  url: 'https://discord.bab.sh',
+                },
+                {
+                  '@type': 'SiteNavigationElement',
+                  name: 'GitHub',
+                  url: 'https://github.com/bab-sh/bab',
+                },
+              ],
+            },
           ],
         }),
       },
