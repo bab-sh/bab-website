@@ -13,7 +13,7 @@
       </div>
 
       <div class="grid items-start gap-8 lg:grid-cols-2">
-        <div class="code-block border-border overflow-hidden rounded-xl border">
+        <div class="border-border overflow-hidden rounded-xl border">
           <div
             class="border-border bg-card/50 flex items-center justify-between border-b px-4 py-3"
           >
@@ -30,71 +30,25 @@
             </button>
           </div>
           <pre
-            class="overflow-x-auto p-4 font-mono text-xs leading-relaxed sm:text-sm"
-          ><code><span class="env-block" :class="{ 'highlight': highlightedFeature === 'env' || highlightedEnvRef }" @mouseenter="highlightedEnvRef = true" @mouseleave="highlightedEnvRef = false"><span class="text-tui-match">env</span><span class="text-white">:</span>
-  <span class="text-tui-muted">NODE_ENV</span><span class="text-white">:</span> <span class="text-gray-200">production</span>
-</span>
-<span class="text-tui-match">tasks</span><span class="text-white">:</span>
-
-<span class="task-block" :class="{ 'highlight': highlightedTask === 'setup' || highlightedDepsRef === 'setup' }">  <span class="text-tui-accent">setup</span><span class="text-white">:</span>
-    <span class="text-tui-muted">desc</span><span class="text-white">:</span> <span class="text-gray-200">Install dependencies</span>
-    <span class="text-tui-muted">run</span><span class="text-white">:</span>
-      <span class="text-white">-</span> <span class="text-tui-muted">cmd</span><span class="text-white">:</span> <span class="text-gray-200">npm install</span>
-</span>
-<span class="task-block" :class="{ 'highlight': highlightedTask === 'lint' || highlightedTaskRef === 'lint' }">  <span class="text-tui-accent">lint</span><span class="text-white">:</span>
-    <span class="text-tui-muted">desc</span><span class="text-white">:</span> <span class="text-gray-200">Run linter</span>
-    <span class="text-tui-muted">run</span><span class="text-white">:</span>
-      <span class="text-white">-</span> <span class="text-tui-muted">cmd</span><span class="text-white">:</span> <span class="text-gray-200">npm run lint</span>
-</span>
-<span class="task-block" :class="{ 'highlight': highlightedTask === 'dev' }">  <span class="text-tui-accent">dev</span><span class="text-white">:</span>
-    <span class="text-tui-muted">desc</span><span class="text-white">:</span> <span class="text-gray-200">Start development server</span>
-    <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'deps' || highlightedDepsLine === 'dev-deps' }" @mouseenter="highlightedDepsRef = 'setup'; highlightedDepsLine = 'dev-deps'" @mouseleave="highlightedDepsRef = null; highlightedDepsLine = null"><span class="text-tui-muted">deps</span><span class="text-white">:</span> <span class="text-gray-200">[setup]</span></span>
-    <span class="text-tui-muted">run</span><span class="text-white">:</span>
-      <span class="text-white">-</span> <span class="text-tui-muted">cmd</span><span class="text-white">:</span> <span class="text-gray-200">npm run dev</span>
-</span>
-<span class="task-block" :class="{ 'highlight': highlightedTask === 'build' || highlightedTaskRef === 'build' }">  <span class="text-tui-accent">build</span><span class="text-white">:</span>
-    <span class="text-tui-muted">desc</span><span class="text-white">:</span> <span class="text-gray-200">Build for production</span>
-<span class="env-block" :class="{ 'highlight': highlightedFeature === 'env' || highlightedEnvRef }" @mouseenter="highlightedEnvRef = true" @mouseleave="highlightedEnvRef = false">    <span class="text-tui-muted">env</span><span class="text-white">:</span>
-      <span class="text-tui-muted">MINIFY</span><span class="text-white">:</span> <span class="text-gray-200">"true"</span>
-</span>    <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'deps' || highlightedDepsLine === 'build-deps' }" @mouseenter="highlightedDepsRef = 'setup'; highlightedDepsLine = 'build-deps'" @mouseleave="highlightedDepsRef = null; highlightedDepsLine = null"><span class="text-tui-muted">deps</span><span class="text-white">:</span> <span class="text-gray-200">[setup]</span></span>
-    <span class="text-tui-muted">run</span><span class="text-white">:</span>
-      <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'composition' || highlightedTaskRef === 'lint' }" @mouseenter="highlightedTaskRef = 'lint'" @mouseleave="highlightedTaskRef = null"><span class="text-white">-</span> <span class="text-tui-muted">task</span><span class="text-white">:</span> <span class="text-tui-accent">lint</span></span>
-      <span class="text-white">-</span> <span class="text-tui-muted">cmd</span><span class="text-white">:</span> <span class="text-gray-200">npm run build</span>
-</span>
-<span class="task-block" :class="{ 'highlight': highlightedTask === 'deploy' }">  <span class="text-tui-accent">deploy</span><span class="text-white">:</span>
-    <span class="text-tui-muted">desc</span><span class="text-white">:</span> <span class="text-gray-200">Deploy to production</span>
-    <span class="text-tui-muted">run</span><span class="text-white">:</span>
-      <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'log' || highlightedLogRef }" @mouseenter="highlightedLogRef = true" @mouseleave="highlightedLogRef = false"><span class="text-white">-</span> <span class="text-tui-muted">log</span><span class="text-white">:</span> <span class="text-gray-200">Starting deployment...</span></span>
-      <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'composition' || highlightedTaskRef === 'build' }" @mouseenter="highlightedTaskRef = 'build'" @mouseleave="highlightedTaskRef = null"><span class="text-white">-</span> <span class="text-tui-muted">task</span><span class="text-white">:</span> <span class="text-tui-accent">build</span></span>
-      <span class="text-white">-</span> <span class="text-tui-muted">cmd</span><span class="text-white">:</span> <span class="text-gray-200">./scripts/deploy.sh</span>
-        <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'platforms' || highlightedPlatformsRef }" @mouseenter="highlightedPlatformsRef = true" @mouseleave="highlightedPlatformsRef = false"><span class="text-tui-muted">platforms</span><span class="text-white">:</span> <span class="text-gray-200">[linux, darwin]</span></span>
-      <span class="text-white">-</span> <span class="text-tui-muted">cmd</span><span class="text-white">:</span> <span class="text-gray-200">powershell scripts/deploy.ps1</span>
-        <span class="line-ref" :class="{ 'highlight': highlightedFeature === 'platforms' || highlightedPlatformsRef }" @mouseenter="highlightedPlatformsRef = true" @mouseleave="highlightedPlatformsRef = false"><span class="text-tui-muted">platforms</span><span class="text-white">:</span> <span class="text-gray-200">[windows]</span></span>
-<span class="env-block" :class="{ 'highlight': highlightedFeature === 'log' || highlightedLogRef }" @mouseenter="highlightedLogRef = true" @mouseleave="highlightedLogRef = false">      <span class="text-white">-</span> <span class="text-tui-muted">log</span><span class="text-white">:</span> <span class="text-gray-200">Deployment complete!</span>
-        <span class="text-tui-muted">level</span><span class="text-white">:</span> <span class="text-gray-200">info</span>
-</span></span></code></pre>
+            class="overflow-x-auto p-4 font-mono text-xs leading-snug sm:text-sm"
+          ><code><template v-for="(line, i) in lines" :key="i"><span class="code-line" :class="lineClasses(line, i)" @mouseenter="hover(line, i)" @mouseleave="unhover()"><template v-for="(t, j) in line.tokens" :key="j"><span :class="t.c">{{ t.t }}</span></template></span></template></code></pre>
         </div>
 
         <div class="space-y-6">
           <div
-            v-for="benefit in benefits"
-            :key="benefit.title"
-            class="feature-card border-border bg-card/50 flex gap-4 rounded-lg border p-4"
-            :class="{
-              active: isFeatureActive(benefit.featureId),
-              'cursor-pointer': benefit.featureId,
-            }"
-            @mouseenter="highlightedFeature = benefit.featureId"
-            @mouseleave="highlightedFeature = null"
+            v-for="f in features"
+            :key="f.id"
+            class="feature-card border-border bg-card/50 flex cursor-pointer gap-4 rounded-lg border p-4"
+            :class="{ active: active === f.id }"
+            @mouseenter="highlight = f.id"
+            @mouseleave="highlight = null"
           >
-            <div
-              class="bg-bab/10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg"
-            >
-              <Icon :name="benefit.icon" class="text-bab-light h-5 w-5" />
+            <div class="bg-bab/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
+              <Icon :name="f.icon" class="text-bab-light h-5 w-5" />
             </div>
             <div>
-              <h3 class="mb-1 font-semibold text-white">{{ benefit.title }}</h3>
-              <p class="text-muted-foreground text-sm">{{ benefit.description }}</p>
+              <h3 class="mb-1 font-semibold text-white">{{ f.title }}</h3>
+              <p class="text-muted-foreground text-sm">{{ f.desc }}</p>
             </div>
           </div>
 
@@ -103,22 +57,18 @@
           >
             <h4 class="mb-3 font-semibold text-white">Run your tasks:</h4>
             <div class="space-y-2 font-mono text-sm">
-              <div
-                v-for="cmd in taskCommands"
-                :key="cmd.taskId ?? 'interactive'"
-                class="flex items-center gap-1"
-              >
+              <div v-for="c in commands" :key="c.task ?? 'i'" class="flex items-center gap-1">
                 <span class="text-tui-muted select-none">$</span>
                 <span class="text-white">bab</span>
                 <span
-                  v-if="cmd.taskId"
-                  class="task-trigger"
-                  :class="{ active: highlightedTask === cmd.taskId }"
-                  @mouseenter="highlightedTask = cmd.taskId"
-                  @mouseleave="highlightedTask = null"
-                  >{{ cmd.taskId }}</span
+                  v-if="c.task"
+                  class="task-cmd"
+                  :class="{ active: highlight === `task-${c.task}` }"
+                  @mouseenter="highlight = `task-${c.task}`"
+                  @mouseleave="highlight = null"
+                  >{{ c.task }}</span
                 >
-                <span class="text-tui-dim ml-2">{{ cmd.comment }}</span>
+                <span class="text-tui-dim ml-2">{{ c.comment }}</span>
               </div>
             </div>
           </div>
@@ -131,183 +81,329 @@
 <script setup lang="ts">
   import { Badge } from '@/components/ui/badge'
 
-  const copied = ref(false)
-  const highlightedTask = ref<string | null>(null)
-  const highlightedTaskRef = ref<string | null>(null)
-  const highlightedDepsRef = ref<string | null>(null)
-  const highlightedDepsLine = ref<string | null>(null)
-  const highlightedPlatformsRef = ref(false)
-  const highlightedEnvRef = ref(false)
-  const highlightedLogRef = ref(false)
-  const highlightedFeature = ref<string | null>(null)
-
-  const taskCommands = [
-    { taskId: 'dev', comment: '# Start dev server' },
-    { taskId: 'build', comment: '# Build for production' },
-    { taskId: 'deploy', comment: '# Deploy to production' },
-    { taskId: null, comment: '# Interactive mode' },
-  ]
-
-  const benefits = [
-    {
-      icon: 'lucide:layers',
-      title: 'Task Composition',
-      description:
-        'Reference other tasks with task: to compose complex workflows from simple building blocks.',
-      featureId: 'composition',
-    },
-    {
-      icon: 'lucide:git-branch',
-      title: 'Task Dependencies',
-      description:
-        'Define deps and bab automatically runs prerequisites first. No more manual ordering.',
-      featureId: 'deps',
-    },
-    {
-      icon: 'lucide:variable',
-      title: 'Environment Variables',
-      description:
-        'Set env vars at global, task, or command level. More specific levels override broader ones.',
-      featureId: 'env',
-    },
-    {
-      icon: 'lucide:globe',
-      title: 'Platform-Specific Commands',
-      description: 'Different commands for different operating systems. Write once, run anywhere.',
-      featureId: 'platforms',
-    },
-    {
-      icon: 'lucide:message-square',
-      title: 'Log Messages',
-      description: 'Add informational log messages with levels: debug, info, warn, error.',
-      featureId: 'log',
-    },
-  ]
-
-  const isFeatureActive = (featureId: string | null) => {
-    if (!featureId) return false
-    if (highlightedFeature.value === featureId) return true
-    if (
-      featureId === 'composition' &&
-      (highlightedTaskRef.value === 'lint' || highlightedTaskRef.value === 'build')
-    )
-      return true
-    if (featureId === 'deps' && highlightedDepsLine.value) return true
-    if (featureId === 'env' && highlightedEnvRef.value) return true
-    if (featureId === 'platforms' && highlightedPlatformsRef.value) return true
-    if (featureId === 'log' && highlightedLogRef.value) return true
-    return false
+  interface Token {
+    t: string
+    c: string
+  }
+  interface Line {
+    tokens: Token[]
+    group?: string
+    feature?: string
+    ref?: string
   }
 
-  const codeExample = `env:
-  NODE_ENV: production
+  const styles = {
+    keyword: 'text-tui-match',
+    key: 'text-tui-muted',
+    accent: 'text-tui-accent',
+    value: 'text-gray-200',
+    punct: 'text-white',
+  } as const
 
-tasks:
+  const features = [
+    {
+      id: 'composition',
+      icon: 'lucide:layers',
+      title: 'Task Composition',
+      desc: 'Reference other tasks with task: to compose complex workflows from simple building blocks.',
+    },
+    {
+      id: 'deps',
+      icon: 'lucide:git-branch',
+      title: 'Task Dependencies',
+      desc: 'Define deps and bab automatically runs prerequisites first. No more manual ordering.',
+    },
+    {
+      id: 'env',
+      icon: 'lucide:variable',
+      title: 'Environment Variables',
+      desc: 'Set env vars at global, task, or command level. More specific levels override broader ones.',
+    },
+    {
+      id: 'platforms',
+      icon: 'lucide:globe',
+      title: 'Platform-Specific Commands',
+      desc: 'Different commands for different operating systems. Write once, run anywhere.',
+    },
+    {
+      id: 'log',
+      icon: 'lucide:message-square',
+      title: 'Log Messages',
+      desc: 'Add informational log messages with levels: debug, info, warn, error.',
+    },
+  ]
 
-  setup:
-    desc: Install dependencies
-    run:
-      - cmd: npm install
+  const commands = [
+    { task: 'dev', comment: '# Start dev server' },
+    { task: 'build', comment: '# Build the application' },
+    { task: 'setup', comment: '# Install dependencies' },
+    { task: 'deploy', comment: '# Deploy to production' },
+    { task: null, comment: '# Interactive mode' },
+  ]
 
-  lint:
-    desc: Run linter
-    run:
-      - cmd: npm run lint
+  const token = (text: string, style = ''): Token => ({ t: text, c: style })
+  const keyword = (text: string) => token(text, styles.keyword)
+  const key = (text: string) => token(text, styles.key)
+  const taskName = (text: string) => token(text, styles.accent)
+  const value = (text: string) => token(text, styles.value)
+  const punct = (text: string) => token(text, styles.punct)
+  const indent = (n: number) => token(' '.repeat(n))
 
-  dev:
-    desc: Start development server
-    deps: [setup]
-    run:
-      - cmd: npm run dev
+  const L = {
+    empty: (): Line => ({ tokens: [{ t: '\n', c: '' }] }),
+    raw: (tokens: Token[]): Line => ({ tokens }),
+    task: (tokens: Token[], name: string): Line => ({ tokens, group: `task-${name}` }),
+    feature: (tokens: Token[], task: string, feat: string, ref?: string): Line => ({
+      tokens,
+      group: `task-${task}`,
+      feature: feat,
+      ref,
+    }),
+    global: (tokens: Token[], group: string, feature?: string): Line => ({
+      tokens,
+      group,
+      feature,
+    }),
+  }
 
-  build:
-    desc: Build for production
-    env:
-      MINIFY: "true"
-    deps: [setup]
-    run:
-      - task: lint
-      - cmd: npm run build
+  const lines: Line[] = [
+    L.global([keyword('env'), punct(':')], 'env', 'env'),
+    L.global([indent(2), key('APP_NAME'), punct(':'), indent(1), value('myapp')], 'env', 'env'),
+    L.empty(),
+    L.raw([keyword('tasks'), punct(':')]),
+    L.task([indent(2), taskName('dev'), punct(':')], 'dev'),
+    L.task(
+      [indent(4), key('desc'), punct(':'), indent(1), value('Start development server')],
+      'dev',
+    ),
+    L.feature(
+      [indent(4), key('deps'), punct(':'), indent(1), value('[setup]')],
+      'dev',
+      'deps',
+      'task-setup',
+    ),
+    L.task([indent(4), key('run'), punct(':')], 'dev'),
+    L.task(
+      [indent(6), punct('-'), indent(1), key('cmd'), punct(':'), indent(1), value('npm run dev')],
+      'dev',
+    ),
+    L.empty(),
+    L.task([indent(2), taskName('build'), punct(':')], 'build'),
+    L.task(
+      [indent(4), key('desc'), punct(':'), indent(1), value('Build the application')],
+      'build',
+    ),
+    L.feature(
+      [indent(4), key('deps'), punct(':'), indent(1), value('[setup]')],
+      'build',
+      'deps',
+      'task-setup',
+    ),
+    L.task([indent(4), key('run'), punct(':')], 'build'),
+    L.feature(
+      [indent(6), punct('-'), indent(1), key('log'), punct(':'), indent(1), value('Building...')],
+      'build',
+      'log',
+    ),
+    L.task(
+      [
+        indent(6),
+        punct('-'),
+        indent(1),
+        key('cmd'),
+        punct(':'),
+        indent(1),
+        value('go build -o app'),
+      ],
+      'build',
+    ),
+    L.feature(
+      [indent(6), punct('-'), indent(1), key('log'), punct(':'), indent(1), value('Done!')],
+      'build',
+      'log',
+    ),
+    L.feature([indent(8), key('level'), punct(':'), indent(1), value('info')], 'build', 'log'),
+    L.empty(),
+    L.task([indent(2), taskName('setup'), punct(':')], 'setup'),
+    L.task([indent(4), key('desc'), punct(':'), indent(1), value('Install dependencies')], 'setup'),
+    L.feature([indent(4), key('env'), punct(':')], 'setup', 'env'),
+    L.feature([indent(6), key('CI'), punct(':'), indent(1), value('"true"')], 'setup', 'env'),
+    L.task([indent(4), key('run'), punct(':')], 'setup'),
+    L.task(
+      [indent(6), punct('-'), indent(1), key('cmd'), punct(':'), indent(1), value('./install.sh')],
+      'setup',
+    ),
+    L.feature(
+      [indent(8), key('platforms'), punct(':'), indent(1), value('[darwin, linux]')],
+      'setup',
+      'platforms',
+    ),
+    L.task(
+      [indent(6), punct('-'), indent(1), key('cmd'), punct(':'), indent(1), value('install.bat')],
+      'setup',
+    ),
+    L.feature(
+      [indent(8), key('platforms'), punct(':'), indent(1), value('[windows]')],
+      'setup',
+      'platforms',
+    ),
+    L.empty(),
+    L.task([indent(2), taskName('deploy'), punct(':')], 'deploy'),
+    L.task(
+      [indent(4), key('desc'), punct(':'), indent(1), value('Deploy to production')],
+      'deploy',
+    ),
+    L.task([indent(4), key('run'), punct(':')], 'deploy'),
+    L.feature(
+      [indent(6), punct('-'), indent(1), key('task'), punct(':'), indent(1), taskName('build')],
+      'deploy',
+      'composition',
+      'task-build',
+    ),
+    L.task(
+      [indent(6), punct('-'), indent(1), key('cmd'), punct(':'), indent(1), value('./deploy.sh')],
+      'deploy',
+    ),
+    L.feature([indent(8), key('env'), punct(':')], 'deploy', 'env'),
+    L.feature(
+      [indent(10), key('TARGET'), punct(':'), indent(1), value('production')],
+      'deploy',
+      'env',
+    ),
+  ]
 
-  deploy:
-    desc: Deploy to production
-    run:
-      - log: Starting deployment...
-      - task: build
-      - cmd: ./scripts/deploy.sh
-        platforms: [linux, darwin]
-      - cmd: powershell scripts/deploy.ps1
-        platforms: [windows]
-      - log: Deployment complete!
-        level: info`
+  const copied = ref(false)
+  const highlight = ref<string | null>(null)
+  const hoverIdx = ref<number | null>(null)
+  const hoverRef = ref<string | null>(null)
+
+  const getBlockIndices = (idx: number): Set<number> => {
+    const feature = lines[idx]?.feature
+    if (!feature) return new Set([idx])
+    const indices = new Set([idx])
+    for (let i = idx - 1; i >= 0 && lines[i]?.feature === feature; i--) indices.add(i)
+    for (let i = idx + 1; i < lines.length && lines[i]?.feature === feature; i++) indices.add(i)
+    return indices
+  }
+
+  const hoverBlock = computed(() =>
+    hoverIdx.value !== null ? getBlockIndices(hoverIdx.value) : null,
+  )
+  const active = computed(() => highlight.value || lines[hoverIdx.value!]?.feature || null)
+
+  const isHit = (ln: Line | undefined, i: number): boolean => {
+    if (!ln) return false
+    return !!(
+      hoverBlock.value?.has(i) ||
+      (highlight.value && ln.group === highlight.value) ||
+      (highlight.value && ln.feature === highlight.value) ||
+      (hoverRef.value && ln.group === hoverRef.value)
+    )
+  }
+
+  const lineClasses = (ln: Line, i: number) => {
+    const hit = isHit(ln, i)
+    const isRef = hoverRef.value && ln.group === hoverRef.value
+    const isEdge = (offset: number) => !isHit(lines[i + offset], i + offset)
+    return {
+      interactive: !!ln.feature,
+      highlight: hit && !isRef,
+      'highlight-ref': isRef,
+      'highlight-start': hit && isEdge(-1),
+      'highlight-end': hit && isEdge(1),
+    }
+  }
+
+  const hover = (ln: Line, i: number) => {
+    if (!ln.feature) return
+    hoverIdx.value = i
+    if (ln.ref) hoverRef.value = ln.ref
+  }
+
+  const unhover = () => {
+    hoverIdx.value = null
+    hoverRef.value = null
+  }
+
+  const codeText = lines.map((l) => l.tokens.map((t) => t.t).join('')).join('\n')
 
   const copyCode = async () => {
-    await navigator.clipboard.writeText(codeExample)
+    await navigator.clipboard.writeText(codeText)
     copied.value = true
-    setTimeout(() => {
-      copied.value = false
-    }, 2000)
+    setTimeout(() => (copied.value = false), 2000)
   }
 </script>
 
 <style scoped>
-  .task-block,
-  .env-block {
+  .code-line,
+  .task-cmd,
+  .feature-card {
+    --hl: 208, 157, 247;
+  }
+
+  .code-line {
     display: block;
-    margin: 0 -12px;
-    padding: 2px 12px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
+    margin: 0 -13px;
+    padding: 1px 13px;
+    box-sizing: border-box;
+    border: 0 solid rgba(var(--hl), 0.5);
+    transition-property: background, border-radius;
+    transition-duration: 0.2s, 0s;
   }
 
-  .task-block.highlight,
-  .env-block.highlight {
-    background: rgba(208, 157, 247, 0.2);
-    box-shadow: 0 0 8px rgba(208, 157, 247, 0.15);
+  .code-line.interactive {
+    cursor: pointer;
+  }
+  .code-line.interactive:hover:not(.highlight):not(.highlight-ref) {
+    background: rgba(var(--hl), 0.1);
+    border-radius: 4px;
   }
 
-  .task-trigger {
-    display: inline-block;
+  .code-line.highlight {
+    background: rgba(var(--hl), 0.2);
+  }
+  .code-line.highlight-ref {
+    padding: 0 12px;
+    border-width: 1px;
+    background: transparent;
+  }
+
+  .code-line.highlight-start {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  .code-line.highlight-end {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  .code-line.highlight-ref:not(.highlight-start) {
+    border-top-width: 0;
+    padding-top: 1px;
+  }
+  .code-line.highlight-ref:not(.highlight-end) {
+    border-bottom-width: 0;
+    padding-bottom: 1px;
+  }
+
+  .task-cmd {
     padding: 2px 6px;
     margin: -2px 0 -2px -2px;
     border-radius: 4px;
-    color: white;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: all 0.15s;
   }
-
-  .task-trigger:hover,
-  .task-trigger.active {
-    background: rgba(208, 157, 247, 0.25);
+  .task-cmd:hover,
+  .task-cmd.active {
+    background: rgba(var(--hl), 0.25);
     color: #e5b5fe;
   }
 
-  .task-trigger.active {
-    box-shadow: 0 0 12px rgba(208, 157, 247, 0.3);
-  }
-
-  .line-ref {
-    display: inline;
-    padding: 1px 4px;
-    margin: -1px -4px;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .line-ref:hover,
-  .line-ref.highlight {
-    background: rgba(208, 157, 247, 0.2);
-    box-shadow: 0 0 8px rgba(208, 157, 247, 0.15);
-  }
-
   .feature-card {
-    transition: all 0.2s ease;
+    transition: all 0.2s;
   }
-
   .feature-card.active {
-    border-color: rgba(208, 157, 247, 0.4);
-    background: rgba(208, 157, 247, 0.08);
-    box-shadow: 0 0 20px rgba(208, 157, 247, 0.15);
+    border-color: rgba(var(--hl), 0.4);
+    background: rgba(var(--hl), 0.08);
+    box-shadow: 0 0 20px rgba(var(--hl), 0.15);
   }
 </style>
