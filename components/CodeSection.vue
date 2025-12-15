@@ -181,7 +181,7 @@
     L.global(
       [indent(2), key('APP_NAME'), punct(':'), indent(1), value('${{ app_name }}')],
       'env',
-      'vars',
+      'env',
     ),
     L.empty(),
     L.raw([keyword('tasks'), punct(':')]),
@@ -227,7 +227,7 @@
         value('${{ app_name }} v${{ version }}'),
       ],
       'build',
-      'vars',
+      'log',
     ),
     L.task(
       [
