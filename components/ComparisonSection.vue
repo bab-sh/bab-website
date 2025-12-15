@@ -12,19 +12,19 @@
       </div>
 
       <div class="overflow-x-auto">
-        <table class="w-full min-w-[640px] table-fixed">
+        <table class="w-full min-w-[720px] table-fixed">
           <thead>
             <tr class="border-border border-b">
-              <th class="text-muted-foreground w-[40%] px-4 py-4 text-left text-sm font-medium">
+              <th class="text-muted-foreground w-[35%] px-4 py-4 text-left text-sm font-medium">
                 Feature
               </th>
               <th
                 v-for="tool in tools"
                 :key="tool.name"
-                class="w-[15%] px-4 py-4 text-center text-sm font-medium"
+                class="w-[13%] px-4 py-4 text-center text-sm font-medium"
                 :class="tool.highlight ? 'text-bab-light' : 'text-muted-foreground'"
               >
-                <div class="flex flex-col items-center gap-1">
+                <div class="flex h-14 flex-col items-center justify-end gap-1">
                   <SvgoBabLogo v-if="tool.useBabLogo" class="h-5 w-5" />
                   <Icon v-else :name="tool.icon" class="h-5 w-5" />
                   <span>{{ tool.name }}</span>
