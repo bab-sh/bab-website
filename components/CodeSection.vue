@@ -224,7 +224,7 @@
         key('log'),
         punct(':'),
         indent(1),
-        value('Building ${{ app_name }} v${{ version }}...'),
+        value('${{ app_name }} v${{ version }}'),
       ],
       'build',
       'vars',
