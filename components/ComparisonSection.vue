@@ -132,7 +132,7 @@
 
   const tools: Tool[] = [
     { name: 'bab', key: 'bab', icon: '', highlight: true, useBabLogo: true },
-    { name: 'Make', key: 'make', icon: 'lucide:hammer', highlight: false },
+    { name: 'GNU Make', key: 'make', icon: 'simple-icons:gnu', highlight: false },
     { name: 'npm scripts', key: 'npm', icon: 'simple-icons:npm', highlight: false },
     { name: 'Just', key: 'just', icon: 'lucide:scroll-text', highlight: false },
     { name: 'Task', key: 'task', icon: 'simple-icons:task', highlight: false },
