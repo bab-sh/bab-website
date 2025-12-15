@@ -102,6 +102,12 @@
 
   const features = [
     {
+      id: 'vars',
+      icon: 'lucide:braces',
+      title: 'Variables',
+      desc: 'Define vars at global or task level. Reference them anywhere with ${{ var_name }} syntax.',
+    },
+    {
       id: 'composition',
       icon: 'lucide:layers',
       title: 'Task Composition',
@@ -167,8 +173,16 @@
   }
 
   const lines: Line[] = [
+    L.global([keyword('vars'), punct(':')], 'vars', 'vars'),
+    L.global([indent(2), key('app_name'), punct(':'), indent(1), value('myapp')], 'vars', 'vars'),
+    L.global([indent(2), key('version'), punct(':'), indent(1), value('"1.0.0"')], 'vars', 'vars'),
+    L.empty(),
     L.global([keyword('env'), punct(':')], 'env', 'env'),
-    L.global([indent(2), key('APP_NAME'), punct(':'), indent(1), value('myapp')], 'env', 'env'),
+    L.global(
+      [indent(2), key('APP_NAME'), punct(':'), indent(1), value('${{ app_name }}')],
+      'env',
+      'vars',
+    ),
     L.empty(),
     L.raw([keyword('tasks'), punct(':')]),
     L.task([indent(2), taskName('dev'), punct(':')], 'dev'),
@@ -199,11 +213,21 @@
       'deps',
       'task-setup',
     ),
+    L.feature([indent(4), key('vars'), punct(':')], 'build', 'vars'),
+    L.feature([indent(6), key('target'), punct(':'), indent(1), value('release')], 'build', 'vars'),
     L.task([indent(4), key('run'), punct(':')], 'build'),
     L.feature(
-      [indent(6), punct('-'), indent(1), key('log'), punct(':'), indent(1), value('Building...')],
+      [
+        indent(6),
+        punct('-'),
+        indent(1),
+        key('log'),
+        punct(':'),
+        indent(1),
+        value('Building ${{ app_name }} v${{ version }}...'),
+      ],
       'build',
-      'log',
+      'vars',
     ),
     L.task(
       [

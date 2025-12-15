@@ -78,6 +78,7 @@
     'Interactive TUI with fuzzy search',
     'Platform-specific commands',
     'Environment variables',
+    'Variables with template syntax',
     'Shell completion (bash, zsh, fish)',
     'Dry-run mode',
     'Log messages in task runs',
