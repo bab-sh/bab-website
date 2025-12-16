@@ -50,7 +50,8 @@
                     >
                       <TooltipTrigger as-child>
                         <button
-                          class="text-muted-foreground/50 hover:text-muted-foreground"
+                          class="text-muted-foreground hover:text-white"
+                          aria-label="More information"
                           @click.prevent="toggleTooltip(index)"
                         >
                           <Icon name="lucide:info" class="h-3.5 w-3.5" />
@@ -78,9 +79,9 @@
                 <Icon
                   v-else-if="feature.support[tool.key] === false"
                   name="lucide:x"
-                  class="text-muted-foreground/50 mx-auto h-5 w-5"
+                  class="text-muted-foreground mx-auto h-5 w-5"
                 />
-                <Icon v-else name="lucide:minus" class="text-muted-foreground/50 mx-auto h-5 w-5" />
+                <Icon v-else name="lucide:minus" class="text-muted-foreground mx-auto h-5 w-5" />
               </td>
             </tr>
           </tbody>
@@ -93,7 +94,7 @@
           href="https://github.com/bab-sh/bab/discussions"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-bab-light hover:underline"
+          class="text-bab-light decoration-bab-light/50 hover:decoration-bab-light underline"
         >
           GitHub Discussions
         </a>

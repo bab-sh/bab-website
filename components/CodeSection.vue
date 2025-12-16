@@ -23,6 +23,7 @@
             </div>
             <button
               class="text-muted-foreground rounded p-1 transition-colors hover:bg-white/5 hover:text-white"
+              aria-label="Copy code"
               @click="copyCode"
             >
               <Icon v-if="!copied" name="lucide:copy" class="h-4 w-4" />
