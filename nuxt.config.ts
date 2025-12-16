@@ -7,6 +7,10 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
 
+  features: {
+    inlineStyles: true,
+  },
+
   nitro: {
     compressPublicAssets: true,
   },
@@ -78,14 +82,15 @@ export default defineNuxtConfig({
       {
         name: 'Montserrat',
         provider: 'google',
-        weights: [400, 500, 600, 700, 800],
+        weights: [400, 500, 600, 700],
       },
     ],
     defaults: {
-      weights: [400, 500, 600, 700, 800],
+      weights: [400, 500, 600, 700],
       styles: ['normal'],
       subsets: ['latin'],
       preload: true,
+      display: 'swap',
     },
   },
 
