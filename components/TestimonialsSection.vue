@@ -18,9 +18,7 @@
           class="border-border bg-card/50 flex max-w-md flex-col"
         >
           <CardContent class="flex flex-1 flex-col pt-6">
-            <p class="text-muted-foreground mb-3 text-xs">
-              since {{ formatDate(testimonial.since) }}
-            </p>
+            <p class="text-muted-foreground mb-3 text-xs">since {{ testimonial.formattedSince }}</p>
             <p class="text-muted-foreground mb-6 flex-1 text-sm leading-relaxed">
               "{{ testimonial.quote }}"
             </p>
@@ -92,20 +90,15 @@
     cached: boolean
   }
 
+  const formatDateString = (dateStr: string) => {
+    const [year, month, day] = dateStr.split('-')
+    return `${day}.${month}.${year}`
+  }
+
   const testimonials = (testimonialsData as TestimonialData[]).map((t) => ({
     ...t,
-    since: new Date(t.since),
+    formattedSince: formatDateString(t.since),
   }))
-
-  const formatDate = (date: Date) => {
-    return date
-      .toLocaleDateString('en-GB', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-      })
-      .replace(/\//g, '.')
-  }
 
   const profileResults = await Promise.all(
     testimonials.map((t) => useFetch<GitHubProfile>(`/api/github-profile?username=${t.github}`)),
