@@ -38,7 +38,7 @@
         <Button
           size="lg"
           variant="outline"
-          class="border-discord text-discord hover:bg-discord/10 w-full sm:w-auto"
+          class="border-discord hover:bg-discord/10 w-full text-white sm:w-auto"
           as-child
         >
           <a href="https://discord.bab.sh" target="_blank" rel="noopener noreferrer">

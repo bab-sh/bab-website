@@ -32,6 +32,7 @@
                   <span class="text-muted-foreground text-sm">{{ method.description }}</span>
                   <button
                     class="text-muted-foreground rounded p-1 transition-colors hover:bg-white/5 hover:text-white"
+                    aria-label="Copy command"
                     @click="copyCommand(method.command)"
                   >
                     <Icon
