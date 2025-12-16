@@ -7,6 +7,10 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
 
+  nitro: {
+    compressPublicAssets: true,
+  },
+
   modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxt/eslint', '@nuxt/icon', 'nuxt-svgo', '@nuxtjs/seo'],
 
   site: {
@@ -81,6 +85,7 @@ export default defineNuxtConfig({
       weights: [400, 500, 600, 700, 800],
       styles: ['normal'],
       subsets: ['latin'],
+      preload: true,
     },
   },
 
