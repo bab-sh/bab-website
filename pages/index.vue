@@ -14,6 +14,12 @@
 </template>
 
 <script setup lang="ts">
+  definePageMeta({
+    sitemap: {
+      priority: 1.0,
+    },
+  })
+
   useSeoMeta({
     title: 'bab - Modern Task Runner | Replace Makefiles & npm Scripts',
     description:

@@ -58,6 +58,12 @@
 </template>
 
 <script setup lang="ts">
+  definePageMeta({
+    sitemap: {
+      priority: 0.3,
+    },
+  })
+
   useSeoMeta({
     title: 'Imprint',
     description: 'Legal information and contact details for the bab project.',
