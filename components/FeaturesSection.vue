@@ -86,5 +86,7 @@
     'Nested task groups',
     'Task descriptions',
     'Colored CLI output',
+    'Silent mode',
+    'Output Suppress',
   ]
 </script>
