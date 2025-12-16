@@ -8,7 +8,6 @@
   useHead({
     htmlAttrs: {
       class: 'dark',
-      lang: 'en',
     },
   })
 </script>

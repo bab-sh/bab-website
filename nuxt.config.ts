@@ -7,7 +7,45 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
 
-  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxt/eslint', '@nuxt/icon', 'nuxt-svgo'],
+  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxt/eslint', '@nuxt/icon', 'nuxt-svgo', '@nuxtjs/seo'],
+
+  site: {
+    url: 'https://bab.sh',
+    name: 'bab - Modern Task Runner',
+    description:
+      'bab is a modern, zero-dependency task runner for developers. Cross-platform CLI tool to replace Makefiles and npm scripts with simple YAML configuration.',
+    defaultLocale: 'en',
+  },
+
+  sitemap: {
+    xslColumns: [
+      { label: 'URL', width: '65%' },
+      { label: 'Priority', width: '12%', select: 'sitemap:priority' },
+      { label: 'Last Modified', width: '23%', select: 'sitemap:lastmod' },
+    ],
+    defaults: {
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    },
+  },
+
+  schemaOrg: {
+    identity: {
+      type: 'Organization',
+      name: 'bab',
+      url: 'https://bab.sh',
+      logo: 'https://cdn.bab.sh/l/og-image',
+      sameAs: [
+        'https://github.com/bab-sh/bab',
+        'https://x.com/babshdev',
+        'https://discord.bab.sh',
+        'https://www.instagram.com/babshdev',
+        'https://www.reddit.com/r/babsh/',
+        'https://www.threads.com/@babshdev',
+      ],
+    },
+  },
 
   svgo: {
     autoImportPath: './assets/images/',
@@ -49,15 +87,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'bab - Modern Task Runner',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          name: 'description',
-          content:
-            'bab is a modern, zero-dependency task runner for developers. Cross-platform CLI tool to replace Makefiles and npm scripts with simple YAML configuration.',
-        },
         { name: 'generator', content: 'Nuxt' },
         { name: 'rating', content: 'general' },
         { name: 'theme-color', content: '#0a0a0a' },
@@ -65,10 +97,8 @@ export default defineNuxtConfig({
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'format-detection', content: 'telephone=no' },
-        { name: 'robots', content: 'index, follow' },
-        { name: 'googlebot', content: 'index, follow' },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:locale', content: 'en_US' },
+        { name: 'referrer', content: 'strict-origin-when-cross-origin' },
+        { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' },
       ],
       link: [
         {
@@ -81,8 +111,12 @@ export default defineNuxtConfig({
         { rel: 'shortcut icon', href: '/assets/favicon/favicon.ico' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/assets/favicon/apple-touch-icon.png' },
         { rel: 'manifest', href: '/assets/favicon/site.webmanifest' },
-        { rel: 'canonical', href: 'https://bab.sh' },
         { rel: 'preconnect', href: 'https://cdn.bab.sh' },
+        { rel: 'preconnect', href: 'https://github.com', crossorigin: 'anonymous' },
+        { rel: 'dns-prefetch', href: 'https://github.com' },
+        { rel: 'dns-prefetch', href: 'https://docs.bab.sh' },
+        { rel: 'dns-prefetch', href: 'https://discord.bab.sh' },
+        { rel: 'dns-prefetch', href: 'https://avatars.githubusercontent.com' },
       ],
     },
   },

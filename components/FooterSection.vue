@@ -93,54 +93,64 @@
               href="https://github.com/bab-sh/bab"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
               class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white sm:mb-2"
             >
-              <Icon name="simple-icons:github" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <Icon name="simple-icons:github" class="h-5 w-5 sm:h-4 sm:w-4" aria-hidden="true" />
               <span class="hidden sm:inline">GitHub</span>
             </a>
             <a
               href="https://discord.bab.sh"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Discord"
               class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white sm:mb-2"
             >
-              <Icon name="simple-icons:discord" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <Icon name="simple-icons:discord" class="h-5 w-5 sm:h-4 sm:w-4" aria-hidden="true" />
               <span class="hidden sm:inline">Discord</span>
             </a>
             <a
               href="https://x.com/babshdev"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="X (formerly Twitter)"
               class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white sm:mb-2"
             >
-              <Icon name="simple-icons:x" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <Icon name="simple-icons:x" class="h-5 w-5 sm:h-4 sm:w-4" aria-hidden="true" />
               <span class="hidden sm:inline">X</span>
             </a>
             <a
               href="https://www.instagram.com/babshdev"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Instagram"
               class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white sm:mb-2"
             >
-              <Icon name="simple-icons:instagram" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <Icon
+                name="simple-icons:instagram"
+                class="h-5 w-5 sm:h-4 sm:w-4"
+                aria-hidden="true"
+              />
               <span class="hidden sm:inline">Instagram</span>
             </a>
             <a
               href="https://www.reddit.com/r/babsh/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Reddit"
               class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white sm:mb-2"
             >
-              <Icon name="simple-icons:reddit" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <Icon name="simple-icons:reddit" class="h-5 w-5 sm:h-4 sm:w-4" aria-hidden="true" />
               <span class="hidden sm:inline">Reddit</span>
             </a>
             <a
               href="https://www.threads.com/@babshdev"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Threads"
               class="text-muted-foreground flex items-center gap-2 text-sm transition-colors hover:text-white"
             >
-              <Icon name="simple-icons:threads" class="h-5 w-5 sm:h-4 sm:w-4" />
+              <Icon name="simple-icons:threads" class="h-5 w-5 sm:h-4 sm:w-4" aria-hidden="true" />
               <span class="hidden sm:inline">Threads</span>
             </a>
           </div>

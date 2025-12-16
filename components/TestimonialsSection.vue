@@ -34,6 +34,10 @@
                 :src="profiles[index]?.avatar_url ?? `https://github.com/${testimonial.github}.png`"
                 :alt="profiles[index]?.name ?? testimonial.github"
                 class="h-10 w-10 rounded-full object-cover"
+                loading="lazy"
+                width="40"
+                height="40"
+                decoding="async"
               />
               <div>
                 <p class="flex items-center gap-1 text-sm font-medium text-white">

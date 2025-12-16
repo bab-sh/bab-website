@@ -79,17 +79,21 @@
                   class="flex h-7 w-7 items-center justify-center rounded transition-colors hover:bg-white/5"
                   :class="selectedPlatform === 'unix' ? 'text-white' : 'text-muted-foreground/50'"
                   title="macOS / Linux"
+                  aria-label="Show macOS install command"
+                  :aria-pressed="selectedPlatform === 'unix'"
                   @click="selectedPlatform = 'unix'"
                 >
-                  <Icon name="simple-icons:apple" class="h-4 w-4" />
+                  <Icon name="simple-icons:apple" class="h-4 w-4" aria-hidden="true" />
                 </button>
                 <button
                   class="flex h-7 w-7 items-center justify-center rounded transition-colors hover:bg-white/5"
                   :class="selectedPlatform === 'unix' ? 'text-white' : 'text-muted-foreground/50'"
                   title="macOS / Linux"
+                  aria-label="Show Linux install command"
+                  :aria-pressed="selectedPlatform === 'unix'"
                   @click="selectedPlatform = 'unix'"
                 >
-                  <Icon name="simple-icons:linux" class="h-4 w-4" />
+                  <Icon name="simple-icons:linux" class="h-4 w-4" aria-hidden="true" />
                 </button>
                 <button
                   class="flex h-7 w-7 items-center justify-center rounded transition-colors hover:bg-white/5"
@@ -97,9 +101,11 @@
                     selectedPlatform === 'windows' ? 'text-white' : 'text-muted-foreground/50'
                   "
                   title="Windows"
+                  aria-label="Show Windows install command"
+                  :aria-pressed="selectedPlatform === 'windows'"
                   @click="selectedPlatform = 'windows'"
                 >
-                  <Icon name="simple-icons:windows" class="h-4 w-4" />
+                  <Icon name="simple-icons:windows" class="h-4 w-4" aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -110,10 +116,11 @@
               <code class="text-white">{{ installCommand }}</code>
               <button
                 class="text-muted-foreground ml-auto rounded p-1 transition-colors hover:bg-white/5 hover:text-white lg:ml-2"
+                :aria-label="copied ? 'Copied to clipboard' : 'Copy install command'"
                 @click="copyInstallCommand"
               >
-                <Icon v-if="!copied" name="lucide:copy" class="h-4 w-4" />
-                <Icon v-else name="lucide:check" class="text-success h-4 w-4" />
+                <Icon v-if="!copied" name="lucide:copy" class="h-4 w-4" aria-hidden="true" />
+                <Icon v-else name="lucide:check" class="text-success h-4 w-4" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -125,7 +132,7 @@
       </div>
     </div>
 
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden="true">
       <Icon name="lucide:chevron-down" class="text-muted-foreground h-6 w-6" />
     </div>
   </section>
