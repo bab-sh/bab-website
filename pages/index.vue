@@ -93,5 +93,30 @@
     defineBreadcrumb({
       itemListElement: [{ name: 'Home', item: '/' }],
     }),
+    {
+      '@type': 'ItemList',
+      '@id': 'https://bab.sh/#navigation',
+      name: 'Site Navigation',
+      itemListElement: [
+        {
+          '@type': 'SiteNavigationElement',
+          position: 1,
+          name: 'Documentation',
+          url: 'https://docs.bab.sh',
+        },
+        {
+          '@type': 'SiteNavigationElement',
+          position: 2,
+          name: 'GitHub',
+          url: 'https://github.com/bab-sh/bab',
+        },
+        {
+          '@type': 'SiteNavigationElement',
+          position: 3,
+          name: 'Discord Community',
+          url: 'https://discord.bab.sh',
+        },
+      ],
+    },
   ])
 </script>
