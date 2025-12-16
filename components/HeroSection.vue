@@ -144,10 +144,13 @@
 
   const copied = ref(false)
 
-  const headers = useRequestHeaders(['user-agent'])
-  const userAgent = import.meta.server ? headers['user-agent'] || '' : navigator.userAgent
-  const initialPlatform = userAgent.toLowerCase().includes('windows') ? 'windows' : 'unix'
-  const selectedPlatform = ref<'unix' | 'windows'>(initialPlatform)
+  const selectedPlatform = ref<'unix' | 'windows'>('unix')
+
+  onMounted(() => {
+    if (navigator.userAgent.toLowerCase().includes('windows')) {
+      selectedPlatform.value = 'windows'
+    }
+  })
 
   const { data: starsData } = await useFetch<{ stars: number }>('/api/github-stars')
   const { data: versionData } = await useFetch<{ version: string }>('/api/github-version')
@@ -169,10 +172,14 @@
   const promptSymbol = computed(() => (selectedPlatform.value === 'windows' ? '>' : '$'))
 
   const copyInstallCommand = async () => {
-    await navigator.clipboard.writeText(installCommand.value)
-    copied.value = true
-    setTimeout(() => {
-      copied.value = false
-    }, 2000)
+    try {
+      await navigator.clipboard.writeText(installCommand.value)
+      copied.value = true
+      setTimeout(() => {
+        copied.value = false
+      }, 2000)
+    } catch (e) {
+      void e
+    }
   }
 </script>

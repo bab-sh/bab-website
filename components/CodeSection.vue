@@ -358,9 +358,13 @@
     .join('\n')
 
   const copyCode = async () => {
-    await navigator.clipboard.writeText(codeText)
-    copied.value = true
-    setTimeout(() => (copied.value = false), 2000)
+    try {
+      await navigator.clipboard.writeText(codeText)
+      copied.value = true
+      setTimeout(() => (copied.value = false), 2000)
+    } catch (e) {
+      void e
+    }
   }
 </script>
 

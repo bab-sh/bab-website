@@ -147,10 +147,14 @@
   ]
 
   const copyCommand = async (command: string) => {
-    await navigator.clipboard.writeText(command)
-    copiedCommand.value = command
-    setTimeout(() => {
-      copiedCommand.value = null
-    }, 2000)
+    try {
+      await navigator.clipboard.writeText(command)
+      copiedCommand.value = command
+      setTimeout(() => {
+        copiedCommand.value = null
+      }, 2000)
+    } catch (e) {
+      void e
+    }
   }
 </script>
