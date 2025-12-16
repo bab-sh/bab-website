@@ -21,6 +21,10 @@
     keywords:
       'task runner, build automation, makefile alternative, npm scripts replacement, yaml task runner, cross-platform build tool, developer tools, devops automation, bab',
     author: 'AIO',
+    ogUrl: 'https://bab.sh',
+    ogType: 'website',
+    ogLocale: 'en_US',
+    ogSiteName: 'bab',
     ogTitle: 'bab - Modern Task Runner | Zero Dependencies, Cross-Platform',
     ogDescription:
       'Replace your Makefiles and npm scripts with clean YAML. Zero dependencies, works everywhere.',
