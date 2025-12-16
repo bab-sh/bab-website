@@ -162,7 +162,13 @@
       <div
         class="text-muted-foreground flex flex-col items-center justify-between gap-4 text-sm sm:flex-row"
       >
-        <p>&copy; {{ currentYear }} bab. MIT License.</p>
+        <p>
+          &copy; {{ currentYear }} bab
+          <span class="mx-2">·</span>
+          <NuxtLink to="/imprint" class="transition-colors hover:text-white"> Imprint </NuxtLink>
+          <span class="mx-2">·</span>
+          MIT License
+        </p>
         <p class="flex items-center">
           Made with
           <Icon
