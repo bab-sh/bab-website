@@ -4,7 +4,7 @@
       <div class="mb-8 grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4">
         <div class="col-span-2 text-center sm:text-left lg:col-span-1">
           <div class="mb-4 flex items-center justify-center gap-3 sm:justify-start">
-            <SvgoBabLogo class="h-8 w-8" />
+            <SvgoBabLogo class="h-8 w-8" aria-label="bab logo" />
             <span class="text-xl font-bold text-white">bab</span>
           </div>
           <p class="text-muted-foreground text-sm">
@@ -13,7 +13,7 @@
         </div>
 
         <div class="text-center sm:text-left">
-          <h4 class="mb-4 font-semibold text-white">Product</h4>
+          <h3 class="mb-4 font-semibold text-white">Product</h3>
           <ul class="space-y-2">
             <li>
               <a
@@ -57,7 +57,7 @@
         </div>
 
         <div class="text-center sm:text-left">
-          <h4 class="mb-4 font-semibold text-white">Integrations</h4>
+          <h3 class="mb-4 font-semibold text-white">Integrations</h3>
           <ul class="space-y-2">
             <li>
               <a
@@ -85,7 +85,7 @@
         </div>
 
         <div class="col-span-2 text-center sm:col-span-1 sm:text-left">
-          <h4 class="mb-4 font-semibold text-white">Community</h4>
+          <h3 class="mb-4 font-semibold text-white">Community</h3>
           <div
             class="flex flex-wrap items-center justify-center gap-3 sm:flex-col sm:items-start sm:gap-0"
           >

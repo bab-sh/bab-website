@@ -25,7 +25,7 @@
                 :class="tool.highlight ? 'text-bab-light' : 'text-muted-foreground'"
               >
                 <div class="flex h-14 flex-col items-center justify-end gap-1">
-                  <SvgoBabLogo v-if="tool.useBabLogo" class="h-5 w-5" />
+                  <SvgoBabLogo v-if="tool.useBabLogo" class="h-5 w-5" aria-label="bab logo" />
                   <Icon v-else :name="tool.icon" class="h-5 w-5" />
                   <span>{{ tool.name }}</span>
                 </div>

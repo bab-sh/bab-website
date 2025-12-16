@@ -20,6 +20,15 @@
     },
   })
 
+  const { data: versionData } = await useFetch<{ version: string }>('/api/github-version')
+  const version = computed(() => versionData.value?.version ?? 'Pre-Alpha')
+
+  defineOgImageComponent('Bab', {
+    title: 'Modern Task Runner',
+    description: 'Zero-dependency, cross-platform task runner with simple YAML configuration.',
+    version,
+  })
+
   useSeoMeta({
     title: 'bab - Modern Task Runner | Replace Makefiles & npm Scripts',
     description:
@@ -34,15 +43,10 @@
     ogTitle: 'bab - Modern Task Runner | Zero Dependencies, Cross-Platform',
     ogDescription:
       'Replace your Makefiles and npm scripts with clean YAML. Zero dependencies, works everywhere.',
-    ogImage: 'https://cdn.bab.sh/l/og-image',
-    ogImageWidth: 1200,
-    ogImageHeight: 630,
-    ogImageAlt: 'bab - Modern Task Runner',
     twitterCard: 'summary_large_image',
     twitterTitle: 'bab - Modern Task Runner',
     twitterDescription:
       'Zero-dependency, cross-platform task runner with simple YAML. Replace Makefiles & npm scripts.',
-    twitterImage: 'https://cdn.bab.sh/l/og-image',
     twitterSite: '@babshdev',
     twitterCreator: '@babshdev',
   })

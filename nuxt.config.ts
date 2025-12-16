@@ -38,6 +38,15 @@ export default defineNuxtConfig({
     },
   },
 
+  ogImage: {
+    enabled: true,
+    defaults: {
+      component: 'NuxtSeo',
+      width: 1200,
+      height: 630,
+    },
+  },
+
   schemaOrg: {
     identity: {
       type: 'Organization',
