@@ -143,19 +143,17 @@
   import { Badge } from '@/components/ui/badge'
 
   const copied = ref(false)
-  const selectedPlatform = ref<'unix' | 'windows'>('unix')
+
+  const headers = useRequestHeaders(['user-agent'])
+  const userAgent = import.meta.server ? headers['user-agent'] || '' : navigator.userAgent
+  const initialPlatform = userAgent.toLowerCase().includes('windows') ? 'windows' : 'unix'
+  const selectedPlatform = ref<'unix' | 'windows'>(initialPlatform)
 
   const { data: starsData } = await useFetch<{ stars: number }>('/api/github-stars')
   const { data: versionData } = await useFetch<{ version: string }>('/api/github-version')
 
   const stars = computed(() => starsData.value?.stars ?? null)
   const version = computed(() => versionData.value?.version ?? null)
-
-  onMounted(() => {
-    if (navigator.platform.toLowerCase().includes('win')) {
-      selectedPlatform.value = 'windows'
-    }
-  })
 
   const formattedStars = computed(() => {
     if (!stars.value) return null
