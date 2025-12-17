@@ -39,8 +39,7 @@
           </div>
 
           <p class="text-muted-foreground mx-auto max-w-xl text-lg sm:text-xl lg:mx-0">
-            Modern task runner. Zero dependencies, cross-platform, simple. Replace your Makefiles
-            and npm scripts with clean YAML.
+            Clean commands for any project. Modern task runner. Zero dependencies. Any platform.
           </p>
 
           <div class="flex flex-col justify-center gap-4 pt-4 sm:flex-row lg:justify-start">

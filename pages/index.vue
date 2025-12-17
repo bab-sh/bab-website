@@ -24,15 +24,15 @@
   const version = computed(() => versionData.value?.version ?? 'Pre-Alpha')
 
   defineOgImageComponent('Bab', {
-    title: 'Modern Task Runner',
-    description: 'Zero-dependency, cross-platform task runner with simple YAML configuration.',
+    title: 'Clean commands for any project.',
+    description: 'Modern task runner. Zero dependencies. Any platform.',
     version,
   })
 
   useSeoMeta({
-    title: 'bab - Modern Task Runner | Replace Makefiles & npm Scripts',
+    title: 'Bab - Clean commands for any project.',
     description:
-      'bab is a zero-dependency, cross-platform task runner with simple YAML configuration. Replace your Makefiles and npm scripts with clean, readable task definitions.',
+      'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform.',
     keywords:
       'task runner, build automation, makefile alternative, npm scripts replacement, yaml task runner, cross-platform build tool, developer tools, devops automation, bab',
     author: 'AIO',
@@ -40,13 +40,13 @@
     ogType: 'website',
     ogLocale: 'en_US',
     ogSiteName: 'bab',
-    ogTitle: 'bab - Modern Task Runner | Zero Dependencies, Cross-Platform',
+    ogTitle: 'Bab - Clean commands for any project.',
     ogDescription:
-      'Replace your Makefiles and npm scripts with clean YAML. Zero dependencies, works everywhere.',
+      'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform.',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'bab - Modern Task Runner',
+    twitterTitle: 'Bab - Clean commands for any project.',
     twitterDescription:
-      'Zero-dependency, cross-platform task runner with simple YAML. Replace Makefiles & npm scripts.',
+      'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform.',
     twitterSite: '@babshdev',
     twitterCreator: '@babshdev',
   })
@@ -54,15 +54,16 @@
   useSchemaOrg([
     defineWebPage({
       '@type': 'FAQPage',
-      name: 'bab - Modern Task Runner',
-      description: 'Zero-dependency, cross-platform task runner with simple YAML configuration.',
+      name: 'Bab - Clean commands for any project.',
+      description:
+        'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform.',
     }),
     defineSoftwareApp({
       name: 'bab',
       applicationCategory: 'DeveloperApplication',
       operatingSystem: 'Windows, macOS, Linux',
       description:
-        'Modern task runner with zero dependencies. Replace Makefiles and npm scripts with clean YAML configuration.',
+        'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform.',
       downloadUrl: 'https://github.com/bab-sh/bab/releases',
       softwareVersion: 'Pre-Alpha',
       offers: {

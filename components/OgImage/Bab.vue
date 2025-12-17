@@ -74,7 +74,7 @@
           marginTop: '8px',
         }"
       >
-        {{ title || 'Modern Task Runner' }}
+        {{ title || 'Clean commands for any project.' }}
       </div>
 
       <div
@@ -86,10 +86,7 @@
           maxWidth: '900px',
         }"
       >
-        {{
-          description ||
-          'Zero-dependency, cross-platform task runner with simple YAML configuration.'
-        }}
+        {{ description || 'Modern task runner. Zero dependencies. Any platform.' }}
       </div>
     </div>
   </div>

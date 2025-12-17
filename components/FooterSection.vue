@@ -7,9 +7,7 @@
             <SvgoBabLogo class="h-8 w-8" aria-label="bab logo" />
             <span class="text-xl font-bold text-white">Bab</span>
           </div>
-          <p class="text-muted-foreground text-sm">
-            Modern task runner. Zero dependencies, cross-platform, simple.
-          </p>
+          <p class="text-muted-foreground text-sm">Clean commands for any project.</p>
         </div>
 
         <div class="text-center sm:text-left">

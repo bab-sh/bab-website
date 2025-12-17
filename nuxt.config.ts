@@ -19,9 +19,9 @@ export default defineNuxtConfig({
 
   site: {
     url: 'https://bab.sh',
-    name: 'bab - Modern Task Runner',
+    name: 'Bab - Clean commands for any project.',
     description:
-      'bab is a modern, zero-dependency task runner for developers. Cross-platform CLI tool to replace Makefiles and npm scripts with simple YAML configuration.',
+      'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform.',
     defaultLocale: 'en',
   },
 
