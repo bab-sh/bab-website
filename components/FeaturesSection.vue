@@ -39,7 +39,7 @@
           :key="item"
           class="text-muted-foreground flex items-center gap-3"
         >
-          <Icon name="lucide:check" class="text-bab h-5 w-5 flex-shrink-0" />
+          <Icon name="lucide:check" class="text-bab h-5 w-5 shrink-0" />
           <span>{{ item }}</span>
         </div>
       </div>

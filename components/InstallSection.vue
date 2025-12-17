@@ -66,9 +66,9 @@
                   <Icon
                     v-if="copiedCommand !== pkg.command"
                     name="lucide:copy"
-                    class="text-muted-foreground h-3 w-3 flex-shrink-0"
+                    class="text-muted-foreground h-3 w-3 shrink-0"
                   />
-                  <Icon v-else name="lucide:check" class="text-success h-3 w-3 flex-shrink-0" />
+                  <Icon v-else name="lucide:check" class="text-success h-3 w-3 shrink-0" />
                 </div>
                 <code class="text-muted-foreground block font-mono text-xs break-all sm:truncate">
                   {{ pkg.command }}

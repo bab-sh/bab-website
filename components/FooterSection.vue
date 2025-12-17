@@ -5,7 +5,7 @@
         <div class="col-span-2 text-center sm:text-left lg:col-span-1">
           <div class="mb-4 flex items-center justify-center gap-3 sm:justify-start">
             <SvgoBabLogo class="h-8 w-8" aria-label="bab logo" />
-            <span class="text-xl font-bold text-white">bab</span>
+            <span class="text-xl font-bold text-white">Bab</span>
           </div>
           <p class="text-muted-foreground text-sm">
             Modern task runner. Zero dependencies, cross-platform, simple.
