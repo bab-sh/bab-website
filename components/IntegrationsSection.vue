@@ -151,11 +151,6 @@
 </template>
 
 <script setup lang="ts">
-  import { Button } from '@/components/ui/button'
-  import { Badge } from '@/components/ui/badge'
-  import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-  import { Separator } from '@/components/ui/separator'
-
   const { data: intellijData } = await useFetch<{ version: string }>('/api/intellij-version')
   const intellijVersion = computed(() => intellijData.value?.version ?? null)
 

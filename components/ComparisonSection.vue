@@ -104,9 +104,6 @@
 </template>
 
 <script setup lang="ts">
-  import { Badge } from '@/components/ui/badge'
-  import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-
   const openTooltip = ref<number | null>(null)
 
   function toggleTooltip(index: number) {

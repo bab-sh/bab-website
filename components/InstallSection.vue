@@ -97,11 +97,6 @@
 </template>
 
 <script setup lang="ts">
-  import { Badge } from '@/components/ui/badge'
-  import { Button } from '@/components/ui/button'
-  import { Card, CardContent } from '@/components/ui/card'
-  import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-
   const copiedCommand = ref<string | null>(null)
 
   const installMethods = [

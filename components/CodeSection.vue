@@ -80,8 +80,6 @@
 </template>
 
 <script setup lang="ts">
-  import { Badge } from '@/components/ui/badge'
-
   interface Token {
     t: string
     c: string

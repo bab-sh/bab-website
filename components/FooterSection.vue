@@ -181,7 +181,5 @@
 </template>
 
 <script setup lang="ts">
-  import { Separator } from '@/components/ui/separator'
-
   const currentYear = new Date().getFullYear()
 </script>

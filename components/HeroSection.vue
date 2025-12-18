@@ -141,9 +141,6 @@
 </template>
 
 <script setup lang="ts">
-  import { Button } from '@/components/ui/button'
-  import { Badge } from '@/components/ui/badge'
-
   const copied = ref(false)
 
   const selectedPlatform = ref<'unix' | 'windows'>('unix')

@@ -107,10 +107,6 @@
 </template>
 
 <script setup lang="ts">
-  import { Badge } from '@/components/ui/badge'
-  import { Button } from '@/components/ui/button'
-  import { Card, CardContent } from '@/components/ui/card'
-
   const contributionTypes = [
     { icon: 'lucide:code', label: 'Code', href: 'https://github.com/bab-sh/bab' },
     {

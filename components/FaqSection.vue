@@ -47,22 +47,14 @@
 </template>
 
 <script setup lang="ts">
-  import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-  } from '@/components/ui/accordion'
-  import { Badge } from '@/components/ui/badge'
-  import { Button } from '@/components/ui/button'
-  import striptags from 'striptags'
-
   interface Faq {
     question: string
     answer: string
   }
 
-  const faqs: Faq[] = [
+  const stripHtml = (html: string): string => html.replace(/<[^>]*>/g, '')
+
+  const faqs: Faq[] = Object.freeze([
     {
       question: 'What is Bab?',
       answer:
@@ -108,14 +100,12 @@
       answer:
         'Join our <a href="https://discord.bab.sh" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">Discord community</a> for <strong>quick help</strong>, or open an issue on <a href="https://github.com/bab-sh/bab/issues" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">GitHub</a> for <strong>bug reports</strong> and <strong>feature requests</strong>. We love hearing about your experiences and ideas for making Bab even better.',
     },
-  ]
+  ]) as Faq[]
 
-  useSchemaOrg(
-    faqs.map((faq) =>
-      defineQuestion({
-        name: faq.question,
-        acceptedAnswer: striptags(faq.answer),
-      }),
-    ),
-  )
+  const faqSchemaData = faqs.map((faq) => ({
+    name: faq.question,
+    acceptedAnswer: stripHtml(faq.answer),
+  }))
+
+  useSchemaOrg(faqSchemaData.map((faq) => defineQuestion(faq)))
 </script>
