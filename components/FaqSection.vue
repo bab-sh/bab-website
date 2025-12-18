@@ -20,20 +20,7 @@
             {{ faq.question }}
           </AccordionTrigger>
           <AccordionContent class="text-muted-foreground">
-            <p>
-              <template v-for="(segment, index) in faq.answer" :key="index">
-                <a
-                  v-if="segment.link"
-                  :href="segment.link.href"
-                  :target="segment.link.external ? '_blank' : undefined"
-                  :rel="segment.link.external ? 'noopener noreferrer' : undefined"
-                  class="text-bab-light hover:underline"
-                >
-                  {{ segment.text }}
-                </a>
-                <template v-else>{{ segment.text }}</template>
-              </template>
-            </p>
+            <p v-html="faq.answer" />
           </AccordionContent>
         </AccordionItem>
       </Accordion>
@@ -68,83 +55,67 @@
   } from '@/components/ui/accordion'
   import { Badge } from '@/components/ui/badge'
   import { Button } from '@/components/ui/button'
-
-  interface FaqSegment {
-    text: string
-    link?: {
-      href: string
-      external?: boolean
-    }
-  }
+  import striptags from 'striptags'
 
   interface Faq {
     question: string
-    answer: FaqSegment[]
+    answer: string
   }
 
   const faqs: Faq[] = [
     {
-      question: 'What is bab?',
-      answer: [
-        {
-          text: 'bab is a modern, zero-dependency task runner designed to replace Makefiles and npm scripts. It uses simple YAML configuration and works seamlessly across Windows, macOS, and Linux.',
-        },
-      ],
+      question: 'What is Bab?',
+      answer:
+        'Bab is a <strong>modern task runner</strong> that brings <strong>clean, consistent commands</strong> to any project. It helps automate recurring tasks and standardize workflows across your projects and teams. <strong>Simple to learn, powerful to use</strong>, and perfectly integrates in already existing projects with <a href="https://docs.bab.sh/integrations" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">IDE plugins</a>, <a href="https://github.com/bab-sh/setup-bab" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">GitHub Actions</a>, and more.',
     },
     {
-      question: 'How do I install bab?',
-      answer: [
-        {
-          text: 'You can install bab using our quick install script, Homebrew, Go, or download the binary directly from GitHub. Check the ',
-        },
-        { text: 'installation section', link: { href: '#install' } },
-        { text: ' for detailed instructions.' },
-      ],
+      question: 'What problems does Bab solve?',
+      answer:
+        'Bab eliminates <strong>scattered scripts</strong>, <strong>cryptic Makefiles</strong>, and platform specific setups. Define your tasks once in readable <strong>YAML</strong> and <strong>run them anywhere</strong>. Spend less time on setup and more time actually coding.',
     },
     {
-      question: 'Does bab work on Windows?',
-      answer: [
-        {
-          text: 'Yes! bab has full cross-platform support. It works on Windows, macOS, and Linux with the same configuration file. You can even define platform-specific commands when needed.',
-        },
-      ],
+      question: 'Why use YAML for task configuration?',
+      answer:
+        '<strong>YAML</strong> is readable, widely known, and supported by every editor. <strong>No special syntax to learn</strong>, just define your tasks in a format you already understand. The <strong>Babfile</strong> format is designed to stay <strong>clean and organized</strong> even as your project grows.',
     },
     {
-      question: 'Can I migrate from Make or npm scripts?',
-      answer: [
-        {
-          text: "Absolutely. bab's YAML syntax is intuitive and easy to learn. Most Makefile or npm script configurations can be converted to bab in minutes. Check our ",
-        },
-        {
-          text: 'migration guide',
-          link: { href: 'https://docs.bab.sh/guide/migration', external: true },
-        },
-        { text: ' for tips.' },
-      ],
+      question: 'Who should use Bab?',
+      answer:
+        'Any developer or team that wants <strong>consistent, shareable and clean</strong> project commands. Bab works with <strong>every framework, language, and project type</strong>. Great for <strong>solo projects</strong>, <strong>monorepos</strong>, and teams across different operating systems.',
     },
     {
-      question: 'Is bab free to use?',
-      answer: [
-        {
-          text: 'Yes, bab is completely free and open source under the MIT license. You can use it for personal projects, commercial applications, or anything in between.',
-        },
-      ],
+      question: 'Does Bab work on all platforms?',
+      answer:
+        'Yes. Bab runs natively on <strong>Windows, macOS, and Linux</strong> without any additional tools. The same Babfile works everywhere, and you can define <strong>platform specific commands</strong> when needed or use <strong>native actions</strong> that handle platform compatibility automatically for you.',
     },
     {
-      question: 'How do I get help or report issues?',
-      answer: [
-        { text: 'Join our ' },
-        {
-          text: 'Discord community',
-          link: { href: 'https://discord.bab.sh', external: true },
-        },
-        { text: ' for quick help, or open an issue on ' },
-        {
-          text: 'GitHub',
-          link: { href: 'https://github.com/bab-sh/bab/issues', external: true },
-        },
-        { text: ' for bug reports and feature requests.' },
-      ],
+      question: 'Is Bab free and open source?',
+      answer:
+        'Yes. Bab is completely <strong>free</strong> and <a href="https://github.com/bab-sh/bab" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">open source</a> under the <strong>MIT license</strong>. Use it for personal projects, commercial work, or anything in between.',
+    },
+    {
+      question: 'How can I contribute to Bab?',
+      answer:
+        'There are many ways to help! <strong>Star the repo</strong> on <a href="https://github.com/bab-sh/bab" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">GitHub</a>, <strong>share Bab</strong> with your team, <strong>submit a testimonial</strong>, report bugs, suggest features, or <strong>contribute code</strong>. Join our <a href="https://discord.bab.sh" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">Discord</a> to connect with other contributors.',
+    },
+    {
+      question: 'How do I submit a testimonial?',
+      answer:
+        'We would love to feature your experience on bab.sh! Check out the <a href="https://github.com/bab-sh/bab-website/blob/main/TESTIMONIALS.md" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">testimonial guide</a> for detailed instructions on how to submit yours.',
+    },
+    {
+      question: 'How do I get help?',
+      answer:
+        'Join our <a href="https://discord.bab.sh" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">Discord community</a> for <strong>quick help</strong>, or open an issue on <a href="https://github.com/bab-sh/bab/issues" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">GitHub</a> for <strong>bug reports</strong> and <strong>feature requests</strong>. We love hearing about your experiences and ideas for making Bab even better.',
     },
   ]
+
+  useSchemaOrg(
+    faqs.map((faq) =>
+      defineQuestion({
+        name: faq.question,
+        acceptedAnswer: striptags(faq.answer),
+      }),
+    ),
+  )
 </script>
