@@ -64,8 +64,39 @@
     },
   })
 
+  defineOgImageComponent('Bab', {
+    title: 'Imprint',
+    description: 'Legal information and contact details.',
+  })
+
   useSeoMeta({
     title: 'Imprint',
     description: 'Legal information and contact details for the bab project.',
+    ogTitle: 'Imprint - Bab',
+    ogDescription: 'Legal information and contact details for the bab project.',
   })
+
+  useSchemaOrg([
+    defineOrganization({
+      name: 'bab',
+      url: 'https://bab.sh',
+      email: 'info@bab.sh',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'info@bab.sh',
+        contactType: 'customer service',
+      },
+    }),
+    defineWebPage({
+      '@type': 'ContactPage',
+      name: 'Imprint',
+      description: 'Legal information and contact details for the bab project.',
+    }),
+    defineBreadcrumb({
+      itemListElement: [
+        { name: 'Home', item: '/' },
+        { name: 'Imprint', item: '/imprint' },
+      ],
+    }),
+  ])
 </script>

@@ -21,8 +21,17 @@ export default defineNuxtConfig({
     url: 'https://bab.sh',
     name: 'Bab - Clean commands for any project.',
     description:
-      'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform.',
+      'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform. Simple, fast, and powerful.',
     defaultLocale: 'en',
+  },
+
+  linkChecker: {
+    enabled: true,
+    failOnError: false,
+  },
+
+  routeRules: {
+    '/api/**': { robots: false },
   },
 
   sitemap: {
@@ -36,6 +45,8 @@ export default defineNuxtConfig({
       priority: 0.8,
       lastmod: new Date().toISOString(),
     },
+    cacheMaxAgeSeconds: 3600,
+    exclude: ['/api/**'],
   },
 
   ogImage: {
@@ -112,24 +123,18 @@ export default defineNuxtConfig({
         { name: 'generator', content: 'Nuxt' },
         { name: 'rating', content: 'general' },
         { name: 'theme-color', content: '#0a0a0a' },
+        { name: 'msapplication-TileColor', content: '#0a0a0a' },
         { name: 'apple-mobile-web-app-title', content: 'Bab.sh' },
-        { name: 'apple-mobile-web-app-capable', content: 'yes' },
-        { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'referrer', content: 'strict-origin-when-cross-origin' },
         { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' },
       ],
       link: [
-        {
-          rel: 'icon',
-          type: 'image/png',
-          href: '/assets/favicon/favicon-96x96.png',
-          sizes: '96x96',
-        },
-        { rel: 'icon', type: 'image/svg+xml', href: '/assets/favicon/favicon.svg' },
-        { rel: 'shortcut icon', href: '/assets/favicon/favicon.ico' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/assets/favicon/apple-touch-icon.png' },
-        { rel: 'manifest', href: '/assets/favicon/site.webmanifest' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
       ],
     },
   },
