@@ -55,6 +55,7 @@ export default defineNuxtConfig({
       component: 'NuxtSeo',
       width: 1200,
       height: 630,
+      cacheMaxAgeSeconds: 60,
     },
   },
 
