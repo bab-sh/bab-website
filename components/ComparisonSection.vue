@@ -223,5 +223,12 @@
         'VS Code extension and IntelliJ plugin with syntax highlighting, completion, and task running.',
       support: { bab: true, make: 'partial', npm: true, just: 'partial', task: 'partial' },
     },
+    {
+      name: 'Interactive prompts',
+      icon: 'lucide:message-circle-question',
+      description:
+        'Collect user input during task execution with confirm, input, select, password, and number prompts.',
+      support: { bab: true, make: false, npm: false, just: false, task: false },
+    },
   ]
 </script>
