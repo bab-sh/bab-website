@@ -136,6 +136,12 @@
       title: 'Log Messages',
       desc: 'Add informational log messages with levels: debug, info, warn, error.',
     },
+    {
+      id: 'prompt',
+      icon: 'lucide:message-circle-question',
+      title: 'Interactive Prompts',
+      desc: 'Collect user input during task runs. Supports confirm, input, select, multiselect, password, and number.',
+    },
   ]
 
   const commands = [
@@ -277,6 +283,29 @@
       'deploy',
     ),
     L.task([indent(4), key('run'), punct(':')], 'deploy'),
+    L.feature(
+      [
+        indent(6),
+        punct('-'),
+        indent(1),
+        key('prompt'),
+        punct(':'),
+        indent(1),
+        value('confirm_deploy'),
+      ],
+      'deploy',
+      'prompt',
+    ),
+    L.feature(
+      [indent(8), key('type'), punct(':'), indent(1), value('confirm')],
+      'deploy',
+      'prompt',
+    ),
+    L.feature(
+      [indent(8), key('message'), punct(':'), indent(1), value('Deploy to production?')],
+      'deploy',
+      'prompt',
+    ),
     L.feature(
       [indent(6), punct('-'), indent(1), key('task'), punct(':'), indent(1), taskName('build')],
       'deploy',

@@ -69,6 +69,12 @@
       title: 'Task Dependencies',
       description: 'Automatic prerequisite execution. Never run tasks in the wrong order.',
     },
+    {
+      icon: 'lucide:message-circle-question',
+      title: 'Interactive Prompts',
+      description:
+        'Collect user input during task execution. Support for text, select, confirm, password, and more.',
+    },
   ]
 
   const additionalFeatures = [

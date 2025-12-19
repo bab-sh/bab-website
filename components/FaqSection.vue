@@ -100,6 +100,11 @@
       answer:
         'Join our <a href="https://discord.bab.sh" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">Discord community</a> for <strong>quick help</strong>, or open an issue on <a href="https://github.com/bab-sh/bab/issues" target="_blank" rel="noopener noreferrer" class="text-bab-light hover:underline">GitHub</a> for <strong>bug reports</strong> and <strong>feature requests</strong>. We love hearing about your experiences and ideas for making Bab even better.',
     },
+    {
+      question: 'What are Interactive Prompts?',
+      answer:
+        'Interactive Prompts let you collect <strong>user input during task execution</strong>. You can ask for <strong>confirmations</strong>, <strong>text input</strong>, <strong>selections</strong>, <strong>passwords</strong>, and more. Prompts are defined in your Babfile and the collected values are stored in <strong>variables</strong> you can use throughout your tasks.',
+    },
   ]) as Faq[]
 
   const faqSchemaData = faqs.map((faq) => ({
