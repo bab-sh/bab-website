@@ -142,6 +142,12 @@
       title: 'Interactive Prompts',
       desc: 'Collect user input during task runs. Supports confirm, input, select, multiselect, password, and number.',
     },
+    {
+      id: 'dir',
+      icon: 'lucide:folder',
+      title: 'Working Directory',
+      desc: 'Set execution directory at global, task, or command level. Relative paths resolve from the Babfile location.',
+    },
   ]
 
   const commands = [
@@ -266,6 +272,7 @@
       ],
       'build',
     ),
+    L.feature([indent(8), key('dir'), punct(':'), indent(1), value('./dist')], 'build', 'dir'),
     L.feature(
       [indent(6), punct('-'), indent(1), key('log'), punct(':'), indent(1), value('Done!')],
       'build',

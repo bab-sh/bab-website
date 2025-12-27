@@ -230,5 +230,12 @@
         'Collect user input during task execution with confirm, input, select, password, and number prompts.',
       support: { bab: true, make: false, npm: false, just: false, task: false },
     },
+    {
+      name: 'Working directory',
+      icon: 'lucide:folder',
+      description:
+        'Set the execution directory at global, task, or command level. Relative paths resolve from config file location.',
+      support: { bab: true, make: false, npm: false, just: true, task: true },
+    },
   ]
 </script>

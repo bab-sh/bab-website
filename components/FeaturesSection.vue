@@ -91,5 +91,6 @@
     'Colored CLI output',
     'Silent mode',
     'Output Suppress',
+    'Working directory control',
   ]
 </script>
