@@ -148,6 +148,12 @@
       title: 'Working Directory',
       desc: 'Set execution directory at global, task, or command level. Relative paths resolve from the Babfile location.',
     },
+    {
+      id: 'when',
+      icon: 'lucide:filter',
+      title: 'Conditional Execution',
+      desc: 'Skip tasks or commands based on conditions. Works with prompt results for dynamic workflows.',
+    },
   ]
 
   const commands = [
@@ -339,9 +345,19 @@
       'composition',
       'task-build',
     ),
+    L.feature(
+      [indent(8), key('when'), punct(':'), indent(1), value("${{ confirm_deploy }} == 'true'")],
+      'deploy',
+      'when',
+    ),
     L.task(
       [indent(6), punct('-'), indent(1), key('cmd'), punct(':'), indent(1), value('./deploy.sh')],
       'deploy',
+    ),
+    L.feature(
+      [indent(8), key('when'), punct(':'), indent(1), value("${{ confirm_deploy }} == 'true'")],
+      'deploy',
+      'when',
     ),
     L.feature([indent(8), key('env'), punct(':')], 'deploy', 'env'),
     L.feature(

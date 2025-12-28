@@ -75,6 +75,12 @@
       description:
         'Collect user input during task execution. Support for text, select, confirm, password, and more.',
     },
+    {
+      icon: 'lucide:filter',
+      title: 'Conditional Execution',
+      description:
+        'Skip tasks or commands based on conditions. Use prompt results for dynamic workflows.',
+    },
   ]
 
   const additionalFeatures = [
