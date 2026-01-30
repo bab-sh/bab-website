@@ -1,0 +1,84 @@
+{
+  "template": "## What's Changed\n#{{CHANGELOG}}\n\n**Full Changelog**: https://github.com/bab-sh/bab-website/compare/#{{FROM_TAG}}...#{{TO_TAG}}",
+  "pr_template": "* `#{{SHORT_SHA}}` #{{TITLE}} (@#{{AUTHOR}})",
+  "commit_template": "* `#{{SHORT_SHA}}` #{{TITLE}} (@#{{AUTHOR}})",
+  "custom_placeholders": [
+    {
+      "name": "SHORT_SHA",
+      "source": "MERGE_SHA",
+      "transformer": {
+        "pattern": "^(.{7}).*$",
+        "target": "$1"
+      }
+    }
+  ],
+  "empty_template": "* No changes",
+  "trim_values": true,
+  "ignore_labels": ["skip-changelog", "chore"],
+  "categories": [
+    {
+      "title": "### 🚨 Breaking Changes",
+      "labels": ["breaking"]
+    },
+    {
+      "title": "### ✨ Features",
+      "labels": ["feat"]
+    },
+    {
+      "title": "### 🐛 Bug Fixes",
+      "labels": ["fix"]
+    },
+    {
+      "title": "### ⚡ Performance",
+      "labels": ["perf"]
+    },
+    {
+      "title": "### ♻️ Refactoring",
+      "labels": ["refactor"]
+    },
+    {
+      "title": "### 📚 Documentation",
+      "labels": ["docs"]
+    },
+    {
+      "title": "### 🧪 Tests",
+      "labels": ["test"]
+    },
+    {
+      "title": "### 🔧 Build & CI",
+      "labels": ["build", "ci"]
+    },
+    {
+      "title": "### 📦 Other Changes",
+      "labels": ["style", "revert"]
+    }
+  ],
+  "label_extractor": [
+    {
+      "pattern": "^[a-z]+(?:\\([\\w\\-\\.]+\\))?!: .+",
+      "target": "breaking",
+      "on_property": "title"
+    },
+    {
+      "pattern": "^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\\([\\w\\-\\.]+\\))?: .+",
+      "target": "$1",
+      "on_property": "title"
+    },
+    {
+      "pattern": "^(Merge|chore: bump version).*",
+      "target": "skip-changelog",
+      "on_property": "title"
+    },
+    {
+      "pattern": ".*",
+      "target": "skip-changelog",
+      "on_property": "title"
+    }
+  ],
+  "sort": {
+    "order": "ASC",
+    "on_property": "mergedAt"
+  },
+  "max_tags_to_fetch": 200,
+  "max_back_track_time_days": 365
+}
