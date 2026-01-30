@@ -1,7 +1,7 @@
 {
   "template": "## What's Changed\n#{{CHANGELOG}}\n\n**Full Changelog**: https://github.com/bab-sh/bab-website/compare/#{{FROM_TAG}}...#{{TO_TAG}}",
-  "pr_template": "* `#{{SHORT_SHA}}` #{{TITLE}} (@#{{AUTHOR}})",
-  "commit_template": "* `#{{SHORT_SHA}}` #{{TITLE}} (@#{{AUTHOR}})",
+  "pr_template": "* #{{SHORT_SHA}} #{{TITLE}} (@#{{AUTHOR}})",
+  "commit_template": "* #{{SHORT_SHA}} #{{TITLE}} (@#{{AUTHOR}})",
   "custom_placeholders": [
     {
       "name": "SHORT_SHA",
