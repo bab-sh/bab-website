@@ -51,13 +51,20 @@
               :class="selectedIndex === index ? 'text-tui-accent' : 'opacity-0'"
               >│</span
             >
-            <span class="flex items-center gap-2">
-              <span class="shrink-0 text-white">
+            <span class="flex items-center">
+              <span
+                class="shrink-0"
+                :class="selectedIndex === index ? 'text-tui-accent' : 'text-white'"
+              >
                 <template v-if="searchQuery && task.matchIndices">
                   <template v-for="(char, charIndex) in task.name" :key="charIndex"
                     ><span
                       :class="
-                        task.matchIndices.includes(charIndex) ? 'text-tui-match' : 'text-white'
+                        task.matchIndices.includes(charIndex)
+                          ? 'text-tui-match font-bold'
+                          : selectedIndex === index
+                            ? 'text-tui-accent'
+                            : 'text-white'
                       "
                       >{{ char }}</span
                     ></template
@@ -65,8 +72,17 @@
                 </template>
                 <template v-else>{{ task.name }}</template>
               </span>
+              <span v-if="task.aliases?.length" class="text-tui-alias shrink-0"
+                >&nbsp;(<template v-for="(alias, aliasIdx) in task.aliases" :key="alias"
+                  ><template v-for="(char, charIdx) in alias" :key="charIdx"
+                    ><span :class="{ 'font-bold': isAliasCharMatch(task, alias, charIdx) }">{{
+                      char
+                    }}</span></template
+                  ><template v-if="aliasIdx < task.aliases.length - 1">, </template></template
+                >)</span
+              >
 
-              <span class="text-tui-muted truncate italic">{{ task.desc }}</span>
+              <span class="text-tui-muted ml-2 truncate italic">{{ task.desc }}</span>
             </span>
           </div>
 
@@ -152,17 +168,20 @@
   interface Task {
     name: string
     desc: string
+    aliases?: string[]
     matchIndices?: number[]
+    matchedAlias?: string
+    aliasMatchIndices?: number[]
   }
 
   const tasks: Task[] = [
-    { name: 'build', desc: 'Build all packages' },
+    { name: 'build', desc: 'Build all packages', aliases: ['b'] },
     { name: 'build:admin', desc: 'Build admin dashboard' },
     { name: 'build:core', desc: 'Build core library' },
     { name: 'build:storefront', desc: 'Build storefront app' },
-    { name: 'dev', desc: 'Start dev server' },
+    { name: 'dev', desc: 'Start dev server', aliases: ['d'] },
     { name: 'deploy', desc: 'Deploy to production' },
-    { name: 'test', desc: 'Run all tests' },
+    { name: 'test', desc: 'Run all tests', aliases: ['t'] },
   ]
 
   const phase = ref<'typing' | 'tui' | 'executing' | 'clearing'>('typing')
@@ -178,30 +197,81 @@
 
   const filteredTasks = computed(() => {
     if (!searchQuery.value) {
-      return tasks.map((t) => ({ ...t, matchIndices: undefined }))
+      return tasks.map((t) => ({
+        ...t,
+        matchIndices: undefined,
+        matchedAlias: undefined,
+        aliasMatchIndices: undefined,
+      }))
     }
 
     const query = searchQuery.value.toLowerCase()
-    return tasks
-      .map((task) => {
-        const name = task.name.toLowerCase()
-        const indices: number[] = []
-        let queryIndex = 0
 
-        for (let i = 0; i < name.length && queryIndex < query.length; i++) {
-          if (name[i] === query[queryIndex]) {
-            indices.push(i)
-            queryIndex++
+    const fuzzyMatch = (text: string, q: string): number[] | null => {
+      const indices: number[] = []
+      let queryIndex = 0
+      for (let i = 0; i < text.length && queryIndex < q.length; i++) {
+        if (text[i] === q[queryIndex]) {
+          indices.push(i)
+          queryIndex++
+        }
+      }
+      return queryIndex === q.length ? indices : null
+    }
+
+    const results: (Task & {
+      matchIndices?: number[]
+      matchedAlias?: string
+      aliasMatchIndices?: number[]
+      score: number
+    })[] = []
+
+    for (const task of tasks) {
+      const nameMatch = fuzzyMatch(task.name.toLowerCase(), query)
+      let matchedAlias: string | undefined
+      let aliasMatchIndices: number[] | undefined
+      let aliasExact = false
+
+      if (task.aliases) {
+        for (const alias of task.aliases) {
+          if (alias.toLowerCase() === query) {
+            matchedAlias = alias
+            aliasExact = true
+            break
+          }
+          const aliasMatch = fuzzyMatch(alias.toLowerCase(), query)
+          if (!matchedAlias && aliasMatch) {
+            matchedAlias = alias
+            aliasMatchIndices = aliasMatch
           }
         }
+      }
 
-        if (queryIndex === query.length) {
-          return { ...task, matchIndices: indices }
-        }
-        return null
-      })
-      .filter((t): t is Task & { matchIndices: number[] } => t !== null)
+      if (nameMatch || matchedAlias) {
+        const score = aliasExact ? 1000 : matchedAlias ? 500 : 0
+        results.push({
+          ...task,
+          matchIndices: nameMatch || undefined,
+          matchedAlias,
+          aliasMatchIndices,
+          score,
+        })
+      }
+    }
+
+    results.sort((a, b) => {
+      if (a.score !== b.score) return b.score - a.score
+      return a.name.localeCompare(b.name)
+    })
+
+    return results
   })
+
+  const isAliasCharMatch = (task: Task, alias: string, charIdx: number): boolean => {
+    if (task.matchedAlias !== alias) return false
+    if (!task.aliasMatchIndices) return true
+    return task.aliasMatchIndices.includes(charIdx)
+  }
 
   let isAnimating = true
   let animationId = 0

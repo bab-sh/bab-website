@@ -184,6 +184,12 @@
       support: { bab: true, make: true, npm: false, just: true, task: true },
     },
     {
+      name: 'Task aliases',
+      icon: 'lucide:at-sign',
+      description: 'Define short names for tasks. Run bab b instead of bab build.',
+      support: { bab: true, make: false, npm: false, just: true, task: true },
+    },
+    {
       name: 'Environment variables',
       icon: 'lucide:variable',
       description:

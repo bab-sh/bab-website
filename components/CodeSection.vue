@@ -154,13 +154,19 @@
       title: 'Conditional Execution',
       desc: 'Skip tasks or commands based on conditions. Works with prompt results for dynamic workflows.',
     },
+    {
+      id: 'alias',
+      icon: 'lucide:at-sign',
+      title: 'Task Aliases',
+      desc: 'Create short names for tasks. Run bab b instead of bab build.',
+    },
   ]
 
   const commands = [
     { task: 'dev', comment: '# Start dev server' },
     { task: 'build', comment: '# Build the application' },
+    { task: 'b', comment: '# Same as build (alias)' },
     { task: 'setup', comment: '# Install dependencies' },
-    { task: 'deploy', comment: '# Deploy to production' },
     { task: null, comment: '# Interactive mode' },
   ]
 
@@ -244,6 +250,7 @@
       [indent(4), key('desc'), punct(':'), indent(1), value('Build the application')],
       'build',
     ),
+    L.feature([indent(4), key('alias'), punct(':'), indent(1), value('b')], 'build', 'alias'),
     L.feature(
       [indent(4), key('deps'), punct(':'), indent(1), value('[setup]')],
       'build',
@@ -288,6 +295,11 @@
     L.empty(),
     L.task([indent(2), taskName('setup'), punct(':')], 'setup'),
     L.task([indent(4), key('desc'), punct(':'), indent(1), value('Install dependencies')], 'setup'),
+    L.feature(
+      [indent(4), key('aliases'), punct(':'), indent(1), value('[s, init]')],
+      'setup',
+      'alias',
+    ),
     L.feature([indent(4), key('env'), punct(':')], 'setup', 'env'),
     L.feature([indent(6), key('CI'), punct(':'), indent(1), value('"true"')], 'setup', 'env'),
     L.task([indent(4), key('run'), punct(':')], 'setup'),

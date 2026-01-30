@@ -85,6 +85,7 @@
 
   const additionalFeatures = [
     'Interactive TUI with fuzzy search',
+    'Task aliases for shortcuts',
     'Platform-specific commands',
     'Environment variables',
     'Variables with template syntax',
