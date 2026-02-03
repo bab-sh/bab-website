@@ -24,7 +24,7 @@ jobs:
 
       - name: Build Changelog
         id: changelog
-        uses: mikepenz/release-changelog-builder-action@v5
+        uses: mikepenz/release-changelog-builder-action@v6
         with:
           mode: 'COMMIT'
           toTag: ${{ github.event.release.tag_name }}
