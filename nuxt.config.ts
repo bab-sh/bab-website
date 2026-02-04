@@ -32,6 +32,17 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/api/**': { robots: false },
+    '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
+    '/favicon**': { headers: { 'Cache-Control': 'public, max-age=604800' } },
+    '/app-icon**': { headers: { 'Cache-Control': 'public, max-age=604800' } },
+    '/apple-touch-icon**': { headers: { 'Cache-Control': 'public, max-age=604800' } },
+    '/manifest.json': { headers: { 'Cache-Control': 'public, max-age=604800' } },
+    '/__og-image__/**': {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        Pragma: 'no-cache',
+      },
+    },
   },
 
   sitemap: {
@@ -55,7 +66,7 @@ export default defineNuxtConfig({
       component: 'NuxtSeo',
       width: 1200,
       height: 630,
-      cacheMaxAgeSeconds: 60,
+      cacheMaxAgeSeconds: 0,
     },
   },
 
@@ -64,7 +75,7 @@ export default defineNuxtConfig({
       type: 'Organization',
       name: 'bab',
       url: 'https://bab.sh',
-      logo: 'https://cdn.bab.sh/l/og-image',
+      logo: 'https://bab.sh/og-image.png',
       sameAs: [
         'https://github.com/bab-sh/bab',
         'https://x.com/babshdev',
@@ -129,6 +140,11 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'referrer', content: 'strict-origin-when-cross-origin' },
         { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' },
+        { property: 'og:image', content: 'https://bab.sh/og-image.png' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:type', content: 'image/png' },
+        { name: 'twitter:image', content: 'https://bab.sh/og-image.png' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -139,6 +155,10 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'manifest', href: '/manifest.json' },
+        { rel: 'preconnect', href: 'https://api.github.com' },
+        { rel: 'preconnect', href: 'https://avatars.githubusercontent.com' },
+        { rel: 'dns-prefetch', href: 'https://api.github.com' },
+        { rel: 'dns-prefetch', href: 'https://avatars.githubusercontent.com' },
       ],
     },
   },

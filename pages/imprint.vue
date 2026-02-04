@@ -74,6 +74,14 @@
     description: 'Legal information and contact details for the bab project.',
     ogTitle: 'Imprint - Bab',
     ogDescription: 'Legal information and contact details for the bab project.',
+    ogImage: 'https://bab.sh/og-image.png',
+    ogImageAlt: 'Bab - Modern task runner for defining project commands in YAML',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Imprint - Bab',
+    twitterDescription: 'Legal information and contact details for the bab project.',
+    twitterImage: 'https://bab.sh/og-image.png',
+    twitterSite: '@babshdev',
+    twitterCreator: '@babshdev',
   })
 
   useSchemaOrg([

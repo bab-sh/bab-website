@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <HeroSection />
     <FeaturesSection />
     <ComparisonSection />
@@ -10,7 +10,7 @@
     <TestimonialsSection />
     <FaqSection />
     <FooterSection />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -27,6 +27,10 @@
     title: 'Clean commands for any project.',
     description: 'Modern task runner. Zero dependencies. Any platform.',
     version,
+  })
+
+  useHead({
+    link: [{ rel: 'canonical', href: 'https://bab.sh' }],
   })
 
   useSeoMeta({
@@ -49,7 +53,9 @@
       'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform. Simple, fast, and powerful.',
     twitterSite: '@babshdev',
     twitterCreator: '@babshdev',
+    ogImage: 'https://bab.sh/og-image.png',
     ogImageAlt: 'Bab - Modern task runner for defining project commands in YAML',
+    twitterImage: 'https://bab.sh/og-image.png',
   })
 
   useSchemaOrg([
