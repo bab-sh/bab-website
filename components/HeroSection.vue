@@ -117,7 +117,7 @@
               <span class="text-tui-match">{{ promptSymbol }}</span>
               <code class="text-white">{{ installCommand }}</code>
               <button
-                class="text-muted-foreground ml-auto rounded p-1 transition-colors hover:bg-white/5 hover:text-white lg:ml-2"
+                class="text-muted-foreground ml-auto flex h-7 w-7 shrink-0 items-center justify-center rounded transition-colors hover:bg-white/5 hover:text-white lg:ml-2"
                 :aria-label="copied ? 'Copied to clipboard' : 'Copy install command'"
                 @click="copyInstallCommand"
               >

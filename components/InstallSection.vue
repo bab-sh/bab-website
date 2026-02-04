@@ -31,7 +31,7 @@
                 <div class="border-border flex items-center justify-between border-b px-4 py-3">
                   <span class="text-muted-foreground text-sm">{{ method.description }}</span>
                   <button
-                    class="text-muted-foreground rounded p-1 transition-colors hover:bg-white/5 hover:text-white"
+                    class="text-muted-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded transition-colors hover:bg-white/5 hover:text-white"
                     aria-label="Copy command"
                     @click="copyCommand(method.command)"
                   >

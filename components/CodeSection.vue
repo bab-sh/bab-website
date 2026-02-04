@@ -22,7 +22,7 @@
               <span class="text-muted-foreground font-mono text-sm">babfile.yml</span>
             </div>
             <button
-              class="text-muted-foreground rounded p-1 transition-colors hover:bg-white/5 hover:text-white"
+              class="text-muted-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded transition-colors hover:bg-white/5 hover:text-white"
               aria-label="Copy code"
               @click="copyCode"
             >
