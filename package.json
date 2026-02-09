@@ -30,18 +30,18 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "isomorphic-dompurify": "^2.35.0",
-    "nuxt": "^4.3.0",
+    "nuxt": "^4.3.1",
     "reka-ui": "^2.8.0",
     "tailwind-merge": "^3.4.0",
     "vue": "^3.5.27",
-    "vue-router": "^5.0.1"
+    "vue-router": "^5.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.0",
     "@commitlint/config-conventional": "^20.4.0",
     "@iconify-json/lucide": "^1.2.87",
     "@iconify-json/simple-icons": "^1.2.69",
-    "@nuxt/eslint": "^1.13.0",
+    "@nuxt/eslint": "^1.14.0",
     "@nuxt/fonts": "^0.13.0",
     "@nuxt/icon": "^2.2.1",
     "@tailwindcss/vite": "^4.1.18",
