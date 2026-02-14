@@ -4,5 +4,11 @@
     "role": "Developer",
     "since": "2025-12-06",
     "quote": "I’ve been using bab.sh for two weeks now, and I really appreciate how easy it was to set up and get started. Everything feels straightforward to understand and use, which made the transition smooth."
+  },
+  {
+    "github": "mathiiiiiis",
+    "role": "Developer",
+    "since": "2025-12-10",
+    "quote": "I've been using bab.sh for about two months now in my side-projects. It's really simple to install, and the interactive CLI makes running and composing tasks easier than dealing with Makefiles or other similar things. Definitely a super addition to my workflow."
   }
 ]
