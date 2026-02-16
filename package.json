@@ -26,7 +26,7 @@
   "dependencies": {
     "@iconify/vue": "^5.0.0",
     "@nuxtjs/seo": "^3.4.0",
-    "@vueuse/core": "^14.2.0",
+    "@vueuse/core": "^14.2.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "isomorphic-dompurify": "^2.36.0",
