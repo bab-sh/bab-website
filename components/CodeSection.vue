@@ -160,12 +160,25 @@
       title: 'Task Aliases',
       desc: 'Create short names for tasks. Run bab b instead of bab build.',
     },
+    {
+      id: 'parallel',
+      icon: 'lucide:zap',
+      title: 'Parallel Execution',
+      desc: 'Run commands concurrently with interleaved or grouped output. Set concurrency limits and custom labels.',
+    },
+    {
+      id: 'includes',
+      icon: 'lucide:puzzle',
+      title: 'Modular Includes',
+      desc: 'Import tasks from other Babfiles with namespaces. Reference them as namespace:task.',
+    },
   ]
 
   const commands = [
     { task: 'dev', comment: '# Start dev server' },
     { task: 'build', comment: '# Build the application' },
     { task: 'b', comment: '# Same as build (alias)' },
+    { task: 'check', comment: '# Run parallel checks' },
     { task: 'setup', comment: '# Install dependencies' },
     { task: null, comment: '# Interactive mode' },
   ]
@@ -196,6 +209,14 @@
   }
 
   const lines: Line[] = [
+    L.global([keyword('includes'), punct(':')], 'includes', 'includes'),
+    L.global([indent(2), key('tools'), punct(':')], 'includes', 'includes'),
+    L.global(
+      [indent(4), key('babfile'), punct(':'), indent(1), value('./tools/Babfile.yml')],
+      'includes',
+      'includes',
+    ),
+    L.empty(),
     L.global([keyword('vars'), punct(':')], 'vars', 'vars'),
     L.global([indent(2), key('app_name'), punct(':'), indent(1), value('myapp')], 'vars', 'vars'),
     L.global([indent(2), key('version'), punct(':'), indent(1), value('"1.0.0"')], 'vars', 'vars'),
@@ -377,6 +398,53 @@
       'deploy',
       'env',
     ),
+    L.empty(),
+    L.task([indent(2), taskName('check'), punct(':')], 'check'),
+    L.task(
+      [indent(4), key('desc'), punct(':'), indent(1), value('Run checks in parallel')],
+      'check',
+    ),
+    L.task([indent(4), key('run'), punct(':')], 'check'),
+    L.feature([indent(6), punct('-'), indent(1), key('parallel'), punct(':')], 'check', 'parallel'),
+    L.feature(
+      [indent(10), punct('-'), indent(1), key('cmd'), punct(':'), indent(1), value('npm run lint')],
+      'check',
+      'parallel',
+    ),
+    L.feature(
+      [indent(12), key('label'), punct(':'), indent(1), value('lint')],
+      'check',
+      'parallel',
+    ),
+    L.feature(
+      [indent(10), punct('-'), indent(1), key('cmd'), punct(':'), indent(1), value('npm test')],
+      'check',
+      'parallel',
+    ),
+    L.feature(
+      [indent(12), key('label'), punct(':'), indent(1), value('test')],
+      'check',
+      'parallel',
+    ),
+    L.feature(
+      [
+        indent(10),
+        punct('-'),
+        indent(1),
+        key('task'),
+        punct(':'),
+        indent(1),
+        taskName('tools:typecheck'),
+      ],
+      'check',
+      'parallel',
+    ),
+    L.feature(
+      [indent(8), key('mode'), punct(':'), indent(1), value('grouped')],
+      'check',
+      'parallel',
+    ),
+    L.feature([indent(8), key('limit'), punct(':'), indent(1), value('2')], 'check', 'parallel'),
   ]
 
   const copied = ref(false)

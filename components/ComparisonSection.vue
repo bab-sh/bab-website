@@ -25,7 +25,11 @@
                 :class="tool.highlight ? 'text-bab-light' : 'text-muted-foreground'"
               >
                 <div class="flex h-14 flex-col items-center justify-end gap-1">
-                  <SvgoBabLogo v-if="tool.useBabLogo" class="h-5 w-5" aria-label="bab logo" />
+                  <SvgoBabLogo
+                    v-if="tool.useBabLogo"
+                    class="h-5 w-5"
+                    aria-label="Bab task runner logo"
+                  />
                   <Icon v-else :name="tool.icon" class="h-5 w-5" />
                   <span>{{ tool.name }}</span>
                 </div>
@@ -228,6 +232,13 @@
       description:
         'VS Code extension and IntelliJ plugin with syntax highlighting, completion, and task running.',
       support: { bab: true, make: 'partial', npm: true, just: 'partial', task: 'partial' },
+    },
+    {
+      name: 'Parallel execution',
+      icon: 'lucide:zap',
+      description:
+        'Run tasks and commands concurrently with configurable output modes, concurrency limits, and labeled output.',
+      support: { bab: true, make: true, npm: 'partial', just: false, task: true },
     },
     {
       name: 'Interactive prompts',

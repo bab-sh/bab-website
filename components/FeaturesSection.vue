@@ -70,6 +70,18 @@
       description: 'Automatic prerequisite execution. Never run tasks in the wrong order.',
     },
     {
+      icon: 'lucide:zap',
+      title: 'Parallel Execution',
+      description:
+        'Run commands concurrently with interleaved or grouped output. Control concurrency limits and labels.',
+    },
+    {
+      icon: 'lucide:puzzle',
+      title: 'Modular Includes',
+      description:
+        'Import tasks from other Babfiles with namespaces. Compose configs across projects.',
+    },
+    {
       icon: 'lucide:message-circle-question',
       title: 'Interactive Prompts',
       description:
@@ -97,7 +109,11 @@
     'Task descriptions',
     'Colored CLI output',
     'Silent mode',
-    'Output Suppress',
+    'Output suppression',
     'Working directory control',
+    'Custom labels for parallel items',
+    'ANSI color control',
+    'Automatic update checking',
+    'CI/non-interactive mode',
   ]
 </script>

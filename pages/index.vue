@@ -30,15 +30,16 @@
   })
 
   useHead({
+    titleTemplate: '%s',
     link: [{ rel: 'canonical', href: 'https://bab.sh' }],
   })
 
   useSeoMeta({
     title: 'Bab - Clean commands for any project.',
     description:
-      'Modern task runner for defining project commands in clean YAML syntax. Zero dependencies, works on Windows, macOS, and Linux. Simple, fast, and powerful.',
+      'Define and run project commands with clean YAML syntax. Zero dependencies, cross-platform. Replace Make, npm scripts, and Taskfile with Bab — free and open source.',
     keywords:
-      'task runner, build automation, yaml task runner, cross-platform task runner, build tool, command runner, project automation, developer tools, devops automation, makefile alternative, make alternative, gnu make alternative, npm scripts alternative, npm scripts replacement, taskfile alternative, just alternative, gulp alternative, grunt alternative, rake alternative, yarn scripts alternative, go task runner, single binary task runner, ci cd automation, monorepo task runner, babfile, bab',
+      'task runner, build automation, yaml task runner, cross-platform task runner, build tool, command runner, project automation, developer tools, devops automation, makefile alternative, make alternative, gnu make alternative, npm scripts alternative, npm scripts replacement, taskfile alternative, just alternative, gulp alternative, grunt alternative, rake alternative, yarn scripts alternative, go task runner, single binary task runner, ci cd automation, monorepo task runner, babfile, bab, yaml build tool, yaml automation, makefile replacement, project task automation, developer productivity tools, build system, command automation, bab task runner',
     author: 'AIO',
     ogUrl: 'https://bab.sh',
     ogType: 'website',
@@ -46,15 +47,15 @@
     ogSiteName: 'Bab',
     ogTitle: 'Bab - Clean commands for any project.',
     ogDescription:
-      'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform. Simple, fast, and powerful.',
+      'Define and run project commands with clean YAML syntax. Zero dependencies, cross-platform. Replace Make, npm scripts, and Taskfile with Bab — free and open source.',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Bab - Clean commands for any project.',
     twitterDescription:
-      'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform. Simple, fast, and powerful.',
+      'Define and run project commands with clean YAML syntax. Zero dependencies, cross-platform. Replace Make, npm scripts, and Taskfile with Bab — free and open source.',
     twitterSite: '@babshdev',
     twitterCreator: '@babshdev',
     ogImage: 'https://bab.sh/og-image.png',
-    ogImageAlt: 'Bab - Modern task runner for defining project commands in YAML',
+    ogImageAlt: 'Bab — Modern YAML Task Runner: Define and Run Project Commands on Any Platform',
     twitterImage: 'https://bab.sh/og-image.png',
   })
 

@@ -64,6 +64,10 @@
     },
   })
 
+  useHead({
+    link: [{ rel: 'canonical', href: 'https://bab.sh/imprint' }],
+  })
+
   defineOgImageComponent('Bab', {
     title: 'Imprint',
     description: 'Legal information and contact details.',

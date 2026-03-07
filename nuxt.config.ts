@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     url: 'https://bab.sh',
     name: 'Bab - Clean commands for any project.',
     description:
-      'Modern task runner for defining project commands in YAML. Zero dependencies, cross-platform. Simple, fast, and powerful.',
+      'Modern task runner for defining project commands in clean YAML syntax. Zero dependencies, cross-platform. The best alternative to Make, npm scripts, and Taskfile.',
     defaultLocale: 'en',
   },
 
@@ -128,6 +128,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      titleTemplate: '%s | Bab',
       htmlAttrs: { lang: 'en' },
       meta: [
         { charset: 'utf-8' },
@@ -139,6 +140,11 @@ export default defineNuxtConfig({
         { name: 'apple-mobile-web-app-title', content: 'Bab.sh' },
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'referrer', content: 'strict-origin-when-cross-origin' },
+        {
+          name: 'robots',
+          content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+        },
+        { name: 'application-name', content: 'Bab' },
         { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' },
         { property: 'og:image', content: 'https://bab.sh/og-image.png' },
         { property: 'og:image:width', content: '1200' },
