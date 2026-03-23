@@ -37,8 +37,8 @@
     "vue-router": "^5.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.2",
-    "@commitlint/config-conventional": "^20.4.2",
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
     "@iconify-json/lucide": "^1.2.98",
     "@iconify-json/simple-icons": "^1.2.74",
     "@nuxt/eslint": "^1.13.0",
@@ -46,7 +46,7 @@
     "@nuxt/icon": "^2.2.1",
     "@tailwindcss/vite": "^4.2.2",
     "husky": "^9.1.7",
-    "lint-staged": "^16.3.1",
+    "lint-staged": "^16.4.0",
     "nuxt-svgo": "^4.2.6",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
