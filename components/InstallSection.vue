@@ -53,7 +53,7 @@
 
         <div class="mt-12">
           <h3 class="mb-6 text-center text-lg font-semibold text-white">Also available via:</h3>
-          <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
             <Card
               v-for="pkg in packageManagers"
               :key="pkg.name"
@@ -131,6 +131,7 @@
   ]
 
   const packageManagers = [
+    { name: 'Homebrew Cask', command: 'brew install --cask bab-sh/tap/bab' },
     { name: 'Chocolatey', command: 'choco install bab' },
     {
       name: 'Scoop',
@@ -139,6 +140,7 @@
     },
     { name: 'Snap', command: 'snap install bab-sh' },
     { name: 'AUR', command: 'paru -S bab-bin' },
+    { name: 'Nix', command: 'nix profile install nur#repos.bab-sh.bab' },
   ]
 
   const copyCommand = async (command: string) => {
