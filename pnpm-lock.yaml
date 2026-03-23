@@ -30,11 +30,11 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0(@parcel/watcher@2.5.6)(@types/node@25.2.0)(@vue/compiler-sfc@3.5.27)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.1(jiti@2.6.1))(ioredis@5.9.2)(lightningcss@1.32.0)(magicast@0.5.1)(meow@13.2.0)(optionator@0.9.4)(rollup@4.57.0)(terser@5.46.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.2.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.3))(vue-tsc@3.2.4(typescript@5.9.3))(yaml@2.8.3)
       reka-ui:
-        specifier: ^2.8.0
-        version: 2.8.0(vue@3.5.27(typescript@5.9.3))
+        specifier: ^2.9.2
+        version: 2.9.2(vue@3.5.27(typescript@5.9.3))
       tailwind-merge:
-        specifier: ^3.4.1
-        version: 3.4.1
+        specifier: ^3.5.0
+        version: 3.5.0
       vue:
         specifier: ^3.5.27
         version: 3.5.27(typescript@5.9.3)
@@ -85,8 +85,8 @@ importers:
         specifier: ^2.4.3
         version: 2.4.3(magicast@0.5.1)
       tailwindcss:
-        specifier: ^4.1.18
-        version: 4.1.18
+        specifier: ^4.2.2
+        version: 4.2.2
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -825,17 +825,17 @@ packages:
   '@fingerprintjs/botd@2.0.0':
     resolution: {integrity: sha512-yhuz23NKEcBDTHmGz/ULrXlGnbHenO+xZmVwuBkuqHUkqvaZ5TAA0kAgcRy4Wyo5dIBdkIf57UXX8/c9UlMLJg==}
 
-  '@floating-ui/core@1.7.4':
-    resolution: {integrity: sha512-C3HlIdsBxszvm5McXlB8PeOEWfBhcGBTZGkGlWc2U0KFY5IwG5OQEuQ8rq52DZmcHDlPLd+YFBK+cZcytwIFWg==}
+  '@floating-ui/core@1.7.5':
+    resolution: {integrity: sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==}
 
-  '@floating-ui/dom@1.7.5':
-    resolution: {integrity: sha512-N0bD2kIPInNHUHehXhMke1rBGs1dwqvC9O9KYMyyjK7iXt7GAhnro7UlcuYcGdS/yYOlq0MAVgrow8IbWJwyqg==}
+  '@floating-ui/dom@1.7.6':
+    resolution: {integrity: sha512-9gZSAI5XM36880PPMm//9dfiEngYoC6Am2izES1FF406YFsjvyBMmeJ2g4SAju3xWwtuynNRFL2s9hgxpLI5SQ==}
 
-  '@floating-ui/utils@0.2.10':
-    resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+  '@floating-ui/utils@0.2.11':
+    resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
-  '@floating-ui/vue@1.1.10':
-    resolution: {integrity: sha512-vdf8f6rHnFPPLRsmL4p12wYl+Ux4mOJOkjzKEMYVnwdf7UFdvBtHlLvQyx8iKG5vhPRbDRgZxdtpmyigDPjzYg==}
+  '@floating-ui/vue@1.1.11':
+    resolution: {integrity: sha512-HzHKCNVxnGS35r9fCHBc3+uCnjw9IWIlCPL683cGgM9Kgj2BiAl8x1mS7vtvP6F9S/e/q4O6MApwSHj8hNLGfw==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -873,8 +873,8 @@ packages:
     peerDependencies:
       vue: '>=3'
 
-  '@internationalized/date@3.10.1':
-    resolution: {integrity: sha512-oJrXtQiAXLvT9clCf1K4kxp3eKsQhIaZqxEyowkBcsvZDdZkbWrVmnGknxs5flTD0VGsxrxKgBCZty1EzoiMzA==}
+  '@internationalized/date@3.12.0':
+    resolution: {integrity: sha512-/PyIMzK29jtXaGU23qTvNZxvBXRtKbNnGDFD+PY6CZw/Y8Ex8pFUzkuCJCG9aOqmShjqhS9mPqP6Dk5onQY8rQ==}
 
   '@internationalized/number@3.6.5':
     resolution: {integrity: sha512-6hY4Kl4HPBvtfS62asS/R22JzNNy8vi/Ssev7x6EobfCp+9QIB2hKvI2EtbdJ0VSQacxVNtqhE/NmF/NZ0gm6g==}
@@ -2067,8 +2067,8 @@ packages:
     peerDependencies:
       eslint: '>=9.0.0'
 
-  '@swc/helpers@0.5.18':
-    resolution: {integrity: sha512-TXTnIcNJQEKwThMMqBXsZ4VGAza6bvN4pa41Rkqoio6QBKMvo+5lexeTMScGCIxtzgQJzElcvIltani+adC5PQ==}
+  '@swc/helpers@0.5.19':
+    resolution: {integrity: sha512-QamiFeIK3txNjgUTNppE6MiG3p7TdninpZu0E0PbqVh1a9FNLT2FRhisaa4NcaX52XVhA5l7Pk58Ft7Sqi/2sA==}
 
   '@tailwindcss/node@4.2.2':
     resolution: {integrity: sha512-pXS+wJ2gZpVXqFaUEjojq7jzMpTGf8rU6ipJz5ovJV6PUGmlJ+jvIwGrzdHdQ80Sg+wmQxUFuoW1UAAwHNEdFA==}
@@ -2160,11 +2160,11 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7 || ^8
 
-  '@tanstack/virtual-core@3.13.18':
-    resolution: {integrity: sha512-Mx86Hqu1k39icq2Zusq+Ey2J6dDWTjDvEv43PJtRCoEYTLyfaPnxIQ6iy7YAOK0NV/qOEmZQ/uCufrppZxTgcg==}
+  '@tanstack/virtual-core@3.13.23':
+    resolution: {integrity: sha512-zSz2Z2HNyLjCplANTDyl3BcdQJc2k1+yyFoKhNRmCr7V7dY8o8q5m8uFTI1/Pg1kL+Hgrz6u3Xo6eFUB7l66cg==}
 
-  '@tanstack/vue-virtual@3.13.18':
-    resolution: {integrity: sha512-6pT8HdHtTU5Z+t906cGdCroUNA5wHjFXsNss9gwk7QAr1VNZtz9IQCs2Nhx0gABK48c+OocHl2As+TMg8+Hy4A==}
+  '@tanstack/vue-virtual@3.13.23':
+    resolution: {integrity: sha512-b5jPluAR6U3eOq6GWAYSpj3ugnAIZgGR0e6aGAgyRse0Yu6MVQQ0ZWm9SArSXWtageogn6bkVD8D//c4IjW3xQ==}
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
 
@@ -2503,11 +2503,6 @@ packages:
 
   '@vueuse/metadata@14.2.1':
     resolution: {integrity: sha512-1ButlVtj5Sb/HDtIy1HFr1VqCP4G6Ypqt5MAo0lCgjokrk2mvQKsK2uuy0vqu/Ks+sHfuHo0B9Y9jn9xKdjZsw==}
-
-  '@vueuse/shared@14.2.0':
-    resolution: {integrity: sha512-Z0bmluZTlAXgUcJ4uAFaML16JcD8V0QG00Db3quR642I99JXIDRa2MI2LGxiLVhcBjVnL1jOzIvT5TT2lqJlkA==}
-    peerDependencies:
-      vue: ^3.5.0
 
   '@vueuse/shared@14.2.1':
     resolution: {integrity: sha512-shTJncjV9JTI4oVNyF1FQonetYAiTBd+Qj7cY89SWbXSkx7gyhrgtEdF2ZAVWS1S3SHlaROO6F2IesJxQEkZBw==}
@@ -4928,10 +4923,10 @@ packages:
     resolution: {integrity: sha512-NZQZdC5wOE/H3UT28fVGL+ikOZcEzfMGk/c3iN9UGxzWHMa1op7274oyiUVrAG4B2EuFhus8SvkaYnhvW92p9Q==}
     hasBin: true
 
-  reka-ui@2.8.0:
-    resolution: {integrity: sha512-N4JOyIrmDE7w2i06WytqcV2QICubtS2PsK5Uo8FIMAgmO13KhUAgAByP26cXjjm2oF/w7rTyRs8YaqtvaBT+SA==}
+  reka-ui@2.9.2:
+    resolution: {integrity: sha512-/t4e6y1hcG+uDuRfpg6tbMz3uUEvRzNco6NeYTufoJeUghy5Iosxos5YL/p+ieAsid84sdMX9OrgDqpEuCJhBw==}
     peerDependencies:
-      vue: '>= 3.2.0'
+      vue: '>= 3.4.0'
 
   require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
@@ -5278,11 +5273,8 @@ packages:
     resolution: {integrity: sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng==}
     engines: {node: '>=20'}
 
-  tailwind-merge@3.4.1:
-    resolution: {integrity: sha512-2OA0rFqWOkITEAOFWSBSApYkDeH9t2B3XSJuI4YztKBzK3mX0737A2qtxDZ7xkw9Zfh0bWl+r34sF3HXV+Ig7Q==}
-
-  tailwindcss@4.1.18:
-    resolution: {integrity: sha512-4+Z+0yiYyEtUVCScyfHCxOYP06L5Ne+JiHhY2IjR2KWMIWhJOYZKLSGZaP5HkZ8+bY0cxfzwDE5uOmzFXyIwxw==}
+  tailwind-merge@3.5.0:
+    resolution: {integrity: sha512-I8K9wewnVDkL1NTGoqWmVEIlUcB9gFriAEkXkfCjX5ib8ezGxtR3xD7iZIxrfArjEsH7F1CHD4RFUtxefdqV/A==}
 
   tailwindcss@4.2.2:
     resolution: {integrity: sha512-KWBIxs1Xb6NoLdMVqhbhgwZf2PGBpPEiwOqgI4pFIYbNTfBXiKYyWoTsXgBQ9WFg/OlhnvHaY+AEpW7wSmFo2Q==}
@@ -6528,21 +6520,21 @@ snapshots:
 
   '@fingerprintjs/botd@2.0.0': {}
 
-  '@floating-ui/core@1.7.4':
+  '@floating-ui/core@1.7.5':
     dependencies:
-      '@floating-ui/utils': 0.2.10
+      '@floating-ui/utils': 0.2.11
 
-  '@floating-ui/dom@1.7.5':
+  '@floating-ui/dom@1.7.6':
     dependencies:
-      '@floating-ui/core': 1.7.4
-      '@floating-ui/utils': 0.2.10
+      '@floating-ui/core': 1.7.5
+      '@floating-ui/utils': 0.2.11
 
-  '@floating-ui/utils@0.2.10': {}
+  '@floating-ui/utils@0.2.11': {}
 
-  '@floating-ui/vue@1.1.10(vue@3.5.27(typescript@5.9.3))':
+  '@floating-ui/vue@1.1.11(vue@3.5.27(typescript@5.9.3))':
     dependencies:
-      '@floating-ui/dom': 1.7.5
-      '@floating-ui/utils': 0.2.10
+      '@floating-ui/dom': 1.7.6
+      '@floating-ui/utils': 0.2.11
       vue-demi: 0.14.10(vue@3.5.27(typescript@5.9.3))
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -6584,13 +6576,13 @@ snapshots:
       '@iconify/types': 2.0.0
       vue: 3.5.27(typescript@5.9.3)
 
-  '@internationalized/date@3.10.1':
+  '@internationalized/date@3.12.0':
     dependencies:
-      '@swc/helpers': 0.5.18
+      '@swc/helpers': 0.5.19
 
   '@internationalized/number@3.6.5':
     dependencies:
-      '@swc/helpers': 0.5.18
+      '@swc/helpers': 0.5.19
 
   '@ioredis/commands@1.5.0': {}
 
@@ -7852,7 +7844,7 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.3
 
-  '@swc/helpers@0.5.18':
+  '@swc/helpers@0.5.19':
     dependencies:
       tslib: 2.8.1
 
@@ -7924,11 +7916,11 @@ snapshots:
       tailwindcss: 4.2.2
       vite: 7.3.1(@types/node@25.2.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.3)
 
-  '@tanstack/virtual-core@3.13.18': {}
+  '@tanstack/virtual-core@3.13.23': {}
 
-  '@tanstack/vue-virtual@3.13.18(vue@3.5.27(typescript@5.9.3))':
+  '@tanstack/vue-virtual@3.13.23(vue@3.5.27(typescript@5.9.3))':
     dependencies:
-      '@tanstack/virtual-core': 3.13.18
+      '@tanstack/virtual-core': 3.13.23
       vue: 3.5.27(typescript@5.9.3)
 
   '@trysound/sax@0.2.0': {}
@@ -8348,10 +8340,6 @@ snapshots:
       vue: 3.5.27(typescript@5.9.3)
 
   '@vueuse/metadata@14.2.1': {}
-
-  '@vueuse/shared@14.2.0(vue@3.5.27(typescript@5.9.3))':
-    dependencies:
-      vue: 3.5.27(typescript@5.9.3)
 
   '@vueuse/shared@14.2.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
@@ -9385,7 +9373,7 @@ snapshots:
 
   fontkit@2.0.4:
     dependencies:
-      '@swc/helpers': 0.5.18
+      '@swc/helpers': 0.5.19
       brotli: 1.3.3
       clone: 2.1.2
       dfa: 1.2.0
@@ -11098,15 +11086,15 @@ snapshots:
     dependencies:
       jsesc: 3.1.0
 
-  reka-ui@2.8.0(vue@3.5.27(typescript@5.9.3)):
+  reka-ui@2.9.2(vue@3.5.27(typescript@5.9.3)):
     dependencies:
-      '@floating-ui/dom': 1.7.5
-      '@floating-ui/vue': 1.1.10(vue@3.5.27(typescript@5.9.3))
-      '@internationalized/date': 3.10.1
+      '@floating-ui/dom': 1.7.6
+      '@floating-ui/vue': 1.1.11(vue@3.5.27(typescript@5.9.3))
+      '@internationalized/date': 3.12.0
       '@internationalized/number': 3.6.5
-      '@tanstack/vue-virtual': 3.13.18(vue@3.5.27(typescript@5.9.3))
+      '@tanstack/vue-virtual': 3.13.23(vue@3.5.27(typescript@5.9.3))
       '@vueuse/core': 14.2.1(vue@3.5.27(typescript@5.9.3))
-      '@vueuse/shared': 14.2.0(vue@3.5.27(typescript@5.9.3))
+      '@vueuse/shared': 14.2.1(vue@3.5.27(typescript@5.9.3))
       aria-hidden: 1.2.6
       defu: 6.1.4
       ohash: 2.0.11
@@ -11498,9 +11486,7 @@ snapshots:
 
   tagged-tag@1.0.0: {}
 
-  tailwind-merge@3.4.1: {}
-
-  tailwindcss@4.1.18: {}
+  tailwind-merge@3.5.0: {}
 
   tailwindcss@4.2.2: {}
 
