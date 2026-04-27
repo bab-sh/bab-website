@@ -44,7 +44,7 @@
     "@nuxt/eslint": "^1.15.2",
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/icon": "^2.2.1",
-    "@tailwindcss/vite": "^4.2.2",
+    "@tailwindcss/vite": "^4.2.4",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "nuxt-svgo": "^4.2.6",
